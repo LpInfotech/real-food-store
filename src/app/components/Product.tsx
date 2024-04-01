@@ -13,7 +13,7 @@ const Product = ({
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
       <Link href="#">
-        <Image className="p-8 w-full" src={productImage} alt="product image" width={300} height={300}/>
+        <Image className="p-8 w-full" priority={true} src={productImage} alt="product image" width={300} height={300}/>
       </Link>
       <div className="px-5 pb-5">
         <Link href="#">

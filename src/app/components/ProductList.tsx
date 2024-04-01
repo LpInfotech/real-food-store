@@ -1,23 +1,21 @@
-import Product from "./Product";
-
-import data from "../api/data.json";
-
-const productsList = data.map((product) => (
-  <Product
-    productImage={product.productImage}
-    isDiscount={product.isDiscount}
-    productName={product.productName}
-    originalPrice={product.originalPrice}
-    sellingPrice={product.sellingPrice}
-  />
-));
+import Product from './Product';
+import data from '../api/data.json';
 
 const ProductList = () => {
-  return (
-    <div className="grid grid-cols-2 gap-4 xl:grid-cols-5 md:grid-cols-3">
-      {productsList}
-    </div>
-  );
+	return (
+		<div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+			{data.map((product) => (
+				<Product
+					key={product.id}
+					productImage={product.productImage}
+					productName={product.productName}
+					originalPrice={product.originalPrice}
+					sellingPrice={product.sellingPrice}
+					isDiscount={product.isDiscount}
+				/>
+			))}
+		</div>
+	);
 };
 
 export default ProductList;
