@@ -1,6 +1,6 @@
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
-import Products from "./products/page";
+import Products from "./products/(overview)/page";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
-import Product from '../ui/Product';
-import data from '../api/data.json';
+import Product from '../../ui/Product';
+import data from '../../api/data.json';
 
 const Page = () => {
 	return (
