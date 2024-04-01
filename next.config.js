@@ -1,12 +1,11 @@
 module.exports = {
 	images: {
-		// domains: ['www.bigbasket.com']
 		remotePatterns: [
 			{
 			  protocol: 'https',
-			  hostname: '**.bigbasket.com',
+			  hostname: 'www.bigbasket.com',
 			  port: '',
-			  pathname: '/media/uploads/**',
+			  pathname: '**',
 			},
 		  ],
 	}
