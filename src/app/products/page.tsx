@@ -1,5 +1,5 @@
 import Product from '../ui/Product';
-import data from '../../api/data.json';
+import data from '../api/data.json';
 
 const Page = () => {
 	return (
@@ -7,7 +7,7 @@ const Page = () => {
 			{data.map((product) => (
 				<Product
 					key={product.id}
-                    productId={product.id}
+					productId={product.id}
 					productImage={product.productImage}
 					productName={product.productName}
 					originalPrice={product.originalPrice}

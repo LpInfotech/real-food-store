@@ -1,15 +1,15 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Products from "./components/Products/Page";
+import Navbar from "./ui/Navbar";
+import Footer from "./ui/Footer";
+import Products from "./products/page";
 
 export default function Home() {
   return (
-    <div>
+    <main className="flex flex-col h-full">
       <Navbar />
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto p-10">
         <Products />
       </div>
       <Footer />
-    </div>
+    </main>
   );
 }
