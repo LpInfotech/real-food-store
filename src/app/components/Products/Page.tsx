@@ -1,7 +1,7 @@
-import Product from './Product';
-import data from '../api/data.json';
+import Product from '../ui/Product';
+import data from '../../api/data.json';
 
-const ProductList = () => {
+const Page = () => {
 	return (
 		<div className="grid grid-cols-2 gap-4 md:grid-cols-4">
 			{data.map((product) => (
@@ -18,4 +18,4 @@ const ProductList = () => {
 	);
 };
 
-export default ProductList;
+export default Page;
