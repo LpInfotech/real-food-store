@@ -1,6 +1,6 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faShareNodes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShareNodes, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 
 const Navbar = () => {
@@ -9,26 +9,47 @@ const Navbar = () => {
 		setSearchIsOpen(!searchIsOpen);
 	};
 	return (
-		<header className="py-5 px-4 flex justify-between items-center shadow-md shadow-slate-300">
-			<div>
-				<h3 className="text-neutral-950 font-semibold">Real Food Store</h3>
-			</div>
-			<div className="flex justify-center items-center gap-x-4">
-				<FontAwesomeIcon onClick={search} icon={faSearch} width="20" />
-				{searchIsOpen && (
-					<div class="max-w-md mx-auto">
-						<div class="relative w-full h-8 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
-							<input
-								class="h-5 w-full outline-none text-sm bg-white text-gray-700 p-5"
-								type="text"
-								id="search"
-								placeholder="Search something.."
-							/>
-						</div>
+		<header>
+			<nav className="relative py-8 px-4 flex justify-between items-center shadow-md shadow-slate-300">
+				{!searchIsOpen && (
+					<div className="w-full md:w-auto md:hidden">
+						<h3 className="text-neutral-950 font-semibold ">Real Food Store</h3>
 					</div>
 				)}
-				<FontAwesomeIcon icon={faShareNodes} width="20" />
-			</div>
+				<div className="hidden md:block">
+					<h3 className="text-neutral-950 font-semibold ">Real Food Store</h3>
+				</div>
+
+				<div className="flex justify-end md:justify-center items-center w-full md:w-auto gap-x-4">
+					<FontAwesomeIcon onClick={search} icon={searchIsOpen ? faXmark : faSearch} width="20" />
+					{searchIsOpen && (
+						<div className="max-w-md mx-auto w-full md:hidden">
+							<div className="relative w-full rounded-lg  bg-white overflow-hidden">
+								<input
+									className="w-full outline-none text-sm bg-white text-gray-700 px-2"
+									type="text"
+									id="search"
+									placeholder="Search something.."
+								/>
+							</div>
+						</div>
+					)}
+					<FontAwesomeIcon icon={faShareNodes} width="20" />
+				</div>
+			</nav>
+			{searchIsOpen && (
+				<div className="relative w-full hidden md:block  bg-white shadow-xl" id="search-content">
+					<div className="container mx-auto py-4 text-black">
+						<input
+							className="w-full h-8 outline-none text-sm bg-white text-gray-700 px-2"
+							type="text"
+							autoFocus="true"
+							id="search"
+							placeholder="Search something.."
+						/>
+					</div>
+				</div>
+			)}
 		</header>
 	);
 };
