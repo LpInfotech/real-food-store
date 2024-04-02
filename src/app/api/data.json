@@ -2,37 +2,63 @@
   {
     "id": 1,
     "productImage": "https://www.bigbasket.com/media/uploads/p/l/100229_1-kinley-mineral-water.jpg",
+    "productDescription": "Water sit amet, consectetur adipiscing elit. Sed tempus urna nec metus ultricies, sit amet finibus mauris tempor. Donec velrisus et odio placerat vehicula.",
     "productName": "Water, 500ml",
     "isDiscount": true,
-    "originalPrice": "$60",
-    "sellingPrice": "$50"
+    "originalPrice": 60,
+    "sellingPrice": 50,
+    "category": "Beverages",
+    "brand": "Kinley",
+    "stock": 50,
+    "availability": true
   },
   {
     "id": 2,
     "productImage": "https://www.bigbasket.com/media/uploads/p/m/40075197_5-daawat-basmati-rice-rozana-super-90.jpg?tr=w-1920,q=80",
+    "productDescription": "Rice sit amet, consectetur adipiscing elit. Sed tempus urna nec metus ultricies, sit amet finibus mauris tempor. Donec velrisus et odio placerat vehicula.",
     "productName": "Rice, 5kg",
-    "sellingPrice": "$100"
+    "sellingPrice": 100,
+    "shipping": "$4",
+    "category": "Millets",
+    "brand": "Daawat Rozana",
+    "stock": 2,
+    "availability": true
   },
   {
     "id": 3,
     "productImage": "https://www.bigbasket.com/media/uploads/p/m/40147598_2-heritage-golden-cow-milk.jpg?tr=w-1920,q=80",
+    "productDescription": "Milk sit amet, consectetur adipiscing elit. Sed tempus urna nec metus ultricies, sit amet finibus mauris tempor. Donec velrisus et odio placerat vehicula.",
     "productName": "Milk, 500ml",
-    "sellingPrice": "$10"
+    "sellingPrice": 10,
+    "category": "Dairy",
+    "brand": "Heritage",
+    "stock": 12,
+    "availability": true
   },
   {
     "id": 4,
     "productImage": "https://www.bigbasket.com/media/uploads/p/m/40302408_1-english-oven-butter-croissant.jpg?tr=w-1920,q=80",
+    "productDescription": "Croissant sit amet, consectetur adipiscing elit. Sed tempus urna nec metus ultricies, sit amet finibus mauris tempor. Donec velrisus et odio placerat vehicula.",
     "productName": "Croissant, 120g",
     "isDiscount": true,
-    "originalPrice": "$40",
-    "sellingPrice": "$35"
+    "originalPrice": 40,
+    "sellingPrice": 35,
+    "category": "Sweet",
+    "brand": "English Oven",
+    "stock": 10,
+    "availability": false
   },
   {
     "id": 5,
     "productImage": "https://www.bigbasket.com/media/uploads/p/m/40181476_7-bb-royal-organic-organic-cold-pressed-groundnut-cooking-oil.jpg?tr=w-1920,q=80",
+    "productDescription": "Groundnut oil sit amet, consectetur adipiscing elit. Sed tempus urna nec metus ultricies, sit amet finibus mauris tempor. Donec velrisus et odio placerat vehicula.",
     "productName": "Groundnut oil, 1l",
     "isDiscount": true,
-    "originalPrice": "$70",
-    "sellingPrice": "$68"
+    "originalPrice": 70,
+    "sellingPrice": 68,
+    "category": "Oil",
+    "brand": "Royal",
+    "stock": 30,
+    "availability": true
   }
 ]

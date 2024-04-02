@@ -25,11 +25,11 @@ const Product = ({
         <div className="mb-2">
           {isDiscount && (
             <span className="text-sm md:text-base text-gray-500 line-through me-2">
-              {originalPrice}
+              ${originalPrice}
             </span>
           )}
           <span className="font-bold text-sm md:text-base text-gray-900">
-            {sellingPrice}
+            ${sellingPrice}
           </span>
         </div>
         <Link href={`/products/${productId}`} className="text-blue-700">
