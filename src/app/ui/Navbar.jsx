@@ -1,6 +1,6 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faShareNodes, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faShareNodes, faXmark, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import data from '../api/data.json';
 
@@ -37,6 +37,7 @@ const Navbar = () => {
 								</div>
 							</div>
 						)}
+						<FontAwesomeIcon icon={faCartShopping} width="20" />
 						<FontAwesomeIcon icon={faShareNodes} width="20" />
 					</div>
 				</nav>

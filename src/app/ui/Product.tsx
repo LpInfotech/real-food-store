@@ -14,26 +14,34 @@ const Product = ({
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
       <Link href={`/products/product/${productId}`}>
-        <Image className="p-8 w-full" priority={true} src={productImage} alt="product image" width={300} height={300}/>
+        <Image
+          className="p-4 w-full border-b"
+          priority={true}
+          src={productImage}
+          alt="product image"
+          width={300}
+          height={300}
+        />
       </Link>
-      <div className="px-5 pb-5">
-        <Link href='#'>
-          <h5 className="text-base md:text-xl font-semibold tracking-tight text-gray-900 mb-2">
+      <div className="p-4">
+        <Link href="#">
+          <h5 className="text-base md:text-lg font-semibold tracking-tight text-gray-900 mb-2">
             {productName}
           </h5>
         </Link>
         <div className="mb-2">
+          <span className="font-bold text-sm md:text-base text-gray-900 me-2">
+            ${sellingPrice}
+          </span>
           {isDiscount && (
-            <span className="text-sm md:text-base text-gray-500 line-through me-2">
+            <span className="text-sm md:text-base text-gray-500 line-through">
               ${originalPrice}
             </span>
           )}
-          <span className="font-bold text-sm md:text-base text-gray-900">
-            ${sellingPrice}
-          </span>
         </div>
-        <Link href={`/products/${productId}`} className="text-blue-700">
+        <Link href={`/products/${productId}`} className="inline-block text-blue-700 border p-2 rounded-lg shadow">
           <FontAwesomeIcon icon={faCartShopping} height={30} />
+          <span> Add to cart</span>
         </Link>
       </div>
     </div>

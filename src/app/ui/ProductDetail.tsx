@@ -71,12 +71,20 @@ const ProductDetail = ({
               <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
+          <div>
           <button
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md shadow-md"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md shadow-md me-2"
             onClick={addToCart}
           >
             Add to Cart
           </button>
+          <button
+            className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md shadow-md"
+          >
+            Buy Now
+          </button>
+          </div>
+         
           {totalAmount && (
             <div className="bg-green-700 px-5 py-3 text-white rounded-md shadow-md my-10">
               <FontAwesomeIcon icon={faCircleExclamation} className="me-2" />
