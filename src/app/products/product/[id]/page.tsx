@@ -18,11 +18,11 @@ const Page = ({ params }: { params: { id: string } }) => {
           originalPrice={product.originalPrice}
           sellingPrice={product.sellingPrice}
           isDiscount={product.isDiscount}
-		  shipping={product.shipping}
-		  category={product.category}
-		  brand={product.brand}
-		  stock={product.stock}
-		  availability={product.availability}
+          shipping={product.shipping}
+          category={product.category}
+          brand={product.brand}
+          stock={product.stock}
+          availability={product.availability}
         />
       ))}
     </>

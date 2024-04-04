@@ -12,7 +12,7 @@ const Product = ({
   sellingPrice,
 }) => {
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:scale-105 transition hover:shadow-md">
       <Link href={`/products/product/${productId}`}>
         <Image
           className="p-4 w-full border-b"
@@ -24,7 +24,7 @@ const Product = ({
         />
       </Link>
       <div className="p-4">
-        <Link href="#">
+        <Link href={`/products/product/${productId}`}>
           <h5 className="text-base md:text-lg font-semibold tracking-tight text-gray-900 mb-2">
             {productName}
           </h5>
@@ -39,10 +39,10 @@ const Product = ({
             </span>
           )}
         </div>
-        <Link href={`/products/${productId}`} className="inline-block text-blue-700 border p-2 rounded-lg shadow">
-          <FontAwesomeIcon icon={faCartShopping} height={30} />
+        <button className="inline-block text-blue-700 border p-2 rounded-lg shadow">
+          <FontAwesomeIcon icon={faCartShopping}/>
           <span> Add to cart</span>
-        </Link>
+        </button>
       </div>
     </div>
   );

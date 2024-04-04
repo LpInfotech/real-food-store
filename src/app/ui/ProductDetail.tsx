@@ -21,23 +21,11 @@ const ProductDetail = ({
   stock,
   availability,
 }) => {
-  const [quantityAdded, setQuantityAdded] = useState(1);
+  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
   const [totalAmount, setTotalAmount] = useState(null);
 
-  function addItem() {
-    setQuantityAdded(quantityAdded + 1);
-  }
-
-  function removeItem() {
-    setQuantityAdded(quantityAdded - 1);
-  }
-
-  function addToCart() {
-    setTotalAmount(quantityAdded * sellingPrice);
-  }
-
   return (
-    <div className="max-w-screen-lg mx-auto bg-slate-50 shadow-md rounded-lg overflow-hidden px-4 py-8">
+    <div className="max-w-screen-lg mx-auto bg-slate-50 shadow-md rounded-lg overflow-hidden px-4 py-8 cursor-pointer">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="relative">
           <Image
@@ -52,40 +40,43 @@ const ProductDetail = ({
         <div>
           <h2 className="text-3xl font-semibold mb-4">{productName}</h2>
           <p className="text-gray-700 mb-4">{productDescription}</p>
+          <span className="text-gray-800 text-2xl font-semibold me-2">
+            ${sellingPrice}
+          </span>
           {isDiscount && (
-            <span className="text-gray-500 line-through text-xl font-semibold me-2">
+            <span className="text-gray-500 line-through text-2xl font-semibold">
               ${originalPrice}
             </span>
           )}
-          <span className="text-gray-800 text-2xl font-semibold">
-            ${sellingPrice}
-          </span>
           <div className="flex items-center my-4">
-            <button onClick={removeItem} disabled={quantityAdded === 0 && true}>
+            <button
+              onClick={() => setPurchaseQuantity(purchaseQuantity - 1)}
+              disabled={purchaseQuantity === 0 && true}
+            >
               <FontAwesomeIcon icon={faMinus} />
             </button>
             <span className="w-16 text-center py-1 border mx-2">
-              {quantityAdded}
+              {purchaseQuantity}
             </span>
-            <button onClick={addItem} disabled={quantityAdded === stock}>
+            <button
+              onClick={() => setPurchaseQuantity(purchaseQuantity + 1)}
+              disabled={purchaseQuantity === stock}
+            >
               <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
           <div>
-          <button
-            className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md shadow-md me-2"
-            onClick={addToCart}
-          >
-            Add to Cart
-          </button>
-          <button
-            className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md shadow-md"
-          >
-            Buy Now
-          </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md shadow-md me-2"
+              onClick={() => setTotalAmount(purchaseQuantity * sellingPrice)}
+            >
+              Add to Cart
+            </button>
+            <button className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md shadow-md">
+              Buy Now
+            </button>
           </div>
-         
-          {totalAmount && (
+          {totalAmount > 0 && (
             <div className="bg-green-700 px-5 py-3 text-white rounded-md shadow-md my-10">
               <FontAwesomeIcon icon={faCircleExclamation} className="me-2" />
               <span className="text-lg font-light">
@@ -100,20 +91,24 @@ const ProductDetail = ({
         <h3 className="text-xl font-semibold mb-4">Product Details</h3>
         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <li>
-            <span className="font-semibold">Brand:</span> {brand}
+            <span className="font-semibold">Brand: </span>
+            {brand}
           </li>
           <li>
-            <span className="font-semibold">Category:</span> {category}
+            <span className="font-semibold">Category: </span>
+            {category}
           </li>
           <li>
-            <span className="font-semibold">Availability:</span>{" "}
+            <span className="font-semibold">Availability: </span>
             {availability ? "Available" : "Not available"}
           </li>
           <li>
-            <span className="font-semibold">SKU:</span> {id}
+            <span className="font-semibold">SKU: </span>
+            {id}
           </li>
           <li>
-            <span className="font-semibold">Shipping:</span> {shipping}
+            <span className="font-semibold">Shipping: </span>
+            {shipping}
           </li>
         </ul>
       </div>
