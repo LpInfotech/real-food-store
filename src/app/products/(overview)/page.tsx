@@ -2,7 +2,11 @@ import Product from "../../ui/Product";
 import data from "../../api/data.json";
 import Filter from "@/app/ui/Filter";
 
-const Page = () => {
+const Page = (filterData, searchItem) => {
+  console.log(filterData.filterData.length);
+  function Test() {
+    return <h2 className="text-xl font-semibold">No Products found!</h2>;
+  }
   return (
     <>
       <h1 className="text-center text-4xl font-semibold text-blue-700">
@@ -14,17 +18,24 @@ const Page = () => {
         </div>
         <div className="md:w-3/4 xl:w-4/5 w-full">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-            {data.map((product) => (
-              <Product
-                key={product.id}
-                productId={product.id}
-                productImage={product.productImage}
-                productName={product.productName}
-                originalPrice={product.originalPrice}
-                sellingPrice={product.sellingPrice}
-                isDiscount={product.isDiscount}
-              />
-            ))}
+            {filterData.filterData.length === 0 && searchItem? (
+              <Test />
+            ) : (
+              (filterData.filterData.length > 0 && searchItem
+                ? filterData.filterData
+                : data
+              ).map((product) => (
+                <Product
+                  key={product.id}
+                  productId={product.id}
+                  productImage={product.productImage}
+                  productName={product.productName}
+                  originalPrice={product.originalPrice}
+                  sellingPrice={product.sellingPrice}
+                  isDiscount={product.isDiscount}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>

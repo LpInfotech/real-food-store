@@ -1,7 +1,12 @@
+"use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faCircleExclamation,
+} from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
+import { use, useState } from "react";
 
 const Product = ({
   productId,
@@ -11,6 +16,9 @@ const Product = ({
   originalPrice = null,
   sellingPrice,
 }) => {
+  const [purchaseQuantity, setPurchaseQuantity] = useState(1);
+  const [totalAmount, setTotalAmount] = useState(null);
+
   return (
     <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:scale-105 transition hover:shadow-md">
       <Link href={`/products/product/${productId}`}>
@@ -39,10 +47,18 @@ const Product = ({
             </span>
           )}
         </div>
-        <button className="inline-block text-blue-700 border p-2 rounded-lg shadow">
-          <FontAwesomeIcon icon={faCartShopping}/>
-          <span> Add to cart</span>
+        <button
+          className="inline-block text-blue-700 border p-2 rounded-lg shadow mb-2"
+          onClick={() => setTotalAmount(purchaseQuantity * sellingPrice)}
+        >
+          <FontAwesomeIcon icon={faCartShopping} />
+          <span> {totalAmount > 0 ? "Go" : "Add"} to cart</span>
         </button>
+        {totalAmount > 0 && (
+          <div className="text-sm font-medium text-green-500">
+            1 item worth ${totalAmount} is added to the cart.
+          </div>
+        )}
       </div>
     </div>
   );
