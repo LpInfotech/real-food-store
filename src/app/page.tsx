@@ -5,14 +5,32 @@ import Page from "./products/(overview)/page";
 import React, { useState } from "react";
 import data from "./api/data.json";
 
-export default function Home({ filteredData, searchItem }) {
+interface IFilteredData {
+  id: number;
+  productImage: string;
+  productDescription: string;
+  productName: string;
+  isDiscount: boolean;
+  originalPrice: number;
+  sellingPrice: number;
+  category: string;
+  brand: string;
+  stock: number;
+  availability: boolean;
+}
+
+export default function Home({
+  filteredData,
+  searchItem,
+}) {
   const [dataFromChild, setDataFromChild] = useState("");
   const [newData, setNewData] = useState(data);
   searchItem = dataFromChild;
+
   // get search data from child
   function handleDataFromChild(data) {
     setDataFromChild(data);
-    filterData(dataFromChild);
+    filterData(data);
   }
 
   // filter data for search
@@ -28,7 +46,7 @@ export default function Home({ filteredData, searchItem }) {
   return (
     <main className="flex flex-col h-full">
       <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
-      <div className="container mx-auto p-10">
+      <div className="container mx-auto">
         <Page filterData={filteredData} searchItem={searchItem} />
       </div>
       <Footer />
