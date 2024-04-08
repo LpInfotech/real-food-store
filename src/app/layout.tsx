@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full">
-      <body suppressHydrationWarning={true} className={`${inter.className} h-full`}>{children}</body>
+      <body suppressHydrationWarning={true} className={`${inter.className} h-full bg-slate-200`}>{children}</body>
     </html>
   );
 }
