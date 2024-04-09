@@ -4,6 +4,7 @@ import Footer from "./ui/Footer";
 import Page from "./products/(overview)/page";
 import React, { useState } from "react";
 import data from "./api/data.json";
+import { CartProvider } from "./context/cartContext";
 
 interface IFilteredData {
   id: number;
@@ -19,10 +20,7 @@ interface IFilteredData {
   availability: boolean;
 }
 
-export default function Home({
-  filteredData,
-  searchItem,
-}) {
+export default function Home({ filteredData, searchItem}) {
   const [dataFromChild, setDataFromChild] = useState("");
   const [newData, setNewData] = useState(data);
   searchItem = dataFromChild;
@@ -40,16 +38,18 @@ export default function Home({
     );
   };
 
-  // pass filtere data to the PAGE component
+  // pass filtered data to the PAGE component
   filteredData = newData;
 
   return (
-    <main className="flex flex-col h-full">
-      <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
-      <div className="container mx-auto">
-        <Page filterData={filteredData} searchItem={searchItem} />
-      </div>
-      <Footer />
-    </main>
+    <CartProvider>
+      <main className="flex flex-col h-full">
+        <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
+        <div className="container mx-auto">
+          <Page filterData={filteredData} searchItem={searchItem} />
+        </div>
+        <Footer />
+      </main>
+    </CartProvider>
   );
 }

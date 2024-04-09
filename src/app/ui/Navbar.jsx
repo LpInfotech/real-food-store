@@ -1,10 +1,13 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faXmark, faCartShopping, faBell, faUser, faCircleUser, faLock, faCircleQuestion, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Link from 'next/link';
+import { CartContext } from "../context/cartContext";
 
 const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
+	const { items, addToCart, removeFromCart } = useContext(CartContext);
+
 	const [searchIsOpen, setSearchIsOpen] = useState(false);
 	const search = () => {
 		setSearchIsOpen(!searchIsOpen);
@@ -65,7 +68,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
 					</Link>
 					<Link href="#" className="relative flex items-center border-l ps-6">
 						<FontAwesomeIcon icon={faCartShopping} size='lg' />
-						<span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">2</span>
+						<span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">{items.length}</span>
 					</Link>
 					<div className='relative'>
 						<Link href="#" className='flex items-center border-l ps-6 peer'>

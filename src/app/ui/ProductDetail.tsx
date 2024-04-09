@@ -1,9 +1,5 @@
 import Image from "next/image";
-import {
-  faCircleExclamation,
-  faMinus,
-  faPlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
@@ -22,8 +18,6 @@ const ProductDetail = ({
   availability,
 }) => {
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
-  const [totalAmount, setTotalAmount] = useState(null);
-
   return (
     <div className="max-w-screen-lg mx-auto bg-slate-50 shadow-md rounded-lg overflow-hidden px-4 py-8 cursor-pointer">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -65,7 +59,7 @@ const ProductDetail = ({
               <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
-          <div>
+          {/* <div>
             <button
               className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md shadow-md me-2"
               onClick={() => setTotalAmount(purchaseQuantity * sellingPrice)}
@@ -84,7 +78,7 @@ const ProductDetail = ({
                 <span className="font-semibold">${totalAmount}</span>.
               </span>
             </div>
-          )}
+          )} */}
         </div>
       </div>
       <div className="border-t border-gray-200 mt-8 pt-8">

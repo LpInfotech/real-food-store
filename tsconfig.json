@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/app/context/cartContext.tsx"  ],
   "exclude": [
     "node_modules"
   ]
