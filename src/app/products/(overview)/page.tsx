@@ -8,7 +8,7 @@ const Page = (filterData, searchItem) => {
   }
   return (
       <div className="flex md:flex-row flex-col gap-x-4 my-10">
-        <div className="md:w-1/4 xl:w-1/5 w-full mb-5 p-4 w-full">
+        <div className="md:w-1/4 xl:w-1/5 w-full p-4 bg-white border-gray-200 rounded-lg shadow">
           <Filter />
         </div>
         <div className="md:w-3/4 xl:w-4/5 w-full">
@@ -25,6 +25,7 @@ const Page = (filterData, searchItem) => {
                   productId={product.id}
                   productImage={product.productImage}
                   productName={product.productName}
+                  productBrief={product.productBrief}
                   originalPrice={product.originalPrice}
                   sellingPrice={product.sellingPrice}
                   isDiscount={product.isDiscount}

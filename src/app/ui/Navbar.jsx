@@ -19,6 +19,11 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
 		setSearchTerm(event.target.value);
 		sendDataToParent(event.target.value);
 	};
+	// dropdown toggle
+	const [showDropdown, setShowDropdown] = useState(false);
+	const toggleDropdown = () => {
+		setShowDropdown(!showDropdown);
+	};
 
 	return (
 		<header>
@@ -66,30 +71,29 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
 						<FontAwesomeIcon icon={faBell} size='lg' />
 						<span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">2</span>
 					</Link>
-					<Link href="#" className="relative flex items-center border-l ps-6">
+					<Link href="/cart" className="relative flex items-center border-l ps-6">
 						<FontAwesomeIcon icon={faCartShopping} size='lg' />
 						<span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">{items.length}</span>
 					</Link>
 					<div className='relative'>
-						<Link href="#" className='flex items-center border-l ps-6 peer'>
+						<Link href="#" onClick={toggleDropdown} className='flex items-center border-l ps-6'>
 							<FontAwesomeIcon icon={faUser} size='lg' />
 							<span className='ps-1'>User</span>
 						</Link>
-						<div className="dropdown-content absolute top-16 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm hidden *:block *:text-gray-700 w-48 peer-hover:block peer-visited:block rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none peer-active:visible">
-							<a href="#" className='hover:bg-slate-100 hover:font-bold'>
+						<div className={`dropdown-content absolute top-16 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? 'block' : 'hidden'}`}>
+							<a href="#" className='hover:font-bold'>
 								<FontAwesomeIcon icon={faCircleUser} /><span className='ms-3'>View Profile</span>
 							</a>
-							<a href="#" className='hover:bg-slate-100 hover:font-bold'>
+							<a href="#" className='hover:font-bold'>
 								<FontAwesomeIcon icon={faLock} /><span className='ms-3'>Change Password</span>
 							</a>
-							<a href="#" className='hover:bg-slate-100 hover:font-bold'>
+							<a href="#" className='hover:font-bold'>
 								<FontAwesomeIcon icon={faCircleQuestion} /><span className='ms-3'>Online Help</span>
 							</a>
-							<a href="#" className='hover:bg-slate-100 hover:font-bold'>
+							<a href="#" className='hover:font-bold'>
 								<FontAwesomeIcon icon={faRightFromBracket} /><span className='ms-3'>Logout</span>
 							</a>
 						</div>
-
 					</div>
 				</div>
 
