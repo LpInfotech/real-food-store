@@ -26,6 +26,7 @@ const Page = (filterData, searchItem) => {
                   productImage={product.productImage}
                   productName={product.productName}
                   productBrief={product.productBrief}
+                  productRating={product.productRating}
                   originalPrice={product.originalPrice}
                   sellingPrice={product.sellingPrice}
                   isDiscount={product.isDiscount}

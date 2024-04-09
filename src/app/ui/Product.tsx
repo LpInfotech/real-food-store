@@ -13,6 +13,7 @@ const Product = ({
   productId,
   productImage,
   productBrief,
+  productRating,
   isDiscount = false,
   productName,
   originalPrice = null,
@@ -62,6 +63,7 @@ const Product = ({
             </span>
           )}
         </div>
+        <div className="mb-2">{productRating}</div>
         {exists ? (
           <button
             className="inline-block text-white bg-lime-500 border py-2 rounded-full px-3 shadow text-sm"
