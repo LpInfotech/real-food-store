@@ -20,7 +20,7 @@ interface IFilteredData {
   availability: boolean;
 }
 
-export default function Home({ filteredData, searchItem}) {
+export default function Home({ filteredData, searchItem }) {
   const [dataFromChild, setDataFromChild] = useState("");
   const [newData, setNewData] = useState(data);
   searchItem = dataFromChild;
@@ -42,14 +42,12 @@ export default function Home({ filteredData, searchItem}) {
   filteredData = newData;
 
   return (
-    <CartProvider>
-      <main className="flex flex-col h-full">
-        <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
-        <div className="container mx-auto">
-          <Page filterData={filteredData} searchItem={searchItem} />
-        </div>
-        <Footer />
-      </main>
-    </CartProvider>
+    <main className="flex flex-col h-full">
+      <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
+      <div className="container mx-auto">
+        <Page filterData={filteredData} searchItem={searchItem} />{" "}
+      </div>
+      <Footer />
+    </main>
   );
 }

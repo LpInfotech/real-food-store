@@ -1,9 +1,9 @@
 import { createContext, useReducer } from "react";
 
 export const CartContext = createContext<{
-  items
-  addToCart
-  removeFromCart
+  items;
+  addToCart;
+  removeFromCart;
 }>({
   items: [],
   addToCart: () => {},
@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (id) => {
     const updatedCart = state.items.filter(
-      (currentProduct) => currentProduct.id !== id
+      (currentProduct) => currentProduct.productId !== id
     );
 
     dispatch({
