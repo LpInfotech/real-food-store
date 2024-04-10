@@ -1,6 +1,6 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faXmark, faCartShopping, faBell, faUser, faCircleUser, faLock, faCircleQuestion, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faXmark, faCartShopping, faBell, faUser, faCircleUser, faLock, faCircleQuestion, faRightFromBracket, faSun, faMoon, faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import { useState, useContext } from 'react';
 import Link from 'next/link';
 import { CartContext } from "../context/cartContext";
@@ -23,6 +23,11 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
 	const [showDropdown, setShowDropdown] = useState(false);
 	const toggleDropdown = () => {
 		setShowDropdown(!showDropdown);
+	};
+
+	const [showThemeDropdown, setShowThemeDropdown] = useState(false);
+	const toggleTheme = () => {
+		setShowThemeDropdown(!showThemeDropdown);
 	};
 
 	return (
@@ -92,6 +97,20 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
 							</a>
 							<a href="#" className='hover:font-bold'>
 								<FontAwesomeIcon icon={faRightFromBracket} /><span className='ms-3'>Logout</span>
+							</a>
+						</div>
+					</div>
+					<div className='relative'>
+						<Link href="#" onClick={toggleTheme} className='flex items-center border-l ps-6'>
+						<FontAwesomeIcon icon={faCircleHalfStroke} />
+							<span className='ps-1'>Theme</span>
+						</Link>
+						<div className={`dropdown-content absolute top-16 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showThemeDropdown ? 'block' : 'hidden'}`}>
+							<a href="#" className='hover:font-bold'>
+								<FontAwesomeIcon icon={faSun} /><span className='ms-3'>Light</span>
+							</a>
+							<a href="#" className='hover:font-bold hover:text-white hover:bg-gray-700'>
+								<FontAwesomeIcon icon={faMoon} /><span className='ms-3'>Dark</span>
 							</a>
 						</div>
 					</div>
