@@ -18,6 +18,7 @@ const Product = ({
   productName,
   originalPrice = null,
   sellingPrice,
+  stock
 }) => {
   const { items, addToCart } = useContext(CartContext);
   const [exists, setExists] = useState(false);
@@ -65,27 +66,25 @@ const Product = ({
         </div>
         <div className="mb-2">{productRating}</div>
         {exists ? (
-          <button
-            className="inline-block text-white bg-lime-500 border py-2 rounded-full px-3 shadow text-sm"
-          >
+          <Link className="inline-block text-white bg-lime-500 border py-2 rounded-full px-3 shadow text-sm" href="/cart">
             <FontAwesomeIcon icon={faCartShopping} className="me-2 text-sm" />
             Go to Cart
-          </button>
+          </Link>
         ) : (
-          <button
-            className="inline-block border py-2 rounded-full px-3 shadow text-sm hover:bg-lime-500 hover:text-white"
-            onClick={() => addToCart({
-              productId,
-              productImage,
-              isDiscount,
-              productName,
-              originalPrice,
-              sellingPrice,
-            })}
-          >
+          <Link
+              className="inline-block border py-2 rounded-full px-3 shadow text-sm hover:bg-lime-500 hover:text-white"
+              onClick={() => addToCart({
+                productId,
+                productImage,
+                isDiscount,
+                productName,
+                originalPrice,
+                sellingPrice,
+                stock
+              })} href={""}          >
             <FontAwesomeIcon icon={faCartShopping} className="me-2 text-sm" />
             Add to Cart
-          </button>
+          </Link>
         )}
       </div>
     </div>

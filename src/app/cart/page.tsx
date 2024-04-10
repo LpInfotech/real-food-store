@@ -1,12 +1,22 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/cartContext";
 import Image from "next/image";
+import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Cartlist = () => {
   const { items, removeFromCart } = useContext(CartContext);
 
-  function CartItem({ productImage, productName, sellingPrice, productId }) {
+  function CartItem({
+    productImage,
+    productName,
+    sellingPrice,
+    productId,
+    stock,
+  }) {
+    const [purchaseQty, setPurchaseQty] = useState(1);
+
     return (
       <tr className="border-b">
         <td className="py-2 px-4">
@@ -23,9 +33,25 @@ const Cartlist = () => {
         </td>
         <td className="py-2 px-4">${sellingPrice}</td>
         <td className="py-2 px-4">
-          <input type="number" className="border rounded-md w-16 text-center" />
+          <div className="flex items-center my-4">
+            <button
+              onClick={() => setPurchaseQty(purchaseQty - 1)}
+              disabled={purchaseQty === 0 && true}
+            >
+              <FontAwesomeIcon icon={faMinus} />
+            </button>
+            <span className="w-16 text-center py-1 border mx-2">
+              {purchaseQty}
+            </span>
+            <button
+              onClick={() => setPurchaseQty(purchaseQty + 1)}
+              disabled={purchaseQty === stock}
+            >
+              <FontAwesomeIcon icon={faPlus} />
+            </button>
+          </div>
         </td>
-        <td className="py-2 px-4">$19.99</td>
+        <td className="py-2 px-4">${purchaseQty * sellingPrice}</td>
         <td className="py-2 px-4">
           <button
             className="text-red-500 hover:text-red-700 focus:outline-none"
@@ -39,9 +65,9 @@ const Cartlist = () => {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>
@@ -71,6 +97,7 @@ const Cartlist = () => {
                 items.map((cartItem) => (
                   <CartItem
                     key={cartItem.productId}
+                    stock={cartItem.stock}
                     productImage={cartItem.productImage}
                     productName={cartItem.productName}
                     sellingPrice={cartItem.sellingPrice}
