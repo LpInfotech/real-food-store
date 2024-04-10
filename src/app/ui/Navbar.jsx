@@ -29,11 +29,11 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
 		<header>
 			<nav className="relative py-4 md:px-20 px-5 flex justify-between items-center shadow shadow-slate-300 bg-white">
 				{!searchIsOpen && (
-					<Link href="#" className="w-full md:w-auto md:hidden">
+					<Link href="/" className="w-full md:w-auto md:hidden">
 						<img src="https://static.wixstatic.com/media/358326_05d4ec90dbaa41189432cef1ef73f5e1~mv2.jpg/v1/fit/w_2500,h_1330,al_c/358326_05d4ec90dbaa41189432cef1ef73f5e1~mv2.jpg" alt="real-food-logo" width={90} />
 					</Link>
 				)}
-				<Link href="#" className="hidden md:flex items-end">
+				<Link href="/" className="hidden md:flex items-end">
 					<img src="https://static.wixstatic.com/media/358326_05d4ec90dbaa41189432cef1ef73f5e1~mv2.jpg/v1/fit/w_2500,h_1330,al_c/358326_05d4ec90dbaa41189432cef1ef73f5e1~mv2.jpg" alt="real-food-logo" width={120} />
 				</Link>
 				{/* added search bar */}

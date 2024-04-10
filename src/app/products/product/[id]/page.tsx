@@ -12,6 +12,9 @@ const Page = ({ params }: { params: { id: string } }) => {
         <ProductDetail
           key={product.id}
           id={product.id}
+          productRating={product.productRating}
+          productIngredients={product.productIngredients}
+          detailedDescription={product.detailedDescription}
           productImage={product.productImage}
           productDescription={product.productDescription}
           productName={product.productName}
