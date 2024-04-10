@@ -27,7 +27,7 @@ export const CartProvider = ({ children }) => {
 
   const removeFromCart = (id) => {
     const updatedCart = state.items.filter(
-      (currentProduct) => currentProduct.productId !== id
+      (currentProduct) => currentProduct.productId !== id.productId
     );
 
     dispatch({

@@ -22,6 +22,7 @@ const Page = (filterData, searchItem) => {
               ).map((product) => (
                 <Product
                   key={product.id}
+                  stock={product.stock}
                   productId={product.id}
                   productImage={product.productImage}
                   productName={product.productName}

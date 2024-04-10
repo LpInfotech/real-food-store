@@ -4,10 +4,11 @@ import { CartContext } from "../context/cartContext";
 import Image from "next/image";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ConfirmDeleteModal from "../ui/DeleteModal";
 
 const Cartlist = () => {
-  const { items, removeFromCart } = useContext(CartContext);
-
+  const { items } = useContext(CartContext);
+  // cart item UI
   function CartItem({
     productImage,
     productName,
@@ -16,6 +17,7 @@ const Cartlist = () => {
     stock,
   }) {
     const [purchaseQty, setPurchaseQty] = useState(1);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
       <tr className="border-b">
@@ -55,7 +57,7 @@ const Cartlist = () => {
         <td className="py-2 px-4">
           <button
             className="text-red-500 hover:text-red-700 focus:outline-none"
-            onClick={() => removeFromCart({ productId })}
+            onClick={() => setIsModalOpen(true)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -72,11 +74,15 @@ const Cartlist = () => {
               />
             </svg>
           </button>
+          <ConfirmDeleteModal
+            isOpen={isModalOpen}
+            productId={productId}
+            onClose={() => setIsModalOpen(false)}
+          />
         </td>
       </tr>
     );
   }
-
   return (
     <>
       <>
