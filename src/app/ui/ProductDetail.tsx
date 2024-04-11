@@ -21,6 +21,12 @@ const ProductDetail = ({
   availability,
 }) => {
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
+
+  let rating = [];
+  for (var i = 1; i <= productRating; i++) {
+    rating.push(<span>⭐️</span>);
+  }
+
   return (
     <div className="max-w-screen-lg mx-auto bg-slate-50 shadow-md rounded-lg overflow-hidden px-4 py-8 cursor-pointer">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -37,9 +43,14 @@ const ProductDetail = ({
         <div>
           <p className="text-xs mb-2 text-orange-400">{category}</p>
           <h2 className="text-2xl font-semibold mb-4">{productName}</h2>
-          <p className="text-xs mb-3 text-lime-500 font-medium">In stock, {stock} Left only !!</p>
-          <p className="mt-3 mb-5">{productRating}</p>
-          <h3 className="uppercase text-sm font-medium mt-3 text-gray-700">Price</h3>
+          <p className="text-xs mb-3 text-lime-500 font-medium">
+            In stock, {stock} Left only !!
+          </p>
+
+          <p className="mt-3 mb-5">{rating}</p>
+          <h3 className="uppercase text-sm font-medium mt-3 text-gray-700">
+            Price
+          </h3>
           <span className="text-lime-500 text-2xl font-semibold me-2">
             ${sellingPrice}
           </span>
@@ -48,8 +59,12 @@ const ProductDetail = ({
               ${originalPrice}
             </span>
           )}
-          <p className="text-xs text-gray-700 mb-10">(inclusive of all taxes)</p>
-          <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Key Information</h3>
+          <p className="text-xs text-gray-700 mb-10">
+            (inclusive of all taxes)
+          </p>
+          <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">
+            Key Information
+          </h3>
           <p className="text-gray-700 mb-10 text-sm">{productDescription}</p>
 
           {/* <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Quantity</h3>
