@@ -1,5 +1,4 @@
 import Product from "../../ui/Product";
-import data from "../../api/data.json";
 import Filter from "@/app/ui/Filter";
 import { useEffect, useState } from "react";
 
@@ -22,7 +21,7 @@ const Page = (filterData, searchItem) => {
 
   return (
     <div className="flex md:flex-row flex-col gap-x-4 my-10">
-      <div className="md:w-1/4 xl:w-1/5 w-full p-4 bg-white border-gray-200 rounded-lg shadow">
+      <div className="md:w-1/4 xl:w-1/5 w-full p-4 bg-white border-gray-200 rounded-lg shadow dark:bg-slate-800 dark:text-white">
         <Filter />
       </div>
       <div className="md:w-3/4 xl:w-4/5 w-full">
@@ -56,26 +55,3 @@ const Page = (filterData, searchItem) => {
 
 export default Page;
 
-// import { useState, useEffect } from 'react';
-// const Fetch = () => {
-//   const [photos, setPhotos] = useState([]);
-//   useEffect(() => {
-//     fetch('https://jsonplaceholder.typicode.com/photos')
-//       .then((res) => {
-//         return res.json();
-//       })
-//       .then((data) => {
-//         console.log(data);
-//         setPhotos(data);
-//       });
-//   }, []);
-//   return (
-//     <div>
-
-//       {photos.map((photo) => (
-//         <img key={photo.id} src={photo.url} alt={photo.title} width={100} />
-//       ))}
-//     </div>
-//   );
-// };
-// export default Fetch;

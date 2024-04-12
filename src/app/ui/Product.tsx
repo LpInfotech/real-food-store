@@ -39,10 +39,10 @@ const Product = ({
   }
 
   return (
-    <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:scale-105 transition hover:shadow-md group">
+    <div className="w-full max-w-sm bg-white dark:bg-slate-700 dark:text-white border border-gray-200 dark:border-slate-600 rounded-lg shadow hover:scale-105 transition hover:shadow-md group">
       <Link href={`/products/product/${productId}`}>
         <Image
-          className="p-4 w-full bg-slate-300"
+          className="p-4 w-full bg-slate-300 dark:bg-slate-800"
           priority={true}
           src={productImage}
           alt="product image"
@@ -52,7 +52,7 @@ const Product = ({
       </Link>
       <div className="p-4">
         <Link href={`/products/product/${productId}`}>
-          <h5 className="text-base md:text-lg font-semibold tracking-tight text-gray-900 mb-2 group-hover:text-lime-500">
+          <h5 className="text-base md:text-lg font-semibold tracking-tight dark:text-white text-gray-900 mb-2 group-hover:text-lime-500">
             {productName}
           </h5>
         </Link>
@@ -60,11 +60,11 @@ const Product = ({
           {productBrief}
         </div>
         <div className="mb-2">
-          <span className="font-bold text-sm md:text-base text-gray-900 me-2 group-hover:text-lime-500">
+          <span className="font-bold text-sm md:text-base dark:text-white text-gray-900 me-2 group-hover:text-lime-500">
             ${sellingPrice}
           </span>
           {isDiscount && (
-            <span className="text-sm md:text-base text-gray-500 line-through">
+            <span className="text-sm md:text-base dark:text-slate-200 text-gray-500 line-through">
               ${originalPrice}
             </span>
           )}
@@ -80,7 +80,7 @@ const Product = ({
           </Link>
         ) : (
           <Link
-            className="inline-block border py-2 rounded-full px-3 shadow text-sm hover:bg-lime-500 hover:text-white"
+            className="inline-block border dark:border-slate-600 dark:bg-slate-900 py-2 rounded-full px-3 shadow text-sm hover:bg-lime-500 hover:text-white"
             onClick={() =>
               addToCart({
                 productId,

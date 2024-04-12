@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="h-full">
       <body
         suppressHydrationWarning={true}
-        className={`${inter.className} h-full bg-slate-100`}
+        className={`${inter.className} h-full bg-slate-100 dark:bg-slate-950`}
       >
         <CartProvider>{children}</CartProvider>
       </body>
