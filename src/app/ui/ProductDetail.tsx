@@ -28,11 +28,11 @@ const ProductDetail = ({
   }
 
   return (
-    <div className="max-w-screen-lg mx-auto bg-slate-50 shadow-md rounded-lg overflow-hidden px-4 py-8 cursor-pointer">
+    <div className="max-w-screen-lg mx-auto bg-slate-50 dark:bg-slate-800 shadow-md rounded-lg overflow-hidden px-4 py-8 cursor-pointer">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="relative">
           <Image
-            className="p-5 bg-white"
+            className="p-5 bg-white dark:bg-slate-800"
             priority={true}
             src={productImage}
             alt="product image"
@@ -42,13 +42,13 @@ const ProductDetail = ({
         </div>
         <div>
           <p className="text-xs mb-2 text-orange-400">{category}</p>
-          <h2 className="text-2xl font-semibold mb-4">{productName}</h2>
+          <h2 className="text-2xl font-semibold mb-4 dark:text-white">{productName}</h2>
           <p className="text-xs mb-3 text-lime-500 font-medium">
             In stock, {stock} Left only !!
           </p>
 
           <p className="mt-3 mb-5">{rating}</p>
-          <h3 className="uppercase text-sm font-medium mt-3 text-gray-700">
+          <h3 className="uppercase text-sm font-medium mt-3 text-gray-700 dark:text-white">
             Price
           </h3>
           <span className="text-lime-500 text-2xl font-semibold me-2">
@@ -59,13 +59,13 @@ const ProductDetail = ({
               ${originalPrice}
             </span>
           )}
-          <p className="text-xs text-gray-700 mb-10">
+          <p className="text-xs text-gray-700 mb-10 dark:text-slate-100">
             (inclusive of all taxes)
           </p>
-          <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">
+          <h3 className="uppercase text-sm font-medium text-gray-700 mb-2 dark:text-white">
             Key Information
           </h3>
-          <p className="text-gray-700 mb-10 text-sm">{productDescription}</p>
+          <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">{productDescription}</p>
 
           {/* <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Quantity</h3>
           <div className="flex items-center mb-4 border w-fit border-lime-500">
@@ -111,8 +111,8 @@ const ProductDetail = ({
       <div className="border-t border-gray-200 mt-8 pt-8 mb-4">
         <div className="grid grid-cols-3 items-center">
           <div className="col-span-2 ms-2 me-4">
-            <h3 className="text-xl font-semibold mb-4">Product Details</h3>
-            <p className="text-gray-700 mb-10 text-sm">{detailedDescription}</p>
+            <h3 className="text-xl font-semibold mb-4 dark:text-white">Product Details</h3>
+            <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">{detailedDescription}</p>
           </div>
           <div className="col-span-1 bg-gray-200 ps-4 pe-2 py-5 rounded-lg shadow me-2 h-fit">
             <h3 className="text-xl font-semibold mb-4">Ingredients</h3>
@@ -121,7 +121,7 @@ const ProductDetail = ({
         </div>
       </div>
       <hr />
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 ms-2 me-4 mt-10">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 ms-2 me-4 mt-10 dark:text-white">
         <li>
           <span className="font-semibold">Brand: </span>
           {brand}
