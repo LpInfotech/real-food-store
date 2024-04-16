@@ -2,33 +2,28 @@
 import Navbar from "./ui/Navbar";
 import Footer from "./ui/Footer";
 import Page from "./products/(overview)/page";
-import React, { useState } from "react";
-import data from "./api/data.json";
-import { CartProvider } from "./context/cartContext";
+import React, { useEffect, useState } from "react";
 
-interface IFilteredData {
-  id: number;
-  productImage: string;
-  productDescription: string;
-  productName: string;
-  isDiscount: boolean;
-  originalPrice: number;
-  sellingPrice: number;
-  category: string;
-  brand: string;
-  stock: number;
-  availability: boolean;
-}
+export default function Home({ filteredData, searchData }) {
+  useEffect(() => {
+    fetch("http://localhost:5000/product")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+      });
+  }, []);
 
-export default function Home({ filteredData, searchItem }) {
-  const [dataFromChild, setDataFromChild] = useState("");
+  const [data, setData] = useState([]);
+  const [dataFromChild, setDataFromChild] = useState(null);
   const [newData, setNewData] = useState(data);
-  searchItem = dataFromChild;
+  searchData = dataFromChild;
 
   // get search data from child
-  function handleDataFromChild(data) {
-    setDataFromChild(data);
-    filterData(data);
+  function handleDataFromChild(childData) {
+    setDataFromChild(childData);
+    filterData(childData);
   }
 
   // filter data for search
@@ -45,7 +40,7 @@ export default function Home({ filteredData, searchItem }) {
     <main className="flex flex-col h-full">
       <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
       <div className="container mx-auto">
-        <Page filterData={filteredData} searchItem={searchItem} />{" "}
+        <Page filterData={filteredData} searchItem={searchData} />{" "}
       </div>
       <Footer />
     </main>

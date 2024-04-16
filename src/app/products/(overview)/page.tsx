@@ -2,22 +2,25 @@ import Product from "../../ui/Product";
 import Filter from "@/app/ui/Filter";
 import { useEffect, useState } from "react";
 
-const Page = (filterData, searchItem) => {
-
+const Page = (data) => {
   function NoDataFound() {
-    return <h2 className="text-xl font-semibold">No Products found!</h2>;
+    return (
+      <h2 className="text-xl font-semibold dark:text-white">
+        No Products found!
+      </h2>
+    );
   }
   const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-      fetch("http://localhost:5000/product")
-        .then((res) => {
-          return res.json();
-        })
-        .then((data) => {
-          setProducts(data);
-        });
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:5000/product")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setProducts(data);
+      });
+  }, []);
 
   return (
     <div className="flex md:flex-row flex-col gap-x-4 my-10">
@@ -26,11 +29,11 @@ const Page = (filterData, searchItem) => {
       </div>
       <div className="md:w-3/4 xl:w-4/5 w-full">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-          {filterData.filterData.length === 0 && searchItem ? (
+          {data.filterData.length === 0 && data.searchItem ? (
             <NoDataFound />
           ) : (
-            (filterData.filterData.length > 0 && searchItem
-              ? filterData.filterData
+            (data.filterData.length > 0 && data.searchItem
+              ? data.filterData
               : products
             ).map((product) => (
               <Product
@@ -54,4 +57,3 @@ const Page = (filterData, searchItem) => {
 };
 
 export default Page;
-

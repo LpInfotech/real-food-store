@@ -42,7 +42,9 @@ const ProductDetail = ({
         </div>
         <div>
           <p className="text-xs mb-2 text-orange-400">{category}</p>
-          <h2 className="text-2xl font-semibold mb-4 dark:text-white">{productName}</h2>
+          <h2 className="text-2xl font-semibold mb-4 dark:text-white">
+            {productName}
+          </h2>
           <p className="text-xs mb-3 text-lime-500 font-medium">
             In stock, {stock} Left only !!
           </p>
@@ -65,7 +67,9 @@ const ProductDetail = ({
           <h3 className="uppercase text-sm font-medium text-gray-700 mb-2 dark:text-white">
             Key Information
           </h3>
-          <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">{productDescription}</p>
+          <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">
+            {productDescription}
+          </p>
 
           {/* <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Quantity</h3>
           <div className="flex items-center mb-4 border w-fit border-lime-500">
@@ -111,8 +115,12 @@ const ProductDetail = ({
       <div className="border-t border-gray-200 mt-8 pt-8 mb-4">
         <div className="grid grid-cols-3 items-center">
           <div className="col-span-2 ms-2 me-4">
-            <h3 className="text-xl font-semibold mb-4 dark:text-white">Product Details</h3>
-            <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">{detailedDescription}</p>
+            <h3 className="text-xl font-semibold mb-4 dark:text-white">
+              Product Details
+            </h3>
+            <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">
+              {detailedDescription}
+            </p>
           </div>
           <div className="col-span-1 bg-gray-200 ps-4 pe-2 py-5 rounded-lg shadow me-2 h-fit">
             <h3 className="text-xl font-semibold mb-4">Ingredients</h3>
