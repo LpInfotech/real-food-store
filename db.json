@@ -267,13 +267,31 @@
       "stock": 2
     },
     {
-      "id": "12",
-      "key": "12",
+      "id": "6",
+      "key": "6",
+      "productImage": "https://www.bigbasket.com/media/uploads/p/l/40176778-3_7-tata-coffee-grand-filter-coffee.jpg?tr=w-1920,q=80",
+      "productName": "Coffee, 500g",
+      "sellingPrice": 50,
+      "qty": 1,
+      "stock": 50
+    },
+    {
+      "id": "2",
+      "key": "2",
       "productImage": "https://www.bigbasket.com/media/uploads/p/m/40075197_5-daawat-basmati-rice-rozana-super-90.jpg?tr=w-1920,q=80",
       "productName": "Rice, 5kg",
       "sellingPrice": 100,
       "qty": 1,
       "stock": 2
+    },
+    {
+      "id": "4",
+      "key": "4",
+      "productImage": "https://www.bigbasket.com/media/uploads/p/m/40302408_1-english-oven-butter-croissant.jpg?tr=w-1920,q=80",
+      "productName": "Croissant, 120g",
+      "sellingPrice": 35,
+      "qty": 1,
+      "stock": 10
     }
   ]
 }
