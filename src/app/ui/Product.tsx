@@ -1,13 +1,9 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCartShopping,
-  faCircleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../context/cartContext";
+import { useState } from "react";
 
 const Product = ({
   productId,
@@ -20,22 +16,62 @@ const Product = ({
   sellingPrice,
   stock,
 }) => {
-  const { items, addToCart } = useContext(CartContext);
   const [exists, setExists] = useState(false);
 
-  useEffect(() => {
-    const inCart = items.find((item) => item.productId === productId);
+  fetch("http://localhost:5000/cart")
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      // check existing items
+      const inCart = data.find((item) => item.id === productId);
+      inCart ? setExists(true) : setExists(false);
+    });
 
-    if (inCart) {
-      setExists(true);
-    } else {
-      setExists(false);
-    }
-  }, [items, productId]);
+  function addToCart(
+    productId,
+    productImage,
+    productName,
+    sellingPrice,
+    stock
+  ) {
+    const cartItem = {
+      key: productId,
+      id: productId,
+      productImage: productImage,
+      productName: productName,
+      sellingPrice: sellingPrice,
+      qty: 1,
+      stock: stock,
+    };
 
+    fetch("http://localhost:5000/cart")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {});
+
+    // add items to the api
+    !exists &&
+      fetch("http://localhost:5000/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(cartItem),
+      })
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setExists(true);
+        });
+  }
+
+  // rating stars
   let rating = [];
   for (var i = 1; i <= productRating; i++) {
-    rating.push(<span>⭐️</span>);
+    rating.push(<span key={i}>⭐️</span>);
   }
 
   return (
@@ -82,15 +118,13 @@ const Product = ({
           <Link
             className="inline-block border dark:border-slate-600 dark:bg-slate-900 py-2 rounded-full px-3 shadow text-sm hover:bg-lime-500 hover:text-white"
             onClick={() =>
-              addToCart({
+              addToCart(
                 productId,
                 productImage,
-                isDiscount,
                 productName,
-                originalPrice,
                 sellingPrice,
-                stock,
-              })
+                stock
+              )
             }
             href={""}
           >

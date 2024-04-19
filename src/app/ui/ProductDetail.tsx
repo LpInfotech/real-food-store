@@ -24,7 +24,7 @@ const ProductDetail = ({
 
   let rating = [];
   for (var i = 1; i <= productRating; i++) {
-    rating.push(<span>⭐️</span>);
+    rating.push(<span key={i}>⭐️</span>);
   }
 
   return (
