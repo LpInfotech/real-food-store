@@ -19,3 +19,7 @@ button:disabled {
     border-width: 12px;
     margin-left: -10px;
 }
+
+.highlight:has(:not(.highlightssssssss)){
+
+}

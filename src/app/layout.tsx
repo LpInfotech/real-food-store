@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ProductsProvider } from "./context/GetProducts";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export default function RootLayout({
         suppressHydrationWarning={true}
         className={`${inter.className} h-full bg-slate-100 dark:bg-slate-950`}
       >
-        {children}
+        <ProductsProvider>{children}</ProductsProvider>
       </body>
     </html>
   );

@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Filter = () => {
   const [categoryList, setCategoryList] = useState([]);
-
-  fetch("http://localhost:5000/product")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      setCategoryList(data);
-    });
+  useEffect(() => {
+    fetch("http://localhost:5000/product")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setCategoryList(data);
+      });
+  }, []);
 
   return (
     <>
@@ -72,6 +73,15 @@ const Filter = () => {
               <span className="ml-2">⭐️⭐️⭐️⭐️⭐️</span>
             </label>
           </li>
+          {/* <li>
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                className="form-checkbox h-4 w-4 text-indigo-600"
+              />
+              <span className="ml-2">⭐️⭐️⭐️⭐️⭐️</span>
+            </label>
+          </li>
           <li>
             <label className="inline-flex items-center">
               <input
@@ -107,7 +117,7 @@ const Filter = () => {
               />
               <span className="ml-2">⭐️</span>
             </label>
-          </li>
+          </li> */}
         </ul>
       </div>
 

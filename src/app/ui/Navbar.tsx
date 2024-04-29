@@ -14,20 +14,24 @@ import {
   faMoon,
   faCircleHalfStroke,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import { ProductsContext } from "../context/GetProducts";
 
 const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
-  const [cartCount, setCartCount] = useState(0);
-  useEffect(() => {
-    fetch("http://localhost:5000/cart")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setCartCount(data.length);
-      });
-  }, []);
+  // const [cartItems, setcartItems] = useState(0);
+  const [cartItems] = useContext(ProductsContext);
+  console.log(cartItems.cartList);
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/cart")
+  //     .then((res) => {
+  //       return res.json();
+  //     })
+  //     .then((data) => {
+  //       setcartItems(data.length);
+  //     });
+  // }, []);
 
   const [searchIsOpen, setSearchIsOpen] = useState(false);
   const search = () => {
@@ -133,7 +137,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
           >
             <FontAwesomeIcon icon={faCartShopping} size="lg" />
             <span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
-              {cartCount}
+              {cartItems.cartList.length}
             </span>
           </Link>
           <div className="relative dark:text-white">
@@ -211,7 +215,6 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
             <input
               className="w-full h-8 outline-none text-sm bg-white text-gray-700 px-2"
               type="text"
-              autoFocus="true"
               id="search"
               placeholder="Search something.."
               value={searchTerm}

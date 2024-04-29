@@ -1,21 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ProductsContext } from "../context/GetProducts";
 
 const Cartlist = () => {
-  const [items, setItems] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/cart")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setItems(data);
-      });
-  }, []);
+  const [items] = useContext(ProductsContext);
 
   // cart item UI
   function CartItem({
@@ -67,23 +59,23 @@ const Cartlist = () => {
     // delete modal
     function DeleteModal() {
       function removeFromCart() {
-        const url = "http://localhost:5000/cart/" + productId;
-        fetch(url, {
-          method: "DELETE",
-        })
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            fetch("http://localhost:5000/cart")
-              .then((res) => {
-                return res.json();
-              })
-              .then((data) => {
-                setItems(data);
-              });
-            setIsModalOpen(false);
-          });
+        // const url = "http://localhost:5000/cart/" + productId;
+        // fetch(url, {
+        //   method: "DELETE",
+        // })
+        //   .then((res) => {
+        //     return res.json();
+        //   })
+        //   .then((data) => {
+        //     fetch("http://localhost:5000/cart")
+        //       .then((res) => {
+        //         return res.json();
+        //       })
+        //       .then((data) => {
+        //         setItems(data);
+        //       });
+        //     setIsModalOpen(false);
+        //   });
       }
 
       return (
@@ -185,8 +177,8 @@ const Cartlist = () => {
             </tr>
           </thead>
           <tbody>
-            {items.length > 0 ? (
-              items.map((cartItem) => (
+            {items.cartList.length > 0 ? (
+              items.cartList.map((cartItem) => (
                 <CartItem
                   qty={cartItem.qty}
                   key={cartItem.id}

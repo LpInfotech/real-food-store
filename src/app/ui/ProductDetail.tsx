@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -70,7 +71,6 @@ const ProductDetail = ({
           <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">
             {productDescription}
           </p>
-
           {/* <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Quantity</h3>
           <div className="flex items-center mb-4 border w-fit border-lime-500">
             <button className="px-3 bg-lime-500 py-1 text-white"
