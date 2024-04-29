@@ -17,7 +17,7 @@ import {
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { ProductsContext } from "../context/GetProducts";
-
+  
 const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
   // const [cartItems, setcartItems] = useState(0);
   const [cartItems] = useContext(ProductsContext);
