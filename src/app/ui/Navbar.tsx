@@ -19,19 +19,7 @@ import Link from "next/link";
 import { ProductsContext } from "../context/GetProducts";
 
 const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
-  // const [cartItems, setcartItems] = useState(0);
   const [cartItems] = useContext(ProductsContext);
-  console.log(cartItems.cartList);
-
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/cart")
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setcartItems(data.length);
-  //     });
-  // }, []);
 
   const [searchIsOpen, setSearchIsOpen] = useState(false);
   const search = () => {
