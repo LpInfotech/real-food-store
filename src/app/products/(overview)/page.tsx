@@ -1,3 +1,4 @@
+"use client"
 import { ProductsContext } from "@/app/context/GetProducts";
 import Product from "../../ui/Product";
 import Filter from "@/app/ui/Filter";
