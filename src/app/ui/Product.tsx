@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ProductsContext } from "../context/GetProducts";
 
 const Product = ({
   productId,
@@ -18,15 +19,12 @@ const Product = ({
 }) => {
   const [exists, setExists] = useState(false);
 
-  fetch("http://localhost:5000/cart")
-    .then((res) => {
-      return res.json();
-    })
-    .then((data) => {
-      // check existing items
-      const inCart = data.find((item) => item.id === productId);
-      inCart ? setExists(true) : setExists(false);
-    });
+  const [items] = useContext(ProductsContext);
+
+  useEffect(() => {
+    const inCart = items.cartList.find((item) => item.id === productId);
+    inCart ? setExists(true) : setExists(false);
+  }, []);
 
   function addToCart(
     productId,
@@ -44,12 +42,6 @@ const Product = ({
       qty: 1,
       stock: stock,
     };
-
-    fetch("http://localhost:5000/cart")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {});
 
     // add items to the api
     !exists &&

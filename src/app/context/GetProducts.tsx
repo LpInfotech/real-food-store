@@ -6,7 +6,6 @@ export const ProductsProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
 
   useEffect(() => {
-  console.log("called");
     // get product list from api
     fetch("http://localhost:5000/product")
       .then((res) => {
