@@ -7,7 +7,7 @@ const Register = () => {
             <div className="w-3/4 m-auto h-screen flex flex-col justify-center">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
                     <div className="col-span-1">
-                        <img src="https://images.unsplash.com/photo-1586090643003-b2bfb4fbd833?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
+                        <img src="https://images.unsplash.com/photo-1574722772656-8839e6ef7a12?q=80&w=1394&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
                     </div>
                     <div className="bg-white col-span-1 pt-20 pb-5">
                         <div className="flex justify-center">
@@ -24,7 +24,7 @@ const Register = () => {
                                     className="md:w-36 w-24" />
                             </Link>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center flex flex-col h-full justify-center">
                             <h1 className="mt-3 text-2xl font-medium mb-10">Create an account</h1>
                             <form >
                                 <div className="mb-3 w-3/4 m-auto">

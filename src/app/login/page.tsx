@@ -36,13 +36,13 @@ const Login = () => {
     };
     return (
         <div>
-            <div className="w-3/4 m-auto h-screen flex flex-col justify-center">
+            <div className="w-3/4 m-auto h-screen flex justify-center">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
                     <div className="col-span-1">
                         <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
                     </div>
-                    <div className="bg-white col-span-1 pt-5">
-                        <div className="flex justify-center">
+                    <div className="bg-white col-span-1 py-5 relative flex items-center justify-center">
+                        <div className="flex justify-center fixed top-5">
                             <Link href="/" className="dark:hidden md:flex items-end">
                                 <img
                                     src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
@@ -56,7 +56,7 @@ const Login = () => {
                                     className="md:w-36 w-24" />
                             </Link>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center pt-20">
                             <h1 className="mt-2 text-2xl font-medium mb-1">Welcome Back!</h1>
                             <h6 className="mb-8">Login to your account in seconds</h6>
                             <form onSubmit={handleSubmit} >
