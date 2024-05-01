@@ -26,41 +26,43 @@ const Register = () => {
                         </div>
                         <div className="text-center">
                             <h1 className="mt-3 text-2xl font-medium mb-10">Create an account</h1>
-                            <div className="mb-3 w-3/4 m-auto">
-                                <label htmlFor="username" className="float-left me-5 mb-2 text-sm">Username</label><br />
-                                <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" />
-                                <span id="usernameMsg"></span>
-                            </div>
-                            <div className="mb-3 w-3/4 m-auto">
-                                <label htmlFor="email" className="float-left me-5 mb-2 text-sm">Email Address</label><br />
-                                <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" />
-                                <span id="emailMsg"></span>
-                            </div>
-                            <div className="mb-3 w-3/4 m-auto">
-                                <label htmlFor="phone" className="float-left me-5 mb-2 text-sm">Phone Number</label><br />
-                                <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" />
-                                <span id="phoneMsg"></span>
-                            </div>
-                            <div className="mb-3 w-3/4 m-auto grid grid-cols-2 gap-x-2">
-                                <div><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
-                                    <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" />
+                            <form >
+                                <div className="mb-3 w-3/4 m-auto">
+                                    <label htmlFor="username" className="float-left me-5 mb-2 text-sm">Username</label><br />
+                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" />
+                                    <span id="usernameMsg"></span>
                                 </div>
+                                <div className="mb-3 w-3/4 m-auto">
+                                    <label htmlFor="email" className="float-left me-5 mb-2 text-sm">Email Address</label><br />
+                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" />
+                                    <span id="emailMsg"></span>
+                                </div>
+                                <div className="mb-3 w-3/4 m-auto">
+                                    <label htmlFor="phone" className="float-left me-5 mb-2 text-sm">Phone Number</label><br />
+                                    <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" />
+                                    <span id="phoneMsg"></span>
+                                </div>
+                                <div className="mb-3 w-3/4 m-auto grid grid-cols-2 gap-x-2">
+                                    <div><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
+                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
+                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" />
+                                    </div>
+                                    <span id="passMsg"></span>
+                                </div>
+                                <div className="w-3/4 m-auto mb-7">
+                                    <div className="text-start">
+                                        <input type="checkbox" id="terms" name="terms" />
+                                        <label htmlFor="terms" className="ms-2 text-sm">I agree to terms and conditions</label>
+                                    </div>
+                                </div>
+                                <button className="my-5 py-3 bg-black w-1/3 font-medium text-white hover:bg-lime-500" type="submit">Register</button>
                                 <div>
-                                    <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
-                                    <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" />
+                                    Already have an account? <a href="/login"><span className="hover:text-lime-500 text-lime-700 font-bold">Login Now!</span></a>
                                 </div>
-                                <span id="passMsg"></span>
-                            </div>
-                            <div className="w-3/4 m-auto mb-7">
-                                <div className="text-start">
-                                    <input type="checkbox" id="terms" name="terms" />
-                                    <label htmlFor="terms" className="ms-2 text-sm">I agree to terms and conditions</label>
-                                </div>
-                            </div>
-                            <button className="my-5 py-3 bg-black w-1/3 font-medium text-white hover:bg-lime-500" type="submit">Register</button>
-                            <div>
-                                Already have an account? <a href="/login"><span className="hover:text-lime-500 text-lime-700 font-bold">Login Now!</span></a>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
