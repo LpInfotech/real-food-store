@@ -107,7 +107,7 @@ const Product = ({
             Go to Cart
           </Link>
         ) : (
-          <Link
+          <button
             className="inline-block border dark:border-slate-600 dark:bg-slate-900 py-2 rounded-full px-3 shadow text-sm hover:bg-lime-500 hover:text-white"
             onClick={() =>
               addToCart(
@@ -118,11 +118,10 @@ const Product = ({
                 stock
               )
             }
-            href={""}
           >
             <FontAwesomeIcon icon={faCartShopping} className="me-2 text-sm" />
             Add to Cart
-          </Link>
+          </button>
         )}
       </div>
     </div>

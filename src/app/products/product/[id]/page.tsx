@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import ProductDetail from "@/app/ui/ProductDetail";
 import data from "../../../api/data.json";
 import { useContext, useEffect, useState } from "react";

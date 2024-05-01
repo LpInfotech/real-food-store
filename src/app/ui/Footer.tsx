@@ -69,7 +69,7 @@ const Footer = () => {
         <div className="col-span-2">
           <h3 className="text-2xl font-medium">Our Newletters</h3>
           <p className="my-5">Be the first who learns about our great promotions!</p>
-          <input type="text" className="py-2 px-4 w-72" placeholder="Enter your email..."/>
+          <input type="text" className="py-2 md:px-4 md:w-72 w-40" placeholder="Enter your email..."/>
           <button type="button" className="bg-black hover:bg-lime-500 text-white py-2 px-4">Subscribe</button>
         </div>
       </div>
