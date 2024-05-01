@@ -1,59 +1,128 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useContext, useState } from "react";
+import { ProductsContext } from "../context/GetProducts";
 
 const Register = () => {
+    const [userName, setUserName] = useState("");
+    const [userEmail, setUserEmail] = useState("");
+    const [userPhone, setUserPhone] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+    const [userConfirmPassword, setUserConfirmPassword] = useState("");
+    const [userList] = useContext(ProductsContext);
+    const router = useRouter();
+
+    // get user name
+    const handleUserName = (event) => {
+        setUserName(event.target.value);
+    };
+
+    // get user email
+    const handleEmail = (event) => {
+        setUserEmail(event.target.value);
+    };
+
+    // get user phone
+    const handlePhone = (event) => {
+        setUserPhone(event.target.value);
+    };
+
+    // get user password
+    const handlePassword = (event) => {
+        setUserPassword(event.target.value);
+    };
+
+    // get user confirm password
+    const handleConfirmPassword = (event) => {
+        setUserConfirmPassword(event.target.value);
+    };
+
+    const userInfo = {
+        name: userName,
+        email: userEmail,
+        phone: userPhone,
+        password: userPassword,
+        confirmPassword: userConfirmPassword,
+    };
+
+    //   get values on form submission
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const existingUser = userList.userList.find(
+            (item) => item.email === userEmail
+        );
+
+        if (userPassword === userConfirmPassword) {
+            if (existingUser === undefined) {
+                // add items to the api
+                fetch("http://localhost:5000/user", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(userInfo),
+                })
+                    .then((res) => {
+                        return res.json();
+                    })
+                    .then((data) => {
+                        alert("Registered successfully!");
+                        router.push("/login");
+                    });
+            } else {
+                alert("This email address already exists.");
+            }
+        } else {
+            alert("Passwords doesn't match.");
+        }
+    };
     return (
         <div>
-            <div className="w-3/4 m-auto h-screen flex flex-col justify-center">
+            <div className="w-3/4 m-auto h-screen flex justify-center">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
-                    <div className="col-span-1">
-                        <img src="https://images.unsplash.com/photo-1574722772656-8839e6ef7a12?q=80&w=1394&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
+                    <div className="col-span-1 hidden sm:block">
+                        <img src="https://plus.unsplash.com/premium_photo-1661387709912-5560db6e8e8a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
                     </div>
-                    <div className="bg-white col-span-1 pt-20 pb-5">
-                        <div className="flex justify-center">
-                            <Link href="/" className="dark:hidden md:flex items-end">
+                    <div className="bg-white col-span-1 flex flex-col justify-center py-20 sm:py-0">
+                        <div className="m-auto">
+                            <Link href="/">
                                 <img
                                     src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
                                     alt="brain-food-logo"
-                                    className="md:w-36 w-24" />
-                            </Link>
-                            <Link href="/" className="hidden dark:flex items-end">
-                                <img
-                                    src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-reverse-1200px.png"
-                                    alt="brain-food-logo"
-                                    className="md:w-36 w-24" />
+                                    className="w-36" />
                             </Link>
                         </div>
-                        <div className="text-center flex flex-col h-full justify-center">
-                            <h1 className="mt-3 text-2xl font-medium mb-10">Create an account</h1>
-                            <form >
+                        <div className="text-center">
+                            <h1 className="text-2xl font-medium my-10">Create an account</h1>
+                            <form onSubmit={handleSubmit}>
                                 <div className="mb-3 w-3/4 m-auto">
                                     <label htmlFor="username" className="float-left me-5 mb-2 text-sm">Username</label><br />
-                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" />
+                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" onInput={handleUserName}/>
                                     <span id="usernameMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto">
                                     <label htmlFor="email" className="float-left me-5 mb-2 text-sm">Email Address</label><br />
-                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" />
+                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onInput={handleEmail}/>
                                     <span id="emailMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto">
                                     <label htmlFor="phone" className="float-left me-5 mb-2 text-sm">Phone Number</label><br />
-                                    <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" />
+                                    <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" onInput={handlePhone} />
                                     <span id="phoneMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto grid grid-cols-2 gap-x-2">
                                     <div><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
-                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" />
+                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onInput={handlePassword}/>
                                     </div>
                                     <div>
                                         <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
-                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" />
+                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onInput={handleConfirmPassword}/>
                                     </div>
                                     <span id="passMsg"></span>
                                 </div>
                                 <div className="w-3/4 m-auto mb-7">
-                                    <div className="text-start">
+                                    <div className="text-start flex">
                                         <input type="checkbox" id="terms" name="terms" />
                                         <label htmlFor="terms" className="ms-2 text-sm">I agree to terms and conditions</label>
                                     </div>

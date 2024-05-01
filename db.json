@@ -256,13 +256,32 @@
       "sellingPrice": 68,
       "qty": 0,
       "stock": 30
-    } 
+    }
   ],
   "user": [
     {
       "id": 1,
+      "name": "admin",
       "email": "admin@gmail.com",
-      "password": "admin@123"
+      "phone": "918884445554",
+      "password": "admin@123",
+      "confirmPassword": "admin@123"
+    },
+    {
+      "id": "37fc",
+      "name": "gur",
+      "email": "gur@gmail.com",
+      "phone": "9877676970",
+      "password": "123",
+      "confirmPassword": "123"
+    },
+    {
+      "id": "a726",
+      "name": "gur",
+      "email": "gur@gmail.com",
+      "phone": "9877676970",
+      "password": "123",
+      "confirmPassword": "123"
     }
   ]
 }

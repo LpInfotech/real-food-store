@@ -29,7 +29,7 @@ const Login = () => {
         console.log(existingUser);
 
         if (existingUser != undefined) {
-            router.push("/");
+            router.push("/home");
         } else {
             alert("This email address doesn't exist. Register with us!");
         }
@@ -38,26 +38,20 @@ const Login = () => {
         <div>
             <div className="w-3/4 m-auto h-screen flex justify-center">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
-                    <div className="col-span-1">
+                    <div className="col-span-1 hidden sm:block">
                         <img src="https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
                     </div>
-                    <div className="bg-white col-span-1 py-5 relative flex items-center justify-center">
-                        <div className="flex justify-center fixed top-5">
-                            <Link href="/" className="dark:hidden md:flex items-end">
+                    <div className="bg-white col-span-1 flex flex-col justify-center py-20 sm:py-0">
+                        <div className="mx-auto">
+                            <Link href="/">
                                 <img
                                     src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
                                     alt="brain-food-logo"
-                                    className="md:w-36 w-24" />
-                            </Link>
-                            <Link href="/" className="hidden dark:flex items-end">
-                                <img
-                                    src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-reverse-1200px.png"
-                                    alt="brain-food-logo"
-                                    className="md:w-36 w-24" />
+                                    className="w-36" />
                             </Link>
                         </div>
-                        <div className="text-center pt-20">
-                            <h1 className="mt-2 text-2xl font-medium mb-1">Welcome Back!</h1>
+                        <div className="text-center">
+                            <h1 className="mt-10 text-2xl font-medium mb-1">Welcome Back!</h1>
                             <h6 className="mb-8">Login to your account in seconds</h6>
                             <form onSubmit={handleSubmit} >
                                 <div className="mb-3 w-3/4 m-auto">
