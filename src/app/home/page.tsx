@@ -17,7 +17,7 @@ const Home = (data) => {
         <div className='bg-white dark:bg-gray-950  text-black scroll-smooth'>
             <Navbar />
             {/* hero section */}
-            <div className="relative py-20 grid grid-cols-2 items-center bg-center bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
+            <div className="relative h-[80vh] grid grid-cols-2 items-center bg-center bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
                 <div className="col-span-1 ps-20">
                     <p className="text-xl font-medium tracking-wider mb-6">Quality always comes first</p>
                     <h1 className="text-8xl font-medium uppercase tracking-wide">Fresh Fruit</h1>
@@ -78,8 +78,8 @@ const Home = (data) => {
             </div>
             {/* /shop now section */}
             {/* why choose section */}
-            <div className="text-center py-8 px-10 w-11/12 m-auto" id="service">
-                <h2 className="text-5xl mt-5 mb-16 dark:text-white">Why Choose Us?</h2>
+            <div className="text-center py-8 px-10 w-11/12 m-auto my-20" id="service">
+                <h2 className="text-5xl mb-16 dark:text-white">Why Choose Us?</h2>
                 <div className="grid grid-cols-4 dark:text-white gap-x-20">
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faHeadset} size="2xl" />
