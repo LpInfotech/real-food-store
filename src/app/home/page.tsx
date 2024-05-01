@@ -17,7 +17,7 @@ const Home = (data) => {
         <div className='bg-white dark:bg-gray-950  text-black scroll-smooth'>
             <Navbar />
             {/* hero section */}
-            <div id="first-slide" className="relative grid grid-cols-2 items-center bg-center h-screen bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
+            <div className="relative py-20 grid grid-cols-2 items-center bg-center bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
                 <div className="col-span-1 ps-20">
                     <p className="text-xl font-medium tracking-wider mb-6">Quality always comes first</p>
                     <h1 className="text-8xl font-medium uppercase tracking-wide">Fresh Fruit</h1>
@@ -36,7 +36,7 @@ const Home = (data) => {
                 <input type="radio" id="slide2" name="slide" className="slider-button" />
             </div> */}
             {/* best sellers section */}
-            <div className="my-20 m-auto w-4/5 w-5/6">
+            <div className="my-20 m-auto w-5/6">
                 <h2 className="text-5xl my-5 text-center dark:text-white">Our Best Sellers</h2>
                 <h4 className="font-medium text-gray-500 text-lg text-center dark:text-white">Best Seller Product This week</h4>
                 <div className="mt-8 mx-10">
@@ -72,14 +72,15 @@ const Home = (data) => {
                     </a>
                 </div>
                 <div className="col-span-1">
-                    <img src="https://oranda-store-demo.myshopify.com/cdn/shop/articles/blog4_1024x1024.jpg?v=1596785712" alt="fruits banner" />
+                    {/* <img src="https://img.freepik.com/free-photo/decorative-basket-with-fresh-vegetables_23-2147609630.jpg?t=st=1714550431~exp=1714554031~hmac=eb730d760a8fa2d7037ab40813b5ddc4e65b9dfc845b520cd897addcfc5eb2d5&w=740" alt="fruits banner" /> */}
+                    <img src="https://cdn.pixabay.com/photo/2023/12/29/10/39/woman-8475957_1280.jpg" alt="fruits banner" />
                 </div>
             </div>
             {/* /shop now section */}
             {/* why choose section */}
-            <div className="text-center py-8 gap-x-20 px-10" id="service">
+            <div className="text-center py-8 px-10 w-11/12 m-auto" id="service">
                 <h2 className="text-5xl mt-5 mb-16 dark:text-white">Why Choose Us?</h2>
-                <div className="grid grid-cols-4 dark:text-white">
+                <div className="grid grid-cols-4 dark:text-white gap-x-20">
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faHeadset} size="2xl" />
                         <h3 className="uppercase font-semibold my-2">24/7 Friendly Support</h3>
