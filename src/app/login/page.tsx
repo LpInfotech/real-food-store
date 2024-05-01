@@ -70,11 +70,7 @@ const Login = () => {
                                     <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onInput={handlePassword} />
                                     <span id="passMsg"></span>
                                 </div>
-                                <div className="w-3/4 m-auto grid grid-cols-2 mb-5 text-sm">
-                                    <div className="text-start col-span-1">
-                                        <input type="checkbox" id="remember" name="remember" value="Remember Me" />
-                                        <label htmlFor="remember" className="ms-1">Remember Me</label>
-                                    </div>
+                                <div className="w-3/4 m-auto mb-5 text-sm">
                                     <div className="text-end col-span-1">
                                         <a href="#" className="">Forgot Password?</a>
                                     </div>

@@ -7,9 +7,9 @@ const Register = () => {
             <div className="w-3/4 m-auto h-screen flex flex-col justify-center">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
                     <div className="col-span-1">
-                        <img src="https://images.unsplash.com/photo-1628102490959-a5b3c905fb9b?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full"/>
+                        <img src="https://images.unsplash.com/photo-1586090643003-b2bfb4fbd833?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
                     </div>
-                    <div className="bg-white col-span-1 pt-5">
+                    <div className="bg-white col-span-1 pt-20 pb-5">
                         <div className="flex justify-center">
                             <Link href="/" className="dark:hidden md:flex items-end">
                                 <img
@@ -29,7 +29,7 @@ const Register = () => {
                             <div className="mb-3 w-3/4 m-auto">
                                 <label htmlFor="username" className="float-left me-5 mb-2 text-sm">Username</label><br />
                                 <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" />
-                                <span id="emailMsg"></span>
+                                <span id="usernameMsg"></span>
                             </div>
                             <div className="mb-3 w-3/4 m-auto">
                                 <label htmlFor="email" className="float-left me-5 mb-2 text-sm">Email Address</label><br />
@@ -37,9 +37,19 @@ const Register = () => {
                                 <span id="emailMsg"></span>
                             </div>
                             <div className="mb-3 w-3/4 m-auto">
-                            <label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
-                            <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" />
-                            <span id="passMsg"></span>
+                                <label htmlFor="phone" className="float-left me-5 mb-2 text-sm">Phone Number</label><br />
+                                <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" />
+                                <span id="phoneMsg"></span>
+                            </div>
+                            <div className="mb-3 w-3/4 m-auto grid grid-cols-2 gap-x-2">
+                                <div><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
+                                    <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" />
+                                </div>
+                                <div>
+                                    <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
+                                    <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" />
+                                </div>
+                                <span id="passMsg"></span>
                             </div>
                             <div className="w-3/4 m-auto mb-7">
                                 <div className="text-start">
