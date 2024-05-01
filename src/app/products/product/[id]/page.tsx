@@ -1,18 +1,15 @@
-"use client"
+"use client";
 import ProductDetail from "@/app/ui/ProductDetail";
-import data from "../../../api/data.json";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ProductsContext } from "@/app/context/GetProducts";
 
 const Page = ({ params }: { params: { id: string } }) => {
   const id = Number(params.id);
-  const [productDetail, setProductDetail] = useState([]);
 
   const [productList] = useContext(ProductsContext);
-
-  useEffect(() => {
-    setProductDetail(productList.productList.filter((product) => product.id == id));
-  }, []);
+  let productDetail = productList.productList.filter(
+    (product) => product.id == id
+  );
 
   return (
     <>
