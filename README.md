@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Setting local db api in angular
+
+- Go to (https://www.npmjs.com/package/json-server) URL and run `npm i json-server` command in project root folder. (npm i json-server)
+- Go to (https://www.npmjs.com/package/concurrently) URL and run `npm i concurrently` command in project root folder. (npm i concurrently)
+- Go to "D:\Workspace\Angular\Angular-local-api\angular-dashboard\package.json" this file path in angular project and add below commands.
+- `json-server`: `json-server --watch db.json --port 3000`,
+- `start-dev`: `concurrently \"npm run json-server\" \"ng serve -o\"`
+- create local DB file (db.json) in project root folder. create object {"user": [ add value https://jsonplaceholder.typicode.com/users ]}
+  then run "npm run start-dev" in your terminal and your project will run.
+- localhost for local db (http://localhost:3000/user)
+- localhost 4200 for angular changes.
