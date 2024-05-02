@@ -2,7 +2,7 @@
 import { ProductsContext } from "@/app/context/GetProducts";
 import Product from "../../ui/Product";
 import Filter from "@/app/ui/Filter";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 const Page = (data) => {
   const [productList] = useContext(ProductsContext);
