@@ -2,6 +2,8 @@
 import ProductDetail from "@/app/ui/ProductDetail";
 import { useContext } from "react";
 import { ProductsContext } from "@/app/context/GetProducts";
+import Navbar from "@/app/ui/Navbar";
+import Footer from "@/app/ui/Footer";
 
 const Page = ({ params }: { params: { id: string } }) => {
   const id = Number(params.id);
@@ -12,28 +14,32 @@ const Page = ({ params }: { params: { id: string } }) => {
   );
 
   return (
-    <>
-      {productDetail.map((product) => (
-        <ProductDetail
-          key={product.id}
-          id={product.id}
-          productRating={product.productRating}
-          productIngredients={product.productIngredients}
-          detailedDescription={product.detailedDescription}
-          productImage={product.productImage}
-          productDescription={product.productDescription}
-          productName={product.productName}
-          originalPrice={product.originalPrice}
-          sellingPrice={product.sellingPrice}
-          isDiscount={product.isDiscount}
-          shipping={product.shipping}
-          category={product.category}
-          brand={product.brand}
-          stock={product.stock}
-          availability={product.availability}
-        />
-      ))}
-    </>
+    <main className="flex flex-col h-full">
+      <Navbar />
+      <div className="container mx-auto p-5 xl:p-10">
+        {productDetail.map((product) => (
+          <ProductDetail
+            key={product.id}
+            id={product.id}
+            productRating={product.productRating}
+            productIngredients={product.productIngredients}
+            detailedDescription={product.detailedDescription}
+            productImage={product.productImage}
+            productDescription={product.productDescription}
+            productName={product.productName}
+            originalPrice={product.originalPrice}
+            sellingPrice={product.sellingPrice}
+            isDiscount={product.isDiscount}
+            shipping={product.shipping}
+            category={product.category}
+            brand={product.brand}
+            stock={product.stock}
+            availability={product.availability}
+          />
+        ))}
+      </div>
+      <Footer />
+    </main>
   );
 };
 

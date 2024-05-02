@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Login from "./login/page";
 
-export default function Home({ filteredData, searchData }) {
+export default function Home() {
 
   return (
     <main className="flex flex-col h-full">
