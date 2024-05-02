@@ -28,9 +28,9 @@ const Login = () => {
     <div className="h-full flex">
       <div className="w-3/4 m-auto">
         <div className="md:grid md:grid-cols-2 shadow-2xl ">
-          <div className="col-span-1 hidden sm:block bg-[url(https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
+          <div className="col-span-1 hidden sm:block bg-cover bg-[url(https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
           </div>
-          <div className="bg-white col-span-1 flex flex-col justify-center py-20 md:py-5">
+          <div className="bg-white col-span-1 flex flex-col justify-center py-20 md:py-8">
             <div className="mx-auto">
               <Link href="/">
                 <img
@@ -80,13 +80,13 @@ const Login = () => {
                 </div>
                 <div className="w-3/4 m-auto mb-5 text-sm">
                   <div className="text-end col-span-1">
-                    <a href="#" className="">
+                    <a href="#" className="text-lime-600">
                       Forgot Password?
                     </a>
                   </div>
                 </div>
                 <button
-                  className="mt-5 mb-3 py-3 bg-black w-1/3 font-medium text-white disabled:bg-slate-900"
+                  className="mt-5 mb-3 py-3 bg-black w-1/3 font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
                   type="submit"
                   disabled={userEmail && userPassword ? false : true}
                 >

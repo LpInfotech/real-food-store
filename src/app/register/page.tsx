@@ -57,7 +57,7 @@ const Register = () => {
         <div className="h-full flex">
             <div className="w-3/4 m-auto">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
-                    <div className="col-span-1 hidden sm:block bg-[url(https://plus.unsplash.com/premium_photo-1661387709912-5560db6e8e8a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
+                    <div className="col-span-1 hidden sm:block bg-cover bg-[url(https://images.pexels.com/photos/7129160/pexels-photo-7129160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)]">
                     </div>
                     <div className="bg-white col-span-1 flex flex-col justify-center py-20 md:py-8">
                         <div className="mx-auto">

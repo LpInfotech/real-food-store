@@ -79,7 +79,7 @@ const Landing = () => {
             {/* why choose section */}
             <div className="text-center py-8 px-10 w-11/12 m-auto my-20" id="service">
                 <h2 className="sm:text-5xl text-3xl mb-16 dark:text-white">Why Choose Us?</h2>
-                <div className="grid sm:grid-cols-4 grid-cols-2 gap-y-10 dark:text-white gap-x-20">
+                <div className="grid sm:grid-cols-4 grid-cols-2 gap-y-10 dark:text-white divide-x *:px-8">
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faHeadset} size="2xl" />
                         <h3 className="uppercase font-semibold my-2">24/7 Friendly Support</h3>
