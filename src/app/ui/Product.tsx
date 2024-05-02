@@ -71,7 +71,7 @@ const Product = ({
     <div className="w-full max-w-sm bg-white dark:bg-slate-700 dark:text-white border border-gray-200 dark:border-slate-600 rounded-lg shadow hover:scale-105 transition hover:shadow-md group">
       <Link href={`/products/product/${productId}`}>
         <Image
-          className="p-4 w-full bg-slate-300 dark:bg-slate-800"
+          className="sm:p-4 p-8 w-full bg-slate-300 dark:bg-slate-800"
           priority={true}
           src={productImage}
           alt="product image"
@@ -88,24 +88,25 @@ const Product = ({
         <div className="text-xs mb-2 group-hover:text-lime-500">
           {productBrief}
         </div>
-        <div className="mb-2">
-          <span className="font-bold text-sm md:text-base dark:text-white text-gray-900 me-2 group-hover:text-lime-500">
-            ${sellingPrice}
-          </span>
-          {isDiscount && (
-            <span className="text-sm md:text-base dark:text-slate-200 text-gray-500 line-through">
-              ${originalPrice}
+        <div className="flex sm:block items-center justify-between">
+          <div className="mb-2">
+            <span className="font-bold text-sm md:text-base dark:text-white text-gray-900 me-2 group-hover:text-lime-500">
+              ${sellingPrice}
             </span>
-          )}
+            {isDiscount && (
+              <span className="text-sm md:text-base dark:text-slate-200 text-gray-500 line-through">
+                ${originalPrice}
+              </span>
+            )}
+          </div>
+          <div className="mb-2 text-[12px] sm:text-base">{rating}</div>
         </div>
-        <div className="mb-2">{rating}</div>
         {exists ? (
           <Link
             className="inline-block text-white bg-lime-500 border py-2 rounded-full px-3 shadow text-sm"
-            href="/cart"
-          >
-            <FontAwesomeIcon icon={faCartShopping} className="me-2 text-sm" />
-            Go to Cart
+            href="/cart">
+            <FontAwesomeIcon icon={faCartShopping} className="me-2" />
+            <span className="">Go to Cart</span>
           </Link>
         ) : (
           <button

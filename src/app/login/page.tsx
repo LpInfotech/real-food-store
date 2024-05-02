@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const existingUser = userList.userList.find(
-      (item) => item.email === userEmail && item.password === userPassword
+      (item) => item.email === userEmail.toLowerCase() && item.password === userPassword
     );
     console.log(existingUser);
 
@@ -25,17 +25,12 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <div className="w-3/4 m-auto h-screen flex justify-center">
+    <div className="h-full flex">
+      <div className="w-3/4 m-auto">
         <div className="md:grid md:grid-cols-2 shadow-2xl ">
-          <div className="col-span-1 hidden sm:block">
-            <img
-              src="https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              className="h-full"
-            />
+          <div className="col-span-1 hidden sm:block bg-[url(https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
           </div>
-          <div className="bg-white col-span-1 flex flex-col justify-center py-20 sm:py-0">
+          <div className="bg-white col-span-1 flex flex-col justify-center py-20 md:py-5">
             <div className="mx-auto">
               <Link href="/">
                 <img
@@ -101,7 +96,7 @@ const Login = () => {
                   Don't have an account?{" "}
                   <a href="/register" target="_blank">
                     <span className="hover:text-lime-500 text-lime-700 font-bold">
-                      Create Account
+                      <br />Create Account
                     </span>
                   </a>
                 </div>

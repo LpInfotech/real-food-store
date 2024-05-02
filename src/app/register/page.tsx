@@ -15,11 +15,11 @@ const Register = () => {
 
     const userInfo = {
         name: userName,
-        email: userEmail,
+        email: userEmail.toLowerCase(),
         phone: userPhone,
         password: userPassword,
         confirmPassword: userConfirmPassword,
-    };
+      };
 
     //   get values on form submission
     const handleSubmit = (event) => {
@@ -54,13 +54,12 @@ const Register = () => {
         }
     };
     return (
-        <div>
-            <div className="w-3/4 m-auto h-screen flex justify-center">
+        <div className="h-full flex">
+            <div className="w-3/4 m-auto">
                 <div className="md:grid md:grid-cols-2 shadow-2xl ">
-                    <div className="col-span-1 hidden sm:block">
-                        <img src="https://plus.unsplash.com/premium_photo-1661387709912-5560db6e8e8a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
+                    <div className="col-span-1 hidden sm:block bg-[url(https://plus.unsplash.com/premium_photo-1661387709912-5560db6e8e8a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
                     </div>
-                    <div className="bg-white col-span-1 flex flex-col justify-center py-20 sm:py-0">
+                    <div className="bg-white col-span-1 flex flex-col justify-center py-20 md:py-8">
                         <div className="mx-auto">
                             <Link href="/">
                                 <img
@@ -105,7 +104,7 @@ const Register = () => {
                                 </div>
                                 <button className="my-5 py-3 bg-black w-1/3 font-medium text-white hover:bg-lime-500" type="submit">Register</button>
                                 <div>
-                                    Already have an account? <a href="/login"><span className="hover:text-lime-500 text-lime-700 font-bold">Login Now!</span></a>
+                                    Already have an account? <a href="/login"><span className="hover:text-lime-500 text-lime-700 font-bold"><br />Login Now!</span></a>
                                 </div>
                             </form>
                         </div>

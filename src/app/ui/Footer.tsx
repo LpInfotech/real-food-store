@@ -15,7 +15,7 @@ const Footer = () => {
   }
   return (
     <footer className="bg-gray-100 mt-10 dark:bg-slate-800 dark:text-white">
-      <div className="grid grid-cols-4 mx-10 py-10">
+      <div className="grid sm:grid-cols-4 mx-10 py-10 gap-y-8">
         <div className="col-span-1">
           <Link href="/" className="dark:hidden md:flex items-end">
             <img
@@ -32,7 +32,7 @@ const Footer = () => {
             />
           </Link>
           <h3 className="mt-5 text-sm font-light">Sophisticated simplicity for <br />the independent mind.</h3>
-          <div className="flex gap-x-5 mt-5">
+          <div className="flex gap-x-5 sm:mt-5 mt-2">
             <a href="https://twitter.com/login"><FontAwesomeIcon icon={faTwitter} /></a>
             <a href="https://www.facebook.com/"><FontAwesomeIcon icon={faFacebook} /></a>
             <a href="https://www.instagram.com/accounts/login/"><FontAwesomeIcon icon={faInstagram} /></a>
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-medium">Quick Links</h3>
-          <ul className="mt-5 *:mb-3">
+          <ul className="sm:mt-5 mt-2 *:mb-3">
             <li className="hover:font-bold"><a href="/home">Homepage</a></li>
             <li className="hover:font-bold"><a href="/">Shop Now</a></li>
             <li className="hover:font-bold"><a href="/cart">Cart</a></li>
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-medium">Change Theme</h3>
-          <ul className="mt-5 *:mb-3">
+          <ul className="sm:mt-5 mt-2 *:mb-3">
             <li><button
               onClick={lightTheme}
               type="button"
@@ -68,9 +68,9 @@ const Footer = () => {
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-medium">Our Newletters</h3>
-          <p className="my-5">Be the first who learns about our great promotions!</p>
-          <input type="text" className="py-2 md:px-4 w-full" placeholder="Enter your email..."/>
-          <button type="button" className="bg-black hover:bg-lime-500 text-white py-2 px-4 mt-3 float-end">Subscribe</button>
+          <p className="sm:my-5 my-2">Be the first who learns about our great promotions!</p>
+          <input type="text" className="py-2 px-2 sm:px-4 sm:w-full" placeholder="Enter your email..."/>
+          <button type="button" className="bg-black hover:bg-lime-500 text-white py-2 px-4 sm:mt-3 float-end">Subscribe</button>
         </div>
       </div>
       <div className='bg-white dark:bg-slate-800 dark:text-white py-3 text-black text-center mt-auto'>
