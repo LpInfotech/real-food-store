@@ -54,18 +54,11 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
     <header>
       <nav className="relative py-4 md:px-20 px-5 flex justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
         {!searchIsOpen}
-        <Link href="/" className="dark:hidden md:flex items-end">
+        <Link href="/" className="md:flex items-end">
           <img
-            src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
+          src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
             alt="brain-food-logo"
-            className="md:w-36 w-24"
-          />
-        </Link>
-        <Link href="/" className="hidden dark:flex items-end">
-          <img
-            src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-reverse-1200px.png"
-            alt="brain-food-logo"
-            className="md:w-36 w-24"
+            className="w-36 md:w-52 dark:invert"
           />
         </Link>
         {/* added search bar */}

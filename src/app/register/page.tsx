@@ -102,7 +102,10 @@ const Register = () => {
                                         <label htmlFor="terms" className="ms-2 text-sm">I agree to terms and conditions</label>
                                     </div>
                                 </div>
-                                <button className="my-5 py-3 bg-black w-1/3 font-medium text-white hover:bg-lime-500" type="submit">Register</button>
+                                <button className="my-5 py-3 bg-black w-1/3 font-medium text-white" 
+                                type="submit"
+                                disabled={userName && userEmail && userPhone && userPassword && userConfirmPassword ? false : true}
+                                >Register</button>
                                 <div>
                                     Already have an account? <a href="/login"><span className="hover:text-lime-500 text-lime-700 font-bold"><br />Login Now!</span></a>
                                 </div>

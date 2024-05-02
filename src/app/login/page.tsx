@@ -86,7 +86,7 @@ const Login = () => {
                   </div>
                 </div>
                 <button
-                  className="mt-5 mb-3 py-3 bg-black w-1/3 font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
+                  className="my-5 py-3 bg-black w-1/3 font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
                   type="submit"
                   disabled={userEmail && userPassword ? false : true}
                 >
