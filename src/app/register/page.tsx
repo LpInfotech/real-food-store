@@ -85,7 +85,7 @@ const Register = () => {
                         <img src="https://plus.unsplash.com/premium_photo-1661387709912-5560db6e8e8a?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="h-full" />
                     </div>
                     <div className="bg-white col-span-1 flex flex-col justify-center py-20 sm:py-0">
-                        <div className="m-auto">
+                        <div className="mx-auto">
                             <Link href="/">
                                 <img
                                     src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
