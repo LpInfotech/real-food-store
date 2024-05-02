@@ -13,31 +13,6 @@ const Register = () => {
     const [userList] = useContext(ProductsContext);
     const router = useRouter();
 
-    // get user name
-    const handleUserName = (event) => {
-        setUserName(event.target.value);
-    };
-
-    // get user email
-    const handleEmail = (event) => {
-        setUserEmail(event.target.value);
-    };
-
-    // get user phone
-    const handlePhone = (event) => {
-        setUserPhone(event.target.value);
-    };
-
-    // get user password
-    const handlePassword = (event) => {
-        setUserPassword(event.target.value);
-    };
-
-    // get user confirm password
-    const handleConfirmPassword = (event) => {
-        setUserConfirmPassword(event.target.value);
-    };
-
     const userInfo = {
         name: userName,
         email: userEmail,
@@ -68,6 +43,7 @@ const Register = () => {
                     })
                     .then((data) => {
                         alert("Registered successfully!");
+                        userList.trigger((prevTrigger) => prevTrigger + 1);
                         router.push("/login");
                     });
             } else {
@@ -98,26 +74,26 @@ const Register = () => {
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3 w-3/4 m-auto">
                                     <label htmlFor="username" className="float-left me-5 mb-2 text-sm">Username</label><br />
-                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" onInput={handleUserName}/>
+                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" onChange={(event) => setUserName(event.target.value)}/>
                                     <span id="usernameMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto">
                                     <label htmlFor="email" className="float-left me-5 mb-2 text-sm">Email Address</label><br />
-                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onInput={handleEmail}/>
+                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onChange={(event) => setUserEmail(event.target.value)}/>
                                     <span id="emailMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto">
                                     <label htmlFor="phone" className="float-left me-5 mb-2 text-sm">Phone Number</label><br />
-                                    <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" onInput={handlePhone} />
+                                    <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" onChange={(event) => setUserPhone(event.target.value)} />
                                     <span id="phoneMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto grid grid-cols-2 gap-x-2">
                                     <div><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
-                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onInput={handlePassword}/>
+                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onChange={(event) => setUserPassword(event.target.value)}/>
                                     </div>
                                     <div>
                                         <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
-                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onInput={handleConfirmPassword}/>
+                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onChange={(event) => setUserConfirmPassword(event.target.value)}/>
                                     </div>
                                     <span id="passMsg"></span>
                                 </div>

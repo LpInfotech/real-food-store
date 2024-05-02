@@ -5,9 +5,10 @@ export const ProductsProvider = ({ children }) => {
   const [productList, setProductList] = useState([]);
   const [cartList, setCartList] = useState([]);
   const [userList, setUserList] = useState([]);
+  const [trigger, setTrigger] = useState(0);
 
-  useEffect(() => {
-    // get product list from api
+  // get product list from api
+  const fetchProduct = () => {
     fetch("http://localhost:5000/product")
       .then((res) => {
         return res.json();
@@ -15,8 +16,10 @@ export const ProductsProvider = ({ children }) => {
       .then((data) => {
         setProductList(data);
       });
+  };
 
-    // get cart list from api
+  // get cart list from api
+  const fetchCart = () => {
     fetch("http://localhost:5000/cart")
       .then((res) => {
         return res.json();
@@ -24,7 +27,10 @@ export const ProductsProvider = ({ children }) => {
       .then((data) => {
         setCartList(data);
       });
-    // get users list from api
+  };
+
+  // get users list from api
+  const fetchUser = () => {
     fetch("http://localhost:5000/user")
       .then((res) => {
         return res.json();
@@ -32,13 +38,20 @@ export const ProductsProvider = ({ children }) => {
       .then((data) => {
         setUserList(data);
       });
-  }, []);
+  };
+
+  useEffect(() => {
+    fetchProduct();
+    fetchCart();
+    fetchUser();
+  }, [trigger]);
 
   const value = [
     {
       productList: productList,
       cartList: cartList,
       userList: userList,
+      trigger: setTrigger,
     },
   ];
 

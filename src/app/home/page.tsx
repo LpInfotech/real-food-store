@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeadset, faTruckFast, faRightLeft, faRankingStar } from "@fortawesome/free-solid-svg-icons";
 
 
-const Home = (data) => {
+const Landing = () => {
     const [productList] = useContext(ProductsContext);
     let bestSellerList = productList.productList.filter(
         (item) => item.productRating == 5
@@ -58,7 +58,7 @@ const Home = (data) => {
                     </div>
                 </div>
                 <div className="mt-10 flex justify-center">
-                    <a href="/" target="_blank"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black py-4 px-10 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">View All Products</button>
+                    <a href="/products" target="_blank"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black py-4 px-10 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">View All Products</button>
                     </a>
                 </div>
             </div>
@@ -109,4 +109,4 @@ const Home = (data) => {
     );
 };
 
-export default Home;
+export default Landing;

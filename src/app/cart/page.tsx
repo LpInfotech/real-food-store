@@ -1,12 +1,11 @@
 "use client";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Image from "next/image";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProductsContext } from "../context/GetProducts";
 
 const Cartlist = () => {
-
   const [items] = useContext(ProductsContext);
 
   // cart item UI
@@ -20,6 +19,7 @@ const Cartlist = () => {
   }) {
     const [purchaseQty, setPurchaseQty] = useState(qty);
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     // add quantity
     function addQty() {
       const url = "http://localhost:5000/cart/" + productId;
@@ -59,23 +59,18 @@ const Cartlist = () => {
     // delete modal
     function DeleteModal() {
       function removeFromCart() {
-        // const url = "http://localhost:5000/cart/" + productId;
-        // fetch(url, {
-        //   method: "DELETE",
-        // })
-        //   .then((res) => {
-        //     return res.json();
-        //   })
-        //   .then((data) => {
-        //     fetch("http://localhost:5000/cart")
-        //       .then((res) => {
-        //         return res.json();
-        //       })
-        //       .then((data) => {
-        //         setItems(data);
-        //       });
-        //     setIsModalOpen(false);
-        //   });
+        const url = "http://localhost:5000/cart/" + productId;
+        fetch(url, {
+          method: "DELETE",
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            items.trigger((prevTrigger) => prevTrigger + 1);
+            setIsModalOpen(false);
+            console.log(data);
+          });
       }
 
       return (

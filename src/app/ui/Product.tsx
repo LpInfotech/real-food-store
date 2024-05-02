@@ -57,6 +57,7 @@ const Product = ({
         })
         .then((data) => {
           setExists(true);
+          items.trigger((prevTrigger) => prevTrigger + 1);
         });
   }
 
