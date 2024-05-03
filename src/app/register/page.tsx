@@ -55,7 +55,7 @@ const Register = () => {
     };
     return (
         <div className="h-full flex">
-            <div className="sm:w-3/4 m-auto w-11/12 lg:w-2/3">
+            <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
                 <div className="lg:grid lg:grid-cols-2 shadow-2xl">
                     <div className="col-span-1 hidden lg:block bg-cover bg-[url(https://images.pexels.com/photos/7129160/pexels-photo-7129160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)]">
                     </div>
@@ -63,8 +63,8 @@ const Register = () => {
                         <div className="mx-auto">
                             <Link href="/">
                                 <img
-                                    src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
-                                    alt="brain-food-logo"
+                                    src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
+                                    alt="lp-grocery-logo"
                                     className="w-36" />
                             </Link>
                         </div>
@@ -72,26 +72,26 @@ const Register = () => {
                             <h1 className="text-2xl font-medium my-10">Create an account</h1>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3 w-3/4 m-auto">
-                                    <label htmlFor="username" className="float-left me-5 mb-2 text-sm">Username</label><br />
+                                    <label htmlFor="username" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Username</label><br />
                                     <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" onChange={(event) => setUserName(event.target.value)}/>
                                     <span id="usernameMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto">
-                                    <label htmlFor="email" className="float-left me-5 mb-2 text-sm">Email Address</label><br />
+                                    <label htmlFor="email" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Email Address</label><br />
                                     <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onChange={(event) => setUserEmail(event.target.value)}/>
                                     <span id="emailMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto">
-                                    <label htmlFor="phone" className="float-left me-5 mb-2 text-sm">Phone Number</label><br />
+                                    <label htmlFor="phone" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Phone Number</label><br />
                                     <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" onChange={(event) => setUserPhone(event.target.value)} />
                                     <span id="phoneMsg"></span>
                                 </div>
                                 <div className="mb-3 w-3/4 m-auto grid sm:grid-cols-2 gap-x-2">
-                                    <div className="mb-3 sm:mb-0"><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
+                                    <div className="mb-3 sm:mb-0"><label htmlFor="password" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Password</label><br />
                                         <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onChange={(event) => setUserPassword(event.target.value)}/>
                                     </div>
                                     <div className="">
-                                        <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
+                                        <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Confirm Password</label><br />
                                         <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onChange={(event) => setUserConfirmPassword(event.target.value)}/>
                                     </div>
                                     <span id="passMsg"></span>

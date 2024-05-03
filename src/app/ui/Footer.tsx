@@ -17,17 +17,10 @@ const Footer = () => {
     <footer className="bg-gray-100 mt-10 dark:bg-slate-800 dark:text-white">
       <div className="grid sm:grid-cols-4 mx-10 py-10 gap-y-8">
         <div className="col-span-1">
-          <Link href="/" className="dark:hidden md:flex items-end">
+          <Link href="/" className="md:flex items-end">
             <img
-              src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
-              alt="brain-food-logo"
-              className="md:w-36 w-24"
-            />
-          </Link>
-          <Link href="/" className="hidden dark:flex items-end">
-            <img
-              src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-reverse-1200px.png"
-              alt="brain-food-logo"
+              src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
+              alt="lp-grocery-logo"
               className="md:w-36 w-24"
             />
           </Link>
@@ -74,7 +67,7 @@ const Footer = () => {
         </div>
       </div>
       <div className='bg-white dark:bg-slate-800 dark:text-white py-3 text-black text-center mt-auto'>
-        © All rights reserved<span className='text-amber-800 mx-2 dark:text-orange-500'>Real Food Store</span>{new Date().getFullYear()}.
+        © All rights reserved<span className='text-amber-800 mx-2 dark:text-orange-500'>LP Grocery Store</span>{new Date().getFullYear()}.
       </div>
     </footer>
   );

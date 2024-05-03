@@ -57,7 +57,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
         <Link href="/" className="md:flex items-end">
           <img
           src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
-            alt="brain-food-logo"
+            alt="lp-grocery-logo"
             className="w-36 md:w-52 dark:invert"
           />
         </Link>

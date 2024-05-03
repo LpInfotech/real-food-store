@@ -26,7 +26,7 @@ const Login = () => {
   };
   return (
     <div className="h-full flex">
-      <div className="sm:w-3/4 m-auto w-11/12 lg:w-2/3">
+      <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
         <div className="lg:grid lg:grid-cols-2 shadow-2xl">
           <div className="col-span-1 hidden lg:block bg-cover bg-[url(https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]">
           </div>
@@ -34,8 +34,8 @@ const Login = () => {
             <div className="mx-auto">
               <Link href="/">
                 <img
-                  src="https://brainfoodstudio.com/wp-content/uploads/2018/07/brain-food-studio-logo-1200px.png"
-                  alt="brain-food-logo"
+                  src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
+                  alt="lp-grocery-logo"
                   className="w-36"
                 />
               </Link>

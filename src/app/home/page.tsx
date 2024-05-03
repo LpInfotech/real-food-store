@@ -66,7 +66,7 @@ const Landing = () => {
             {/* shop now section */}
             <div className="bg-gray-100 grid lg:grid-cols-2 dark:text-white dark:bg-gray-800">
                 <div className="col-span-1 h-full flex flex-col items-center justify-center py-5">
-                    <h2 className="sm:text-3xl text-center">Get Up To 15% Off <br /> <span className="sm:text-5xl text-2xl tracking-wider font-bold">Brain Food Studio</span></h2>
+                    <h2 className="sm:text-3xl text-center">Get Up To 15% Off <br /> <span className="sm:text-5xl text-2xl tracking-wider font-bold">LP Grocery Store</span></h2>
                     <h4 className="text-lg sm:my-5 my-2 font-medium text-gray-500">Highest Quality</h4>
                     <a href="/products" target="_blank"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">Shop Now</button>
                     </a>
