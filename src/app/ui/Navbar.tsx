@@ -17,7 +17,7 @@ import {
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { ProductsContext } from "../context/GetProducts";
-  
+
 const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
   const [cartItems] = useContext(ProductsContext);
 
@@ -56,14 +56,14 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
         {!searchIsOpen}
         <Link href="/" className="dark:hidden">
           <img
-          src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
+            src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
             alt="lp-grocery-logo"
             className="w-36 md:w-52"
           />
         </Link>
         <Link href="/" className="hidden dark:block">
           <img
-          src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
+            src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
             alt="lp-grocery-logo"
             className="w-36 md:w-52"
           />
@@ -113,83 +113,82 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
               </div>
             )}
           </div>
-          <Link href="#" className="relative dark:text-white">
-            <FontAwesomeIcon icon={faBell} size="lg" />
-            <span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
-              2
-            </span>
-          </Link>
-          <Link
-            href="/cart"
-            className="relative flex items-center border-l ps-6 dark:text-white"
-          >
-            <FontAwesomeIcon icon={faCartShopping} size="lg" />
-            <span className="flex items-center justify-center absolute -right-2 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
-              {cartItems.cartList.length}
-            </span>
-          </Link>
-          <div className="relative dark:text-white">
-            <Link
-              href="#"
-              onClick={toggleDropdown}
-              className="flex items-center border-l ps-6"
-            >
-              <FontAwesomeIcon icon={faUser} size="lg" />
-              <span className="ps-1">User</span>
+          <div className="flex divide-x *:px-3">
+            <Link href="#" className="relative dark:text-white">
+              <FontAwesomeIcon icon={faBell} size="lg" />
+              <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
+                2
+              </span>
             </Link>
-            <div
-              className={`dropdown-content absolute top-20 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
-                showDropdown ? "block" : "hidden"
-              }`}
-            >
-              <a href="#" className="hover:font-bold">
-                <FontAwesomeIcon icon={faCircleUser} />
-                <span className="ms-3">View Profile</span>
-              </a>
-              <a href="#" className="hover:font-bold">
-                <FontAwesomeIcon icon={faLock} />
-                <span className="ms-3">Change Password</span>
-              </a>
-              <a href="#" className="hover:font-bold">
-                <FontAwesomeIcon icon={faCircleQuestion} />
-                <span className="ms-3">Online Help</span>
-              </a>
-              <a href="#" className="hover:font-bold">
-                <FontAwesomeIcon icon={faRightFromBracket} />
-                <span className="ms-3">Logout</span>
-              </a>
+            <Link
+              href="/cart"
+              className="relative flex items-center dark:text-white">
+              <FontAwesomeIcon icon={faCartShopping} size="lg" />
+              <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
+                {cartItems.cartList.length}
+              </span>
+            </Link>
+            <div className="relative dark:text-white">
+              <Link
+                href="#"
+                onClick={toggleDropdown}
+                className="flex items-center"
+              >
+                <FontAwesomeIcon icon={faUser} size="lg" />
+                <span className="ps-1">User</span>
+              </Link>
+              <div
+                className={`dropdown-content absolute top-20 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? "block" : "hidden"
+                  }`}
+              >
+                <a href="#" className="hover:font-bold">
+                  <FontAwesomeIcon icon={faCircleUser} />
+                  <span className="ms-3">View Profile</span>
+                </a>
+                <a href="#" className="hover:font-bold">
+                  <FontAwesomeIcon icon={faLock} />
+                  <span className="ms-3">Change Password</span>
+                </a>
+                <a href="#" className="hover:font-bold">
+                  <FontAwesomeIcon icon={faCircleQuestion} />
+                  <span className="ms-3">Online Help</span>
+                </a>
+                <a href="#" className="hover:font-bold">
+                  <FontAwesomeIcon icon={faRightFromBracket} />
+                  <span className="ms-3">Logout</span>
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="relative dark:text-white">
-            <Link
-              href="#"
-              onClick={themeButton}
-              className="flex items-center border-l ps-6"
-            >
-              <FontAwesomeIcon icon={faCircleHalfStroke} />
-              <span className="ps-1">Theme</span>
-            </Link>
-            <div
-              className={`dropdown-content absolute top-20 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-28 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
-                showThemeDropdown ? "block" : "hidden"
-              }`}
-            >
-              <button
-                onClick={lightTheme}
-                type="button"
-                className="w-full hover:font-bold"
+            <div className="relative dark:text-white">
+              <Link
+                href="#"
+                onClick={themeButton}
+                className="flex items-center"
               >
-                <FontAwesomeIcon icon={faSun} />
-                <span className="ms-3">Light</span>
-              </button>
-              <button
-                onClick={darkTheme}
-                type="button"
-                className="w-full hover:font-bold hover:rounded-b-md hover:text-white hover:bg-gray-700"
+                <FontAwesomeIcon icon={faCircleHalfStroke} />
+                <span className="ps-1">Theme</span>
+              </Link>
+              <div
+                className={`dropdown-content absolute top-20 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-28 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showThemeDropdown ? "block" : "hidden"
+                  }`}
               >
-                <FontAwesomeIcon icon={faMoon} />
-                <span className="ms-3">Dark</span>
-              </button>
+                <button
+                  onClick={lightTheme}
+                  type="button"
+                  className="w-full hover:font-bold"
+                >
+                  <FontAwesomeIcon icon={faSun} />
+                  <span className="ms-3">Light</span>
+                </button>
+                <button
+                  onClick={darkTheme}
+                  type="button"
+                  className="w-full hover:font-bold hover:rounded-b-md hover:text-white hover:bg-gray-700"
+                >
+                  <FontAwesomeIcon icon={faMoon} />
+                  <span className="ms-3">Dark</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

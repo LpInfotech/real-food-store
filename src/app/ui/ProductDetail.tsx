@@ -62,13 +62,13 @@ const ProductDetail = ({
               ${originalPrice}
             </span>
           )}
-          <p className="text-xs text-gray-700 mb-10 dark:text-slate-100">
+          <p className="text-xs text-gray-700 sm:mb-10 mb-5 dark:text-slate-100">
             (inclusive of all taxes)
           </p>
           <h3 className="uppercase text-sm font-medium text-gray-700 mb-2 dark:text-white">
             Key Information
           </h3>
-          <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">
+          <p className="text-gray-700 sm:mb-10 text-sm dark:text-slate-100">
             {productDescription}
           </p>
           {/* <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Quantity</h3>
@@ -113,7 +113,7 @@ const ProductDetail = ({
         </div>
       </div>
       <div className="border-t border-gray-200 mt-8 pt-8 mb-4">
-        <div className="grid grid-cols-3 items-center">
+        <div className="sm:grid sm:grid-cols-3 items-center">
           <div className="col-span-2 ms-2 me-4">
             <h3 className="text-xl font-semibold mb-4 dark:text-white">
               Product Details

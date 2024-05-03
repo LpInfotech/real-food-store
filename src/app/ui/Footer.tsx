@@ -14,7 +14,8 @@ const Footer = () => {
     document.documentElement.classList.remove("dark");
   }
   return (
-    <footer className="bg-gray-100 mt-10 dark:bg-slate-800 dark:text-white">
+    <footer className="bg-gray-100 sm:mt-10 mt-5 dark:bg-slate-800 dark:text-white">
+      <hr />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 mx-10 py-10 gap-y-8">
         <div className="col-span-1">
           <Link href="/" className="dark:hidden">

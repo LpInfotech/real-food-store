@@ -4,6 +4,8 @@ import Image from "next/image";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProductsContext } from "../context/GetProducts";
+import Navbar from "../ui/Navbar";
+import Footer from "../ui/Footer";
 
 const Cartlist = () => {
   const [items] = useContext(ProductsContext);
@@ -158,10 +160,11 @@ const Cartlist = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold mb-4">Shopping Cart</h1>
-      <div className="bg-white shadow-md rounded my-6">
+    <Navbar />
+      <h1 className="text-3xl font-bold my-4 text-center">Shopping Cart</h1>
+      <div className="bg-white shadow-md my-6 w-11/12 mx-auto rounded-md">
         <table className="w-full table-auto">
-          <thead>
+          <thead className="bg-lime-600 h-16 text-white">
             <tr className="border-b text-left">
               <th className="py-2 px-4">Product</th>
               <th className="py-2 px-4">Price</th>
@@ -191,7 +194,7 @@ const Cartlist = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between mt-8">
+      <div className="flex justify-between mt-8 w-11/12 mx-auto">
         <a href="#" className="text-blue-500 hover:underline">
           Continue Shopping
         </a>
@@ -199,6 +202,7 @@ const Cartlist = () => {
           Checkout
         </button>
       </div>
+      <Footer />
     </>
   );
 };
