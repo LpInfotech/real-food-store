@@ -15,13 +15,20 @@ const Footer = () => {
   }
   return (
     <footer className="bg-gray-100 mt-10 dark:bg-slate-800 dark:text-white">
-      <div className="grid sm:grid-cols-4 mx-10 py-10 gap-y-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 mx-10 py-10 gap-y-8">
         <div className="col-span-1">
-          <Link href="/" className="md:flex items-end">
+          <Link href="/" className="dark:hidden">
             <img
               src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
               alt="lp-grocery-logo"
-              className="md:w-36 w-24"
+              className="md:w-52 w-36"
+            />
+          </Link>
+          <Link href="/" className="hidden dark:block">
+            <img
+              src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
+              alt="lp-grocery-logo"
+              className="md:w-52 w-36"
             />
           </Link>
           <h3 className="mt-5 text-sm font-light">Sophisticated simplicity for <br />the independent mind.</h3>
@@ -34,15 +41,25 @@ const Footer = () => {
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-medium">Quick Links</h3>
-          <ul className="sm:mt-5 mt-2 *:mb-3">
+          <ul className="sm:mt-5 mt-2 *:mb-1">
             <li className="hover:font-bold"><a href="/home">Homepage</a></li>
             <li className="hover:font-bold"><a href="/">Shop Now</a></li>
             <li className="hover:font-bold"><a href="/cart">Cart</a></li>
           </ul>
         </div>
         <div className="col-span-1">
+          <h3 className="text-2xl font-medium">Categories</h3>
+          <ul className="sm:mt-5 mt-2 *:mb-1">
+            <li className="hover:font-bold"><a href="">Beverages</a></li>
+            <li className="hover:font-bold"><a href="">Millets</a></li>
+            <li className="hover:font-bold"><a href="">Dairy</a></li>
+            <li className="hover:font-bold"><a href="">Sweet</a></li>
+            <li className="hover:font-bold"><a href="">Oil</a></li>
+          </ul>
+        </div>
+        <div className="col-span-1">
           <h3 className="text-2xl font-medium">Change Theme</h3>
-          <ul className="sm:mt-5 mt-2 *:mb-3">
+          <ul className="sm:mt-5 mt-2 *:mb-1">
             <li><button
               onClick={lightTheme}
               type="button"
@@ -58,12 +75,6 @@ const Footer = () => {
               <span className="ms-4">Dark</span></button>
             </li>
           </ul>
-        </div>
-        <div className="col-span-1">
-          <h3 className="text-2xl font-medium">Our Newletters</h3>
-          <p className="sm:my-5 my-2">Be the first who learns about our great promotions!</p>
-          <input type="text" className="py-2 px-2 sm:px-4 sm:w-full" placeholder="Enter your email..."/>
-          <button type="button" className="bg-black hover:bg-lime-500 text-white py-2 px-4 sm:mt-3 float-end">Subscribe</button>
         </div>
       </div>
       <div className='bg-white dark:bg-slate-800 dark:text-white py-3 text-black text-center mt-auto'>

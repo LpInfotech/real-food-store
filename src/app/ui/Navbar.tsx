@@ -54,11 +54,18 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
     <header>
       <nav className="relative py-4 md:px-20 px-5 flex justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
         {!searchIsOpen}
-        <Link href="/" className="md:flex items-end">
+        <Link href="/" className="dark:hidden">
           <img
           src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
             alt="lp-grocery-logo"
-            className="w-36 md:w-52 dark:invert"
+            className="w-36 md:w-52"
+          />
+        </Link>
+        <Link href="/" className="hidden dark:block">
+          <img
+          src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
+            alt="lp-grocery-logo"
+            className="w-36 md:w-52"
           />
         </Link>
         {/* added search bar */}

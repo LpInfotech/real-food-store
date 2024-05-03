@@ -301,6 +301,15 @@
       "sellingPrice": 100,
       "qty": 1,
       "stock": 2
+    },
+    {
+      "id": "11",
+      "key": "11",
+      "productImage": "https://www.bigbasket.com/media/uploads/p/l/40176778-3_7-tata-coffee-grand-filter-coffee.jpg?tr=w-1920,q=80",
+      "productName": "Coffee, 500g",
+      "sellingPrice": 50,
+      "qty": 1,
+      "stock": 50
     }
   ],
   "user": [
