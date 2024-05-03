@@ -69,7 +69,6 @@ const Cartlist = () => {
           .then((data) => {
             items.trigger((prevTrigger) => prevTrigger + 1);
             setIsModalOpen(false);
-            console.log(data);
           });
       }
 

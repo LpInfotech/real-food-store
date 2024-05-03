@@ -19,8 +19,6 @@ export default function Products({ filteredData, searchData }) {
 
   // filter data for search
   const filterData = (childData) => {
-    console.log(productList.productList);
-
     setNewData(
       productList.productList.filter((item) =>
         item.productName.toLowerCase().includes(childData)
