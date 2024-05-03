@@ -188,17 +188,17 @@ const Cartlist = () => {
               ))
             ) : (
               <tr>
-                <td>No products added to the cart!</td>
+                <td className="ps-4 py-8">No products added to the cart!</td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
       <div className="flex justify-between mt-8 w-11/12 mx-auto">
-        <a href="#" className="text-blue-500 hover:underline">
+        <a href="/products" className="text-lime-500 hover:underline">
           Continue Shopping
         </a>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded">
           Checkout
         </button>
       </div>
