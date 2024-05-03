@@ -55,11 +55,11 @@ const Register = () => {
     };
     return (
         <div className="h-full flex">
-            <div className="w-3/4 m-auto">
-                <div className="md:grid md:grid-cols-2 shadow-2xl ">
-                    <div className="col-span-1 hidden sm:block bg-cover bg-[url(https://images.pexels.com/photos/7129160/pexels-photo-7129160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)]">
+            <div className="sm:w-3/4 m-auto w-11/12 lg:w-2/3">
+                <div className="lg:grid lg:grid-cols-2 shadow-2xl">
+                    <div className="col-span-1 hidden lg:block bg-cover bg-[url(https://images.pexels.com/photos/7129160/pexels-photo-7129160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)]">
                     </div>
-                    <div className="bg-white col-span-1 flex flex-col justify-center py-20 md:py-8">
+                    <div className="bg-white col-span-1 flex flex-col justify-center py-8">
                         <div className="mx-auto">
                             <Link href="/">
                                 <img
@@ -86,11 +86,11 @@ const Register = () => {
                                     <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" onChange={(event) => setUserPhone(event.target.value)} />
                                     <span id="phoneMsg"></span>
                                 </div>
-                                <div className="mb-3 w-3/4 m-auto grid grid-cols-2 gap-x-2">
-                                    <div><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
+                                <div className="mb-3 w-3/4 m-auto grid sm:grid-cols-2 gap-x-2">
+                                    <div className="mb-3 sm:mb-0"><label htmlFor="password" className="float-left me-5 mb-2 text-sm">Password</label><br />
                                         <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onChange={(event) => setUserPassword(event.target.value)}/>
                                     </div>
-                                    <div>
+                                    <div className="">
                                         <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm">Confirm Password</label><br />
                                         <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onChange={(event) => setUserConfirmPassword(event.target.value)}/>
                                     </div>
@@ -102,7 +102,7 @@ const Register = () => {
                                         <label htmlFor="terms" className="ms-2 text-sm">I agree to terms and conditions</label>
                                     </div>
                                 </div>
-                                <button className="my-5 py-3 bg-black w-1/3 font-medium text-white" 
+                                <button className="my-5 py-3 bg-black w-1/3 font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500" 
                                 type="submit"
                                 disabled={userName && userEmail && userPhone && userPassword && userConfirmPassword ? false : true}
                                 >Register</button>
