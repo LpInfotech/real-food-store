@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import Image from "next/image";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProductsContext } from "../context/GetProducts";
 import Navbar from "../ui/Navbar";
@@ -80,19 +80,22 @@ const Cartlist = () => {
             isModalOpen ? "" : "hidden"
           }`}
         >
-          <div className="bg-white p-8 rounded shadow-md">
-            <p className="text-lg font-bold mb-4">
-              Are you sure you want to delete this item?
+          <div className="bg-white p-8 rounded-md shadow-md">
+            <button type="button" className="text-gray-500 float-end" onClick={() => setIsModalOpen(false)}><FontAwesomeIcon icon={faXmark} size="xl" /></button>
+            <div className="flex justify-center border-4 border-red-600 border-spacing-2 w-fit m-auto px-4 py-3 rounded-full text-2xl my-5 text-red-600"><FontAwesomeIcon icon={faXmark} size="xl" /></div>
+            <p className="text-3xl mb-10 px-8 text-center">
+              Are you sure?
             </p>
-            <div className="flex justify-end">
+            <p className="capitalize mb-5 text-base px-5">do you really want to delete this item?</p>
+            <div className="flex justify-end px-8 mb-5">
               <button
-                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mr-4"
+                className="bg-white border hover:bg-gray-400 shadow-md text-gray-800 font-bold py-2 px-4 rounded mr-4"
                 onClick={() => setIsModalOpen(false)}
               >
                 Cancel
               </button>
               <button
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                className="bg-red-500 hover:bg-red-600 shadow-md text-white font-bold py-2 px-4 rounded"
                 onClick={removeFromCart}
               >
                 Confirm Delete
@@ -104,9 +107,9 @@ const Cartlist = () => {
     }
 
     return (
-      <tr className="border-b">
-        <td className="py-2 px-4">
-          <div className="flex items-center">
+      <tr className="border-b odd:bg-gray-100 even:bg-white">
+        <td className="py-2 md:px-4 px-2">
+          <div className="flex flex-col md:flex-row items-center md:ps-12 text-center">
             <Image
               className="h-12 w-12 object-cover rounded"
               src={productImage}
@@ -114,25 +117,25 @@ const Cartlist = () => {
               height={400}
               alt="product image"
             />
-            <span className="font-medium ml-4">{productName}</span>
+            <span className="font-medium md:ml-4">{productName}</span>
           </div>
         </td>
-        <td className="py-2 px-4">${sellingPrice}</td>
-        <td className="py-2 px-4">
-          <div className="flex items-center my-4">
-            <button onClick={removeQty} disabled={purchaseQty === 0}>
+        <td className="py-2 md:px-4 px-2">${sellingPrice}</td>
+        <td className="py-2 md:px-4 px-2">
+          <div className={`flex items-center my-4 w-fit py-2 rounded-md ${purchaseQty === 0 ? 'bg-white' : 'bg-lime-600'} border ${purchaseQty === 0 ? 'text-black' : 'text-white'}`}>
+            <button onClick={removeQty} disabled={purchaseQty === 0} className="md:w-10 w-5">
               <FontAwesomeIcon icon={faMinus} />
             </button>
-            <span className="w-16 text-center py-1 border mx-2">
+            <span className="md:w-10 text-center w-5">
               {purchaseQty}
             </span>
-            <button onClick={addQty} disabled={purchaseQty === stock}>
+            <button onClick={addQty} disabled={purchaseQty === stock} className="md:w-10 w-5">
               <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
         </td>
-        <td className="py-2 px-4">${purchaseQty * sellingPrice}</td>
-        <td className="py-2 px-4">
+        <td className="py-2 md:px-4 px-2">${purchaseQty * sellingPrice}</td>
+        <td className="py-2 md:px-4 px-2">
           <button
             className="text-red-500 hover:text-red-700 focus:outline-none"
             onClick={() => setIsModalOpen(true)}
@@ -161,16 +164,16 @@ const Cartlist = () => {
   return (
     <>
     <Navbar />
-      <h1 className="text-3xl font-bold my-4 text-center">Shopping Cart</h1>
-      <div className="bg-white shadow-md my-6 w-11/12 mx-auto rounded-md">
+      <h1 className="text-2xl font-bold my-4 text-center">My Shopping Cart</h1>
+      <div className="bg-white shadow-md my-6 md:w-11/12 mx-auto rounded-md">
         <table className="w-full table-auto">
           <thead className="bg-lime-600 h-16 text-white">
-            <tr className="border-b text-left">
-              <th className="py-2 px-4">Product</th>
-              <th className="py-2 px-4">Price</th>
-              <th className="py-2 px-4">Quantity</th>
-              <th className="py-2 px-4">Total</th>
-              <th className="py-2 px-4"></th>
+            <tr className="border-b text-left md:text-xl *:py-5">
+              <th className="md:ps-16 ps-4">Product</th>
+              <th className="md:px-4">Price</th>
+              <th className="md:px-4">Quantity</th>
+              <th className="md:px-4">Total</th>
+              <th className="md:px-4"></th>
             </tr>
           </thead>
           <tbody>
@@ -195,10 +198,10 @@ const Cartlist = () => {
         </table>
       </div>
       <div className="flex justify-between mt-8 w-11/12 mx-auto">
-        <a href="/products" className="text-lime-500 hover:underline">
+        <a href="/products" target="_blank" className="text-lime-500 hover:underline">
           Continue Shopping
         </a>
-        <button className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded">
           Checkout
         </button>
       </div>

@@ -44,7 +44,7 @@ const Footer = () => {
           <h3 className="text-2xl font-medium">Quick Links</h3>
           <ul className="sm:mt-5 mt-2 *:mb-1">
             <li className="hover:font-bold"><a href="/home">Homepage</a></li>
-            <li className="hover:font-bold"><a href="/">Shop Now</a></li>
+            <li className="hover:font-bold"><a href="/products">Shop Now</a></li>
             <li className="hover:font-bold"><a href="/cart">Cart</a></li>
           </ul>
         </div>
