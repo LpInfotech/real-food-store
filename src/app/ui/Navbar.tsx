@@ -13,6 +13,7 @@ import {
   faSun,
   faMoon,
   faCircleHalfStroke,
+  faBars,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
@@ -50,9 +51,14 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
     document.documentElement.classList.remove("dark");
   }
 
+  let menu = document.getElementById('menu');
+  function toggleButton() {
+    menu.classList.toggle('hidden');
+  }
+
   return (
     <header>
-      <nav className="relative py-4 md:px-20 px-5 flex justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
+      <nav className="relative py-4 md:px-20 px-5 flex flex-wrap justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
         {!searchIsOpen}
         <Link href="/" className="dark:hidden">
           <img
@@ -68,6 +74,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
             className="w-36 md:w-52"
           />
         </Link>
+        <button type="button" className="md:hidden justify-end" onClick={toggleButton}><FontAwesomeIcon icon={faBars} /></button>
         {/* added search bar */}
         {isSearch && (
           <div className="border w-1/3 hidden md:block relative rounded-lg">
@@ -113,21 +120,23 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
               </div>
             )}
           </div>
-          <div className="flex divide-x *:px-3">
-            <Link href="#" className="relative dark:text-white">
+          <div className="md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-3 hidden absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 px-4 py-2 rounded-md shadow-lg md:shadow-none" id="menu">
+            <div className="dark:text-white divide-x *:px-3">
+              <Link href="#" className="relative">
               <FontAwesomeIcon icon={faBell} size="lg" />
               <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
                 2
               </span>
             </Link>
-            <Link
-              href="/cart"
-              className="relative flex items-center dark:text-white">
-              <FontAwesomeIcon icon={faCartShopping} size="lg" />
-              <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
-                {cartItems.cartList.length}
-              </span>
-            </Link>
+              <Link
+                href="/cart"
+                className="relative">
+                <FontAwesomeIcon icon={faCartShopping} size="lg" />
+                <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
+                  {cartItems.cartList.length}
+                </span>
+              </Link>
+            </div>
             <div className="relative dark:text-white">
               <Link
                 href="#"
@@ -138,7 +147,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
                 <span className="ps-1">User</span>
               </Link>
               <div
-                className={`dropdown-content absolute top-20 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? "block" : "hidden"
+                className={`dropdown-content absolute md:top-20 md:-right-2 -right-6 top-10 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? "block" : "hidden"
                   }`}
               >
                 <a href="#" className="hover:font-bold">
@@ -169,7 +178,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
                 <span className="ps-1">Theme</span>
               </Link>
               <div
-                className={`dropdown-content absolute top-20 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-28 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showThemeDropdown ? "block" : "hidden"
+                className={`dropdown-content absolute md:top-20 top-12 -right-2 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-28 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showThemeDropdown ? "block" : "hidden"
                   }`}
               >
                 <button

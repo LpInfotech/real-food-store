@@ -17,16 +17,16 @@ const Landing = () => {
         <div className='bg-white dark:bg-gray-950  text-black scroll-smooth'>
             <Navbar />
             {/* hero section */}
-            <div className="relative h-[80vh] grid sm:grid-cols-2 items-center bg-center bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
+            <div className="relative md:h-[80vh] grid sm:grid-cols-2 items-center bg-center bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
                 <div className="col-span-1 sm:ps-20">
                     <div className="px-3 sm:px-0 text-center sm:text-start">
-                    <p className="text-xl font-medium tracking-wider mb-6">Quality always comes first</p>
+                    <p className="text-xl font-medium tracking-wider mb-6 mt-5">Quality always comes first</p>
                     <h1 className="sm:text-8xl text-5xl font-medium uppercase tracking-wide">Fresh Fruit</h1>
                     <h2 className="text-xl font-medium py-3 sm:mb-12 mb-5">Fruit is a good choice every day for us</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 md:flex justify-center md:justify-start gap-x-5 gap-y-3">
                         <a href="#service"><button type="button" className="bg-black text-white py-4 px-10 font-medium hover:bg-red-600">Read More</button></a>
-                        <a href="/products" target="_blank"><button type="button" className="bg-white py-4 px-10 font-medium hover:bg-red-600 hover:text-white">Shop Now</button></a>
+                        <a href="/products" target="_blank"><button type="button" className="bg-white py-4 px-10 mb-5 font-medium hover:bg-red-600 hover:text-white">Shop Now</button></a>
                     </div>
                 </div>
             </div>
