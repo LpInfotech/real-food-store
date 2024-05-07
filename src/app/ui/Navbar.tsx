@@ -51,30 +51,32 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
     document.documentElement.classList.remove("dark");
   }
 
-  let menu = document.getElementById('menu');
+  const [menuHidden, setMenuHidden] = useState(true);
+
   function toggleButton() {
-    menu.classList.toggle('hidden');
+    setMenuHidden(!menuHidden);
   }
 
   return (
     <header>
-      <nav className="relative py-4 md:px-20 px-5 flex flex-wrap justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
+      <nav className="relative py-4 md:px-20 px-5 flex justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
         {!searchIsOpen}
-        <Link href="/" className="dark:hidden">
-          <img
-            src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
-            alt="lp-grocery-logo"
-            className="w-36 md:w-52"
-          />
-        </Link>
-        <Link href="/" className="hidden dark:block">
-          <img
-            src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
-            alt="lp-grocery-logo"
-            className="w-36 md:w-52"
-          />
-        </Link>
-        <button type="button" className="md:hidden justify-end" onClick={toggleButton}><FontAwesomeIcon icon={faBars} /></button>
+        <div className={`${searchIsOpen ? 'hidden' : 'block'}`}>
+          <Link href="/" className="dark:hidden">
+            <img
+              src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
+              alt="lp-grocery-logo"
+              className="w-36 md:w-52"
+            />
+          </Link>
+          <Link href="/" className="hidden dark:block">
+            <img
+              src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
+              alt="lp-grocery-logo"
+              className="w-36 md:w-52"
+            />
+          </Link>
+        </div>
         {/* added search bar */}
         {isSearch && (
           <div className="border w-1/3 hidden md:block relative rounded-lg">
@@ -95,39 +97,42 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
         )}
 
         {/* added search bar */}
-        <div className="flex justify-end md:justify-center items-center w-full md:w-auto gap-x-6">
+        <div className="flex justify-end md:justify-center items-center md:w-auto gap-x-6">
           <div className="md:hidden">
-            {isSearch && (
-              <FontAwesomeIcon
-                onClick={search}
-                className="dark:text-white"
-                icon={searchIsOpen ? faXmark : faSearch}
-                width="20"
-              />
-            )}
-            {searchIsOpen && isSearch && (
-              <div className="max-w-md mx-auto w-full md:hidden">
-                <div className="relative w-full rounded-lg  bg-white overflow-hidden">
-                  <input
-                    className="w-full outline-none text-sm bg-white text-gray-700 px-2"
-                    type="text"
-                    id="search"
-                    placeholder="Search something.."
-                    value={searchTerm}
-                    onInput={handleInputChange}
-                  />
+            <div className="flex items-center h-10">
+              {isSearch && (
+                <FontAwesomeIcon
+                  onClick={search}
+                  className="dark:text-white"
+                  icon={searchIsOpen ? faXmark : faSearch}
+                  width="20"
+                />
+              )}
+              {searchIsOpen && isSearch && (
+                <div className="max-w-md mx-auto w-full md:hidden">
+                  <div className="relative w-full rounded-lg bg-white overflow-hidden">
+                    <input
+                      className="w-full outline-none text-sm bg-white text-gray-700 px-2"
+                      type="text"
+                      id="search"
+                      placeholder="Search something.."
+                      value={searchTerm}
+                      onInput={handleInputChange}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
-          <div className="md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-3 hidden absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 px-4 py-2 rounded-md shadow-lg md:shadow-none" id="menu">
-            <div className="dark:text-white divide-x *:px-3">
+          <button type="button" className="md:hidden justify-end" onClick={toggleButton}><FontAwesomeIcon icon={faBars} /></button>
+          <div className={`md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-3 absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 py-2 px-4 md:px-0 md:py-2 rounded-md shadow-lg md:shadow-none ${menuHidden ? 'hidden': ''}`}>
+            <div className="dark:text-white divide-x *:px-3 flex">
               <Link href="#" className="relative">
-              <FontAwesomeIcon icon={faBell} size="lg" />
-              <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
-                2
-              </span>
-            </Link>
+                <FontAwesomeIcon icon={faBell} size="lg" />
+                <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
+                  2
+                </span>
+              </Link>
               <Link
                 href="/cart"
                 className="relative">

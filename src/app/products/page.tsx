@@ -29,10 +29,21 @@ export default function Products({ filteredData, searchData }) {
   // pass filtered data to the page component
   filteredData = newData;
 
+  function toggleFilter() {
+    let filter = document.getElementById("filter");
+    if(filter.classList.contains('-translate-x-full')){
+      filter.classList.remove('-translate-x-full');
+    }else
+    {
+      filter.classList.add('-translate-x-full') 
+    }
+  }
+
   return (
     <main className="flex flex-col h-full">
       <Navbar sendDataToParent={handleDataFromChild} isSearch={true} />
       <div className="container mx-auto">
+        <button type="button" onClick={toggleFilter} className="float-end md:hidden bg-white border border-gray-500 px-3 mx-5 rounded-full mt-3 hover:bg-lime-500 hover:text-white hover:border-white">Filter</button>
         <Page filterData={filteredData} searchItem={searchData} />{" "}
       </div>
       <Footer />

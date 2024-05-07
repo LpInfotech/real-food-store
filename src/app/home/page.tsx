@@ -14,7 +14,7 @@ const Landing = () => {
         (item) => item.productRating == 5
     );
     return (
-        <div className='bg-white dark:bg-gray-950  text-black scroll-smooth'>
+        <div className='bg-white dark:bg-gray-950  text-black'>
             <Navbar />
             {/* hero section */}
             <div className="relative md:h-[80vh] grid sm:grid-cols-2 items-center bg-center bg-cover bg-[url('https://fruityflavor-store-demo.myshopify.com/cdn/shop/files/1.jpg?v=1623471846')]">
