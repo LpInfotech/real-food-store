@@ -19,7 +19,7 @@ const Register = () => {
         phone: userPhone,
         password: userPassword,
         confirmPassword: userConfirmPassword,
-      };
+    };
 
     //   get values on form submission
     const handleSubmit = (event) => {
@@ -56,61 +56,62 @@ const Register = () => {
     return (
         <div className="h-full flex">
             <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
-                <div className="lg:grid lg:grid-cols-2 shadow-2xl">
+                <div className="lg:grid lg:grid-cols-2 shadow-lg">
                     <div className="col-span-1 hidden lg:block bg-cover bg-[url(https://images.pexels.com/photos/7129160/pexels-photo-7129160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)]">
                     </div>
-                    <div className="bg-white col-span-1 flex flex-col justify-center py-8">
-                        <div className="mx-auto">
-                            <Link href="/">
-                                <img
-                                    src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
-                                    alt="lp-grocery-logo"
-                                    className="w-36" />
-                            </Link>
-                        </div>
-                        <div className="text-center">
-                            <h1 className="text-2xl font-medium my-10">Create an account</h1>
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-3 w-3/4 m-auto">
-                                    <label htmlFor="username" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Username</label><br />
-                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" onChange={(event) => setUserName(event.target.value)}/>
+                    <div className="bg-white col-span-1 ">
+                        <form onSubmit={handleSubmit} className="py-10 px-5 md:px-10 text-center">
+                            <div className="flex justify-center">
+                                <Link href="/">
+                                    <img
+                                        src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
+                                        alt="lp-grocery-logo"
+                                        className="w-36" />
+                                </Link>
+                            </div>
+                            <h1 className="text-2xl font-medium my-5">Create an account</h1>
+                            <div className="grid gap-5">
+                                <div className="space-y-2">
+                                    <label htmlFor="username" className="float-left text-sm lg:text-xs xl:text-sm">Username</label>
+                                    <input type="text" id="username" className="p-3 w-full bg-gray-100" placeholder="Username" onChange={(event) => setUserName(event.target.value)} />
                                     <span id="usernameMsg"></span>
                                 </div>
-                                <div className="mb-3 w-3/4 m-auto">
-                                    <label htmlFor="email" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Email Address</label><br />
-                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onChange={(event) => setUserEmail(event.target.value)}/>
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="float-left text-sm lg:text-xs xl:text-sm">Email Address</label>
+                                    <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onChange={(event) => setUserEmail(event.target.value)} />
                                     <span id="emailMsg"></span>
                                 </div>
-                                <div className="mb-3 w-3/4 m-auto">
-                                    <label htmlFor="phone" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Phone Number</label><br />
+                                <div className="space-y-2">
+                                    <label htmlFor="phone" className="float-left text-sm lg:text-xs xl:text-sm">Phone Number</label>
                                     <input type="tel" id="phone" className="p-3 w-full bg-gray-100" placeholder="Phone Number" onChange={(event) => setUserPhone(event.target.value)} />
                                     <span id="phoneMsg"></span>
                                 </div>
-                                <div className="mb-3 w-3/4 m-auto grid sm:grid-cols-2 gap-x-2">
-                                    <div className="mb-3 sm:mb-0"><label htmlFor="password" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Password</label><br />
-                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onChange={(event) => setUserPassword(event.target.value)}/>
+                                <div className="grid sm:grid-cols-2 gap-x-2">
+                                    <div className="space-y-2">
+                                        <label htmlFor="password" className="float-left text-sm lg:text-xs xl:text-sm">Password</label>
+                                        <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onChange={(event) => setUserPassword(event.target.value)} />
                                     </div>
-                                    <div className="">
-                                        <label htmlFor="confirmPassword" className="float-left me-5 mb-2 text-sm lg:text-xs xl:text-sm">Confirm Password</label><br />
-                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onChange={(event) => setUserConfirmPassword(event.target.value)}/>
+                                    <div className="space-y-2">
+                                        <label htmlFor="confirmPassword" className="float-left text-sm lg:text-xs xl:text-sm">Confirm Password</label>
+                                        <input type="password" id="confirmPassword" className="p-3 w-full bg-gray-100" placeholder="Confirm Password" onChange={(event) => setUserConfirmPassword(event.target.value)} />
                                     </div>
                                     <span id="passMsg"></span>
                                 </div>
-                                <div className="w-3/4 m-auto mb-7">
-                                    <div className="text-start flex">
+                                <div className="">
+                                    <div className="flex">
                                         <input type="checkbox" id="terms" name="terms" />
                                         <label htmlFor="terms" className="ms-2 text-sm">I agree to terms and conditions</label>
                                     </div>
                                 </div>
-                                <button className="my-5 py-3 bg-black w-1/3 font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500" 
-                                type="submit"
-                                disabled={userName && userEmail && userPhone && userPassword && userConfirmPassword ? false : true}
+                                <button className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
+                                    type="submit"
+                                    disabled={userName && userEmail && userPhone && userPassword && userConfirmPassword ? false : true}
                                 >Register</button>
                                 <div>
                                     Already have an account? <a href="/login"><span className="hover:text-lime-500 text-lime-700 font-bold"><br />Login Now!</span></a>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

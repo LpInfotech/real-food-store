@@ -25,8 +25,12 @@ const Landing = () => {
                     <h2 className="text-xl font-medium py-3 sm:mb-12 mb-5">Fruit is a good choice every day for us</h2>
                     </div>
                     <div className="grid sm:grid-cols-2 md:flex justify-center md:justify-start gap-x-5 gap-y-3">
-                        <a href="#service"><button type="button" className="bg-black text-white py-4 px-10 font-medium hover:bg-red-600">Read More</button></a>
-                        <a href="/products" target="_blank"><button type="button" className="bg-white py-4 px-10 mb-5 font-medium hover:bg-red-600 hover:text-white">Shop Now</button></a>
+                        <a href="#service">
+                            <button type="button" className="bg-black text-white py-4 px-10 font-medium hover:bg-lime-600">Read More</button>
+                            </a>
+                        <a href="/products" target="_blank">
+                            <button type="button" className="bg-white py-4 px-10 mb-5 font-medium hover:bg-lime-600 hover:text-white">Shop Now</button>
+                            </a>
                     </div>
                 </div>
             </div>

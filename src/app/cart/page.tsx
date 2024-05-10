@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import Image from "next/image";
-import { faMinus, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProductsContext } from "../context/GetProducts";
 import Navbar from "../ui/Navbar";
@@ -76,11 +76,9 @@ const Cartlist = () => {
 
       return (
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${
-            isModalOpen ? "" : "hidden"
-          }`}
-        >
-          <div className="bg-white p-8 rounded-md shadow-md">
+          className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${isModalOpen ? "" : "hidden"
+            }`}>
+          <div className="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-md shadow-md">
             <button type="button" className="text-gray-500 float-end" onClick={() => setIsModalOpen(false)}><FontAwesomeIcon icon={faXmark} size="xl" /></button>
             <div className="flex justify-center border-4 border-red-600 border-spacing-2 w-fit m-auto px-4 py-3 rounded-full text-2xl my-5 text-red-600"><FontAwesomeIcon icon={faXmark} size="xl" /></div>
             <p className="text-3xl mb-10 px-8 text-center">
@@ -107,7 +105,7 @@ const Cartlist = () => {
     }
 
     return (
-      <tr className="border-b odd:bg-gray-100 even:bg-white">
+      <tr className="border-b dark:border-none odd:bg-gray-100 even:bg-white dark:even:bg-slate-700 dark:text-white dark:odd:bg-slate-500">
         <td className="py-2 md:px-4 px-2">
           <div className="flex flex-col md:flex-row items-center md:ps-12 text-center">
             <Image
@@ -120,27 +118,28 @@ const Cartlist = () => {
             <span className="font-medium md:ml-4">{productName}</span>
           </div>
         </td>
-        <td className="py-2 md:px-4 px-2">${sellingPrice}</td>
-        <td className="py-2 md:px-4 px-2">
-          <div className={`flex items-center my-4 w-fit py-2 rounded-md ${purchaseQty === 0 ? 'bg-white' : 'bg-lime-600'} border ${purchaseQty === 0 ? 'text-black' : 'text-white'}`}>
-            <button onClick={removeQty} disabled={purchaseQty === 0} className="md:w-10 w-5">
+        <td className="py-2 px-4">${sellingPrice}</td>
+        <td className="py-2 px-4">
+          <div className={`flex items-center my-4 w-fit py-2 rounded-md ${purchaseQty === 0 ? 'bg-white' : 'bg-lime-600'} border dark:border-none ${purchaseQty === 0 ? 'text-black' : 'text-white'}`}>
+            <button onClick={removeQty} disabled={purchaseQty === 0} className="md:w-10 w-8">
               <FontAwesomeIcon icon={faMinus} />
             </button>
-            <span className="md:w-10 text-center w-5">
+            <span className="md:w-10 text-center w-8">
               {purchaseQty}
             </span>
-            <button onClick={addQty} disabled={purchaseQty === stock} className="md:w-10 w-5">
+            <button onClick={addQty} disabled={purchaseQty === stock} className="md:w-10 w-8">
               <FontAwesomeIcon icon={faPlus} />
             </button>
           </div>
         </td>
-        <td className="py-2 md:px-4 px-2">${purchaseQty * sellingPrice}</td>
-        <td className="py-2 md:px-4 px-2">
+        <td className="py-2 px-4">${purchaseQty * sellingPrice}</td>
+        <td className="py-2 px-4">
           <button
             className="text-red-500 hover:text-red-700 focus:outline-none"
             onClick={() => setIsModalOpen(true)}
           >
-            <svg
+            <FontAwesomeIcon icon={faTrashCan} size="lg" />
+            {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
               fill="none"
@@ -153,7 +152,7 @@ const Cartlist = () => {
                 strokeWidth="2"
                 d="M6 18L18 6M6 6l12 12"
               />
-            </svg>
+            </svg> */}
           </button>
           <DeleteModal />
         </td>
@@ -163,17 +162,17 @@ const Cartlist = () => {
 
   return (
     <>
-    <Navbar />
-      <h1 className="text-2xl font-bold my-4 text-center">My Shopping Cart</h1>
-      <div className="bg-white shadow-md my-6 md:w-11/12 mx-auto rounded-md">
+      <Navbar />
+      <h1 className="my-4 text-center uppercase text-xl md:text-2xl font-medium text-lime-600">My Shopping Cart</h1>
+      <div className="bg-white shadow-lg md:w-11/12 mx-auto overflow-x-auto">
         <table className="w-full table-auto">
           <thead className="bg-lime-600 h-16 text-white">
             <tr className="border-b text-left md:text-xl *:py-5">
               <th className="md:ps-16 ps-4">Product</th>
-              <th className="md:px-4">Price</th>
-              <th className="md:px-4">Quantity</th>
-              <th className="md:px-4">Total</th>
-              <th className="md:px-4"></th>
+              <th className="px-4">Price</th>
+              <th className="px-4">Quantity</th>
+              <th className="px-4">Total</th>
+              <th className="px-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -197,13 +196,13 @@ const Cartlist = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between mt-8 w-11/12 mx-auto">
-        <a href="/products" target="_blank" className="text-lime-500 hover:underline">
-          Continue Shopping
+      <div className="flex justify-between items-center mt-8 w-11/12 mx-auto">
+        <a href="/products" target="_blank">
+          <button type="button" className="text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
         </a>
-        <button className="bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded">
-          Checkout
-        </button>
+        <a href="/checkout">
+          <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Checkout</button>
+        </a>
       </div>
       <Footer />
     </>
