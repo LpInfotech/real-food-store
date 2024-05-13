@@ -167,7 +167,7 @@ const Checkout = () => {
                 <Navbar />
                 <div className="flex justify-end w-11/12 mx-auto items-center my-10">
                     <a href="/cart" >
-                    <button type="button" className="bg-white dark:bg-gray-300 text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Edit Cart</button>
+                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Edit Cart</button>
                     </a>
                 </div>
                 <div className="my-6 w-11/12 mx-auto md:grid md:grid-cols-3">
@@ -316,7 +316,7 @@ const Checkout = () => {
                 </div>
                 <div className="flex items-center justify-between mt-8 w-11/12 mx-auto">
                     <a href="/products" target="_blank" className="">
-                    <button type="button" className="bg-white dark:bg-gray-300 text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
+                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
                     </a>
                     <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Place Order</button>
                 </div>

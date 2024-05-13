@@ -59,14 +59,22 @@ const Register = () => {
                 <div className="lg:grid lg:grid-cols-2 shadow-lg">
                     <div className="col-span-1 hidden lg:block bg-cover bg-[url(https://images.pexels.com/photos/7129160/pexels-photo-7129160.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)]">
                     </div>
-                    <div className="bg-white col-span-1 ">
+                    <div className="bg-white col-span-1 dark:bg-slate-800 dark:text-white">
                         <form onSubmit={handleSubmit} className="py-10 px-5 md:px-10 text-center">
                             <div className="flex justify-center">
-                                <Link href="/">
+                                <Link href="/" className="dark:hidden">
                                     <img
                                         src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
                                         alt="lp-grocery-logo"
-                                        className="w-36" />
+                                        className="w-36 md:w-52"
+                                    />
+                                </Link>
+                                <Link href="/" className="hidden dark:block">
+                                    <img
+                                        src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
+                                        alt="lp-grocery-logo"
+                                        className="w-36 md:w-52"
+                                    />
                                 </Link>
                             </div>
                             <h1 className="text-2xl font-medium my-5">Create an account</h1>
