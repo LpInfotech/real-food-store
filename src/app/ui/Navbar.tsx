@@ -58,8 +58,8 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
   }
 
   return (
-    <header>
-      <nav className="relative py-4 md:px-20 px-5 flex justify-between items-center shadow shadow-slate-300 bg-white dark:bg-slate-800">
+    <header className="shadow shadow-slate-300 bg-white dark:bg-slate-800">
+      <nav className="relative py-4 w-11/12 mx-auto flex justify-between items-center ">
         {!searchIsOpen}
         <div className={`${searchIsOpen ? 'hidden' : 'block'}`}>
           <Link href="/" className="dark:hidden">
@@ -79,7 +79,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
         </div>
         {/* added search bar */}
         {isSearch && (
-          <div className="border w-1/3 hidden md:block relative rounded-lg">
+          <div className="border w-1/3 hidden md:block relative rounded-lg mx-3">
             <FontAwesomeIcon
               icon={faSearch}
               width={15}
@@ -124,9 +124,11 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
               )}
             </div>
           </div>
-          <button type="button" className="md:hidden justify-end" onClick={toggleButton}><FontAwesomeIcon icon={faBars} /></button>
-          <div className={`md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-3 absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 py-2 px-4 md:px-0 md:py-2 rounded-md shadow-lg md:shadow-none ${menuHidden ? 'hidden': ''}`}>
-            <div className="dark:text-white divide-x *:px-3 flex">
+          <button type="button" className="md:hidden justify-end" onClick={toggleButton}>
+            <FontAwesomeIcon icon={faBars} className="dark:text-white"/>
+            </button>
+          <div className={`md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-1 lg:*:px-3 absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 py-2 px-4 md:px-0 md:py-2 rounded-md shadow-lg md:shadow-none ${menuHidden ? 'hidden': ''}`}>
+            <div className="md:dark:text-white divide-x *:px-2 md:*:px-3 flex">
               <Link href="#" className="relative">
                 <FontAwesomeIcon icon={faBell} size="lg" />
                 <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
@@ -142,7 +144,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
                 </span>
               </Link>
             </div>
-            <div className="relative dark:text-white">
+            <div className="relative md:dark:text-white">
               <Link
                 href="#"
                 onClick={toggleDropdown}
@@ -173,7 +175,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
                 </a>
               </div>
             </div>
-            <div className="relative dark:text-white">
+            <div className="relative md:dark:text-white">
               <Link
                 href="#"
                 onClick={themeButton}

@@ -16,7 +16,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 sm:mt-10 mt-5 dark:bg-slate-800 dark:text-white">
       <hr />
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 mx-10 py-10 gap-y-8">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 w-11/12 mx-auto py-10 gap-y-8">
         <div className="col-span-1">
           <Link href="/" className="dark:hidden">
             <img
@@ -78,7 +78,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className='bg-white dark:bg-slate-800 dark:text-white py-3 text-black text-center mt-auto'>
+      <div className='bg-white dark:bg-slate-800 dark:text-white py-3 text-black text-center'>
         © All rights reserved<span className='text-amber-800 mx-2 dark:text-orange-500'>LP Grocery Store</span>{new Date().getFullYear()}.
       </div>
     </footer>

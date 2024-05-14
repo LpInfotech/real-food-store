@@ -47,7 +47,7 @@ const Login = () => {
                   />
                 </Link>
               </div>
-              <h1 className="mt-10 text-2xl font-medium mb-1">Welcome Back!</h1>
+              <h1 className="mt-10 text-2xl font-medium mb-2">Welcome Back!</h1>
               <h6 className="mb-8">Login to your account in seconds</h6>
               <div className="grid gap-5">
                 <div className="space-y-2">
@@ -73,7 +73,7 @@ const Login = () => {
                 </button>
                 <div>
                   Don't have an account?{" "}
-                  <a href="/register" target="_blank">
+                  <a href="/register">
                     <span className="hover:text-lime-500 text-lime-700 font-bold">
                       <br />
                       Create Account
