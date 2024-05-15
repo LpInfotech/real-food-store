@@ -11,12 +11,17 @@ const Filter = () => {
         setCategoryList(data);
       });
   }, []);
+  // rating stars
+  // let rating = [];
+  // for (var i = 1; i <= productRating; i++) {
+  //   rating.push(<span key={i}>⭐️</span>);
+  // }
 
   return (
     <>
       {/* filter by category */}
       <div className="w-full py-4 border-b">
-        <h2 className="text-md font-semibold mb-4">Filter by Category</h2>
+        <h3 className="text-md font-semibold mb-4">Filter by Category</h3>
         <ul className="space-y-2">
           {categoryList &&
             categoryList.map((item) => (
@@ -35,7 +40,7 @@ const Filter = () => {
 
       {/* filter by price */}
       <div className="w-full py-4 border-b">
-        <h2 className="text-md font-semibold mb-4">Filter by Price</h2>
+        <h3 className="text-md font-semibold mb-4">Filter by Price</h3>
         <div>
           <input type="range" min="0" max="100" step="1" className="w-full" />
         </div>
@@ -43,7 +48,7 @@ const Filter = () => {
 
       {/* filter by brand */}
       <div className="w-full py-4 border-b">
-        <h2 className="text-md font-semibold mb-4">Filter by Brand</h2>
+        <h3 className="text-md font-semibold mb-4">Filter by Brand</h3>
         <ul className="space-y-2">
           {categoryList &&
             categoryList.map((item) => (
@@ -62,8 +67,17 @@ const Filter = () => {
 
       {/* filter by rating */}
       <div className="w-full py-4 border-b">
-        <h2 className="text-md font-semibold mb-4">Filter by Rating</h2>
+        <h3 className="text-md font-semibold mb-4">Filter by Rating</h3>
         <ul className="space-y-2">
+          {/* <li>
+            <label className="inline-flex items-center">
+              <input
+                type="checkbox"
+                className="form-checkbox h-4 w-4 text-indigo-600"
+              />
+              <span className="ml-2" data-id='1'>{rating}</span>
+            </label>
+          </li> */}
           <li>
             <label className="inline-flex items-center">
               <input
@@ -123,7 +137,7 @@ const Filter = () => {
 
       {/* filter by size */}
       <div className="w-full py-4">
-        <h2 className="text-md font-semibold mb-4">Filter by Size</h2>
+        <h3 className="text-md font-semibold mb-4">Filter by Size</h3>
         <ul className="space-y-2">
           <li>
             <label className="inline-flex items-center">

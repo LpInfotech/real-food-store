@@ -16,7 +16,7 @@ const Page = ({ params }: { params: { id: string } }) => {
   return (
     <main className="flex flex-col h-full">
       <Navbar />
-      <div className="container mx-auto p-5 xl:p-10">
+      <div className="container mx-auto py-5 xl:py-10">
         {productDetail.map((product) => (
           <ProductDetail
             key={product.id}

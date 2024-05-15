@@ -15,7 +15,7 @@ const Page = (data) => {
     );
   }
   return (
-    <div className="flex md:flex-row flex-col gap-x-4 my-10 relative">
+    <div className="flex pt-3 gap-x-4 my-10 relative">
       <div id="filter" className="md:w-1/4 xl:w-1/5 w-full p-4 absolute md:relative bg-white border-gray-200 duration-500 -translate-x-full md:translate-x-0 z-10 rounded-lg shadow dark:bg-slate-800 dark:text-white">
         <Filter />
       </div>

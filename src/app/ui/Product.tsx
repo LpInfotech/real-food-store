@@ -68,7 +68,7 @@ const Product = ({
   }
 
   return (
-    <div className="w-[90vw] mx-auto sm:w-full max-w-sm bg-white dark:bg-slate-700 dark:text-white border border-gray-200 dark:border-slate-600 rounded-lg shadow hover:scale-105 transition hover:shadow-md group">
+    <div className="mx-auto sm:w-full max-w-sm bg-white dark:bg-slate-700 dark:text-white border border-gray-200 dark:border-slate-600 rounded-lg shadow hover:scale-105 transition hover:shadow-md group">
       <Link href={`/products/product/${productId}`}>
         <Image
           className="sm:p-4 p-8 w-full bg-slate-300 dark:bg-slate-800"

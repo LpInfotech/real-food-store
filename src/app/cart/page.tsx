@@ -78,7 +78,7 @@ const Cartlist = () => {
         <div
           className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${isModalOpen ? "" : "hidden"
             }`}>
-          <div className="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-md shadow-md">
+          <div className="bg-white dark:bg-slate-800 dark:text-white p-4 sm:p-8 rounded-md shadow-md">
             <button type="button" className="text-gray-500 float-end" onClick={() => setIsModalOpen(false)}><FontAwesomeIcon icon={faXmark} size="xl" /></button>
             <div className="flex justify-center border-4 border-red-600 border-spacing-2 w-fit m-auto px-4 py-3 rounded-full text-2xl my-5 text-red-600"><FontAwesomeIcon icon={faXmark} size="xl" /></div>
             <p className="text-3xl mb-10 px-8 text-center">
@@ -190,18 +190,18 @@ const Cartlist = () => {
               ))
             ) : (
               <tr>
-                <td className="ps-4 py-8">No products added to the cart!</td>
+                <td colSpan={4} className="ps-4 py-8">No products added to the cart!</td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between items-center mt-8 w-11/12 mx-auto">
-        <a href="/products" target="_blank">
-          <button type="button" className="text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
+      <div className="flex justify-between items-center mt-8 sm:w-11/12 sm:mx-auto mx-2">
+        <a href="/products">
+          <button type="button" className="text-lime-600 sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
         </a>
         <a href="/checkout">
-          <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Checkout</button>
+          <button type="button" className="bg-lime-600 text-white sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-700">Checkout</button>
         </a>
       </div>
       <Footer />

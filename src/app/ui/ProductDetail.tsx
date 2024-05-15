@@ -29,7 +29,7 @@ const ProductDetail = ({
   }
 
   return (
-    <div className="max-w-screen-lg mx-auto bg-slate-50 dark:bg-slate-800 shadow-md rounded-lg overflow-hidden px-4 py-8 cursor-pointer">
+    <div className="max-w-screen-lg mx-auto bg-slate-50 dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden p-4 sm:p-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="relative">
           <Image
@@ -42,7 +42,7 @@ const ProductDetail = ({
           />
         </div>
         <div>
-          <p className="text-xs mb-2 text-orange-400">{category}</p>
+          <p className="text-xs mb-2 dark:text-white">{category}</p>
           <h2 className="text-2xl font-semibold mb-4 dark:text-white">
             {productName}
           </h2>
@@ -51,7 +51,7 @@ const ProductDetail = ({
           </p>
 
           <p className="mt-3 mb-5">{rating}</p>
-          <h3 className="uppercase text-sm font-medium mt-3 text-gray-700 dark:text-white">
+          <h3 className="uppercase text-sm font-medium text-gray-700 dark:text-white">
             Price
           </h3>
           <span className="text-lime-500 text-2xl font-semibold me-2">
@@ -68,7 +68,7 @@ const ProductDetail = ({
           <h3 className="uppercase text-sm font-medium text-gray-700 mb-2 dark:text-white">
             Key Information
           </h3>
-          <p className="text-gray-700 sm:mb-10 text-sm dark:text-slate-100">
+          <p className="text-gray-700 text-sm dark:text-slate-100">
             {productDescription}
           </p>
           {/* <h3 className="uppercase text-sm font-medium text-gray-700 mb-2">Quantity</h3>
@@ -112,10 +112,10 @@ const ProductDetail = ({
           )} */}
         </div>
       </div>
-      <div className="border-t border-gray-200 mt-8 pt-8 mb-4">
+      <div className="border-t border-gray-200 mt-8 pt-8 mb-5 sm:mb-0">
         <div className="sm:grid sm:grid-cols-3 items-center">
           <div className="col-span-2 ms-2 me-4">
-            <h3 className="text-xl font-semibold mb-4 dark:text-white">
+            <h3 className="text-xl font-semibold mb-4 dark:text-white uppercase">
               Product Details
             </h3>
             <p className="text-gray-700 mb-10 text-sm dark:text-slate-100">
@@ -123,13 +123,13 @@ const ProductDetail = ({
             </p>
           </div>
           <div className="col-span-1 bg-gray-200 ps-4 pe-2 py-5 rounded-lg shadow me-2 h-fit">
-            <h3 className="text-xl font-semibold mb-4">Ingredients</h3>
+            <h3 className="text-xl font-semibold mb-4 uppercase">Ingredients</h3>
             <p className="text-gray-700 text-sm">{productIngredients}</p>
           </div>
         </div>
       </div>
       <hr />
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 ms-2 me-4 mt-10 dark:text-white">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 ms-2 sm:mt-10 mt-5 dark:text-white">
         <li>
           <span className="font-semibold">Brand: </span>
           {brand}

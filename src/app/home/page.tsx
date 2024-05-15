@@ -57,7 +57,7 @@ const Landing = () => {
                         ))}
                     </div>
                 </div>
-                <div className="mt-10 flex justify-center">
+                <div className="sm:mt-10 mt-5 flex justify-center">
                     <a href="/products"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">View All Products</button>
                     </a>
                 </div>
