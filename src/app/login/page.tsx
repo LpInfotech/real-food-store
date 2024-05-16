@@ -8,7 +8,10 @@ const Login = () => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userList] = useContext(ProductsContext);
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [alertText, setAlertText] = useState("");
   const router = useRouter();
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   //   get values on form submission
   const handleSubmit = (event) => {
@@ -19,18 +22,33 @@ const Login = () => {
     );
 
     if (existingUser != undefined) {
-      router.push("/home");
+      setAlertText("Login successfull!");
+      setTimeout(() => {
+        router.push("/home");
+      }, 1000);
     } else {
-      alert("This email address doesn't exist. Register with us!");
+      setAlertText("This email address doesn't exist.");
+      setTimeout(() => {
+        setAlertText("");
+      }, 2000);
     }
   };
   return (
     <div className="h-full flex">
       <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
+        {alertText.length > 0 && (
+          <span className="bg-lime-500 text-white absolute top-5 right-5 p-5">
+            {alertText}
+          </span>
+        )}
         <div className="lg:grid lg:grid-cols-2 shadow-lg">
           <div className="col-span-1 hidden lg:block bg-cover bg-[url(https://images.unsplash.com/photo-1628102491629-778571d893a3?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)]"></div>
           <div className="bg-white col-span-1 dark:bg-slate-800 dark:text-white">
-            <form onSubmit={handleSubmit} className="py-10 px-5 md:px-10 text-center">
+            <form
+              noValidate
+              onSubmit={handleSubmit}
+              className="py-10 px-5 md:px-10 text-center"
+            >
               <div className="flex justify-center">
                 <Link href="/" className="dark:hidden">
                   <img
@@ -51,13 +69,44 @@ const Login = () => {
               <h6 className="mb-8">Login to your account in seconds</h6>
               <div className="grid gap-5">
                 <div className="space-y-2">
-                  <label htmlFor="email" className="float-left text-sm lg:text-xs xl:text-sm">Email Address</label>
-                  <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address" onChange={(event) => setUserEmail(event.target.value)} />
-                  <span id="emailMsg"></span>
+                  <label
+                    htmlFor="email"
+                    className="float-left text-sm lg:text-xs xl:text-sm"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="p-3 w-full bg-gray-100"
+                    placeholder="Email Address"
+                    onChange={(event) => {
+                      setUserEmail(event.target.value);
+                      setIsValidEmail(emailRegex.test(userEmail));
+                    }}
+                  />
+                  {!isValidEmail && userEmail ? (
+                    <span>Please enter a valid email address</span>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="password" className="float-left text-sm lg:text-xs xl:text-sm">Password</label>
-                  <input type="password" id="password" className="p-3 w-full bg-gray-100" placeholder="Password" onChange={(event) => setUserPassword(event.target.value)} />
+                  <label
+                    htmlFor="password"
+                    className="float-left text-sm lg:text-xs xl:text-sm"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="p-3 w-full bg-gray-100"
+                    placeholder="Password"
+                    onChange={(event) => {
+                      setUserPassword(event.target.value);
+                    }}
+                  />
                   <span id="passMsg"></span>
                 </div>
                 <div className="space-y-2">
@@ -67,9 +116,14 @@ const Login = () => {
                     </a>
                   </div>
                 </div>
-                <button className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
+                <button
+                  className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
                   type="submit"
-                  disabled={userEmail && userPassword ? false : true}>Login
+                  disabled={
+                    userEmail && userPassword && isValidEmail ? false : true
+                  }
+                >
+                  Login
                 </button>
                 <div>
                   Don't have an account?{" "}
@@ -85,7 +139,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 
