@@ -85,10 +85,8 @@ const Login = () => {
                       setIsValidEmail(emailRegex.test(userEmail));
                     }}
                   />
-                  {!isValidEmail && userEmail ? (
+                  {!isValidEmail && userEmail && (
                     <span>Please enter a valid email address</span>
-                  ) : (
-                    ""
                   )}
                 </div>
                 <div className="space-y-2">
