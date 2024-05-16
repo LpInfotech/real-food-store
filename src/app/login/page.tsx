@@ -9,11 +9,11 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState("");
   const [userList] = useContext(ProductsContext);
   const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPass, setIsValidPass] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
   const [alertText, setAlertText] = useState("");
   const router = useRouter();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
+  const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
   //   get values on form submission
   const handleSubmit = (event) => {
@@ -67,8 +67,12 @@ const Login = () => {
                   />
                 </Link>
               </div>
-              <h1 className="mt-10 text-2xl font-medium mb-2 text-center">Welcome Back!</h1>
-              <h6 className="mb-8 text-center">Login to your account in seconds</h6>
+              <h1 className="mt-10 text-2xl font-medium mb-2 text-center">
+                Welcome Back!
+              </h1>
+              <h6 className="mb-8 text-center">
+                Login to your account in seconds
+              </h6>
               <div className="grid gap-5">
                 <div className="space-y-2">
                   <label
@@ -88,7 +92,9 @@ const Login = () => {
                     }}
                   />
                   {!isValidEmail && userEmail && (
-                    <span className="text-red-500 text-sm">Please enter a valid email address</span>
+                    <span className="text-red-500 text-sm">
+                      Please enter a valid email address
+                    </span>
                   )}
                 </div>
                 <div className="space-y-2">
@@ -105,11 +111,14 @@ const Login = () => {
                     placeholder="Password"
                     onChange={(event) => {
                       setUserPassword(event.target.value);
-                      setIsValidPass(passRegex.test(userPassword));
+                      setIsValidPassword(passwordRegex.test(userPassword));
                     }}
                   />
-                  {!isValidPass && userPassword && (
-                    <span className="text-red-500 text-sm">Password must contain minimum 8 characters, 1 captial letter, 1 lowercase letter and 1 number</span>
+                  {!isValidPassword && userPassword && (
+                    <span className="text-red-500 text-sm">
+                      Password must contain min 8 characters, 1 number, 1
+                      uppercase, 1 lowercase letter
+                    </span>
                   )}
                 </div>
                 <div className="space-y-2">
@@ -123,7 +132,9 @@ const Login = () => {
                   className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
                   type="submit"
                   disabled={
-                    userEmail && userPassword && isValidEmail ? false : true
+                    userEmail && userPassword && isValidEmail && isValidPassword
+                      ? false
+                      : true
                   }
                 >
                   Login
