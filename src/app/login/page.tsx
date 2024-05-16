@@ -9,9 +9,11 @@ const Login = () => {
   const [userPassword, setUserPassword] = useState("");
   const [userList] = useContext(ProductsContext);
   const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPass, setIsValidPass] = useState(false);
   const [alertText, setAlertText] = useState("");
   const router = useRouter();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const passRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
   //   get values on form submission
   const handleSubmit = (event) => {
@@ -47,7 +49,7 @@ const Login = () => {
             <form
               noValidate
               onSubmit={handleSubmit}
-              className="py-10 px-5 md:px-10 text-center"
+              className="py-10 px-5 md:px-10"
             >
               <div className="flex justify-center">
                 <Link href="/" className="dark:hidden">
@@ -65,13 +67,13 @@ const Login = () => {
                   />
                 </Link>
               </div>
-              <h1 className="mt-10 text-2xl font-medium mb-2">Welcome Back!</h1>
-              <h6 className="mb-8">Login to your account in seconds</h6>
+              <h1 className="mt-10 text-2xl font-medium mb-2 text-center">Welcome Back!</h1>
+              <h6 className="mb-8 text-center">Login to your account in seconds</h6>
               <div className="grid gap-5">
                 <div className="space-y-2">
                   <label
                     htmlFor="email"
-                    className="float-left text-sm lg:text-xs xl:text-sm"
+                    className="text-sm lg:text-xs xl:text-sm"
                   >
                     Email Address
                   </label>
@@ -86,13 +88,13 @@ const Login = () => {
                     }}
                   />
                   {!isValidEmail && userEmail && (
-                    <span>Please enter a valid email address</span>
+                    <span className="text-red-500 text-sm">Please enter a valid email address</span>
                   )}
                 </div>
                 <div className="space-y-2">
                   <label
                     htmlFor="password"
-                    className="float-left text-sm lg:text-xs xl:text-sm"
+                    className="text-sm lg:text-xs xl:text-sm"
                   >
                     Password
                   </label>
@@ -103,9 +105,12 @@ const Login = () => {
                     placeholder="Password"
                     onChange={(event) => {
                       setUserPassword(event.target.value);
+                      setIsValidPass(passRegex.test(userPassword));
                     }}
                   />
-                  <span id="passMsg"></span>
+                  {!isValidPass && userPassword && (
+                    <span className="text-red-500 text-sm">Password must contain minimum 8 characters, 1 captial letter, 1 lowercase letter and 1 number</span>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <div className="text-end text-sm lg:text-xs xl:text-sm">
@@ -123,7 +128,7 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <div>
+                <div className="text-center">
                   Don't have an account?{" "}
                   <a href="/register">
                     <span className="hover:text-lime-500 text-lime-700 font-bold">
