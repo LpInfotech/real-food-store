@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../context/GetProducts";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Login = () => {
   const [userEmail, setUserEmail] = useState("");
@@ -10,10 +12,16 @@ const Login = () => {
   const [userList] = useContext(ProductsContext);
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
+  const [isPassVisible, setIsPassVisible] = useState(false);
   const [alertText, setAlertText] = useState("");
   const router = useRouter();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
+
+  //toggle show password
+  const toggle = () =>{
+    setIsPassVisible(!isPassVisible);
+  }
 
   //   get values on form submission
   const handleSubmit = (event) => {
@@ -104,8 +112,9 @@ const Login = () => {
                   >
                     Password
                   </label>
+                  <div className="relative">
                   <input
-                    type="password"
+                    type={!isPassVisible ? "password" : "text"}
                     id="password"
                     className="p-3 w-full bg-gray-100"
                     placeholder="Password"
@@ -114,6 +123,8 @@ const Login = () => {
                       setIsValidPassword(passwordRegex.test(userPassword));
                     }}
                   />
+                  <button type="button" onClick={toggle} className="absolute right-4 bottom-3"><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash } /></button>
+                  </div>
                   {!isValidPassword && userPassword && (
                     <span className="text-red-500 text-sm">
                       Password must contain min 8 characters, 1 number, 1
@@ -123,7 +134,7 @@ const Login = () => {
                 </div>
                 <div className="space-y-2">
                   <div className="text-end text-sm lg:text-xs xl:text-sm">
-                    <a href="#" className="text-lime-600">
+                    <a href="/forgot-password" className="text-lime-600">
                       Forgot Password?
                     </a>
                   </div>

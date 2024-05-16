@@ -11,10 +11,12 @@ const Filter = () => {
         setCategoryList(data);
       });
   }, []);
-  // rating stars
-  // let rating = [];
-  // for (var i = 1; i <= productRating; i++) {
-  //   rating.push(<span key={i}>⭐️</span>);
+  // // rating stars
+  // let rating = 5;
+  // for (let i = rating; i >= 1; i--) {
+  //   let str = "⭐️";
+  //   console.log(str.repeat(i));
+  //   rating.(str.repeat(i));
   // }
 
   return (
@@ -69,15 +71,6 @@ const Filter = () => {
       <div className="w-full py-4 border-b">
         <h3 className="text-md font-semibold mb-4">Filter by Rating</h3>
         <ul className="space-y-2">
-          {/* <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2" data-id='1'>{rating}</span>
-            </label>
-          </li> */}
           <li>
             <label className="inline-flex items-center">
               <input
