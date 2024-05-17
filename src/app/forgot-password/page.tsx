@@ -72,10 +72,10 @@ const ForgotPassword = () => {
                             <h1 className="mt-10 text-2xl font-medium mb-2 text-center">Forgot your Password?</h1>
                             
                             <div className="h-12 sm:h-8">{!userEmail &&
-                                <p className="text-sm lg:text-xs text-center">Enter your Email and we'll send you a link to reset your password.</p>
+                                <p className="text-sm text-center">Enter your Email and we'll send you a link to reset your password.</p>
                             }</div>
                             <div className="grid gap-5">
-                                <div className="space-y-2">
+                                <div>
                                     <label htmlFor="email" className="text-sm lg:text-xs xl:text-sm">Email Address</label>
                                     <input type="email" id="email" className="p-3 w-full bg-gray-100" placeholder="Email Address"
                                         onChange={(event) => {
@@ -84,7 +84,7 @@ const ForgotPassword = () => {
                                         }} />
                                     <div className="h-5">
                                         {!isValidEmail && userEmail && (
-                                            <span className="text-red-500 text-sm">
+                                            <span className="text-red-500 text-xs">
                                                 Please enter a valid email address
                                             </span>
                                         )}
@@ -92,7 +92,7 @@ const ForgotPassword = () => {
                                 </div>
                                 <button className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
                                     type="submit"
-                                    disabled={userEmail ? false : true}>Submit
+                                    disabled={userEmail && isValidEmail ? false : true}>Submit
                                 </button>
                                 <div className="text-center">
                                     <a href="/" className="hover:text-lime-500 text-lime-700 font-bold">

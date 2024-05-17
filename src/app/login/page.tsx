@@ -89,7 +89,7 @@ const Login = () => {
               <h6 className="mb-8 text-center">
                 Login to your account in seconds
               </h6>
-              <div className="grid gap-y-3">
+              <div className="grid">
                 <div>
                   <label
                     htmlFor="email"
@@ -109,7 +109,7 @@ const Login = () => {
                   />
                   <div className="h-5">
                     {!isValidEmail && userEmail && (
-                      <span className="text-red-500 text-sm">
+                      <span className="text-red-500 text-xs">
                         Please enter a valid email address
                       </span>
                     )}
@@ -140,14 +140,14 @@ const Login = () => {
                           : true
                       }><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash} /></button>
                   </div>
-                  <div className="h-10">{!isValidPassword && userPassword && (
-                    <span className="text-red-500 text-sm">
+                  <div className="h-5">{!isValidPassword && userPassword && (
+                    <span className="text-red-500 text-xs">
                       Password must contain min 8 characters, 1 number, 1
                       uppercase, 1 lowercase letter
                     </span>
                   )}</div>
                 </div>
-                <div className="text-end text-sm lg:text-xs xl:text-sm">
+                <div className="text-end text-sm lg:text-xs xl:text-sm mb-5">
                   <a href="/forgot-password" className="text-lime-600">
                     Forgot Password?
                   </a>
@@ -163,7 +163,7 @@ const Login = () => {
                 >
                   Login
                 </button>
-                <div className="text-center">
+                <div className="text-center mt-5">
                   Don't have an account?{" "}
                   <a href="/register">
                     <span className="hover:text-lime-500 text-lime-700 font-bold">

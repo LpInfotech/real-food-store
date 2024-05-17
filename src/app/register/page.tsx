@@ -124,7 +124,7 @@ const Register = () => {
                 </Link>
               </div>
               <h1 className="text-2xl font-medium my-5 text-center">Create an account</h1>
-              <div className="grid gap-y-3">
+              <div className="grid">
                 <div>
                   <label
                     htmlFor="username"
@@ -141,7 +141,7 @@ const Register = () => {
                   />
                   <div className="h-5">
                     {userName.length < 2 && userName.length > 0 && (
-                      <span className="text-red-500 text-sm">Min length is 2</span>
+                      <span className="text-red-500 text-xs">Min length is 2</span>
                     )}
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const Register = () => {
                   />
                   <div className="h-5">
                     {!isValidEmail && userEmail && (
-                      <span className="text-red-500 text-sm">Please enter a valid email address</span>
+                      <span className="text-red-500 text-xs">Please enter a valid email address</span>
                     )}</div>
                 </div>
                 <div>
@@ -190,7 +190,7 @@ const Register = () => {
                   />
                   <div className="h-5">
                     {userPhone.length != 10 && userPhone.length > 0 && (
-                      <span className="text-red-500 text-sm">Phone number must be of 10 digits</span>
+                      <span className="text-red-500 text-xs">Phone number must be of 10 digits</span>
                     )}</div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-x-2">
@@ -248,7 +248,7 @@ const Register = () => {
                   </div>
                   <div className="col-span-2 h-10">
                     {!isValidPassword && userPassword && (
-                      <span className="text-red-500 text-sm">
+                      <span className="text-red-500 text-xs">
                         Password must contain min 8 characters, 1 number, 1
                         uppercase, 1 lowercase letter
                       </span>
@@ -272,7 +272,7 @@ const Register = () => {
                 >
                   Register
                 </button>
-                <div className="text-center">
+                <div className="text-center mt-5">
                   Already have an account?{" "}
                   <a href="/login">
                     <span className="hover:text-lime-500 text-lime-700 font-bold">

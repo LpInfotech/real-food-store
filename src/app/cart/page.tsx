@@ -163,7 +163,7 @@ const Cartlist = () => {
   return (
     <>
       <Navbar />
-      <h1 className="my-4 text-center uppercase text-xl md:text-2xl font-medium text-lime-600">My Shopping Cart</h1>
+      <h1 className="mb-5 mt-10 text-center uppercase text-xl md:text-2xl font-medium text-lime-600">My Shopping Cart</h1>
       <div className="bg-white shadow-lg md:w-11/12 mx-auto overflow-x-auto">
         <table className="w-full table-auto">
           <thead className="bg-lime-600 h-16 text-white">
