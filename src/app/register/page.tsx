@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../context/GetProducts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faCircleCheck, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Register = () => {
   const [userName, setUserName] = useState("");
@@ -17,14 +17,19 @@ const Register = () => {
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const [alertText, setAlertText] = useState("");
+  const [isConfirmPassVisible, setIsConfirmPassVisible] = useState(false);
+  const [alertSuccess, setAlertSuccess] = useState("");
+  const [alertError, setAlertError] = useState("");
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
   const phoneRegex = /^[0-9\b]+$/;
 
   //toggle show password
-  const toggle = () => {
+  const togglePassword = () => {
     setIsPassVisible(!isPassVisible);
+  }
+  const toggleConfirmPassword = () => {
+    setIsConfirmPassVisible(!isConfirmPassVisible);
   }
 
   const router = useRouter();
@@ -40,7 +45,7 @@ const Register = () => {
   //   clear the alert text
   function clearText() {
     setTimeout(() => {
-      setAlertText("");
+      setAlertError("");
     }, 2000);
   }
 
@@ -65,27 +70,34 @@ const Register = () => {
             return res.json();
           })
           .then((data) => {
-            setAlertText("Registered successfully!");
+            setAlertSuccess("Registered successfully!");
             userList.trigger((prevTrigger) => prevTrigger + 1);
             setTimeout(() => {
               router.push("/login");
             }, 1000);
           });
       } else {
-        setAlertText("This email address already exists.");
+        setAlertError("This email address already exists.");
         clearText();
       }
     } else {
-      setAlertText("Passwords doesn't match.");
+      setAlertError("Password and Confirm Password doesn't match.");
       clearText();
     }
   };
   return (
     <div className="h-full flex">
       <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
-        {alertText.length > 0 && (
-          <span className="bg-lime-500 text-white absolute top-5 right-5 p-5">
-            {alertText}
+        {alertSuccess.length > 0 && (
+          <span className="bg-lime-50 border border-lime-500 rounded text-lime-600 absolute top-5 right-5 p-5">
+            <span className="me-2"><FontAwesomeIcon icon={faCircleCheck} size="xl" /></span>
+            {alertSuccess}
+          </span>
+        )}
+        {alertError.length > 0 && (
+          <span className="bg-red-200 border border-red-700 rounded text-red-700 absolute top-5 right-5 p-5">
+            <span className="me-2"><FontAwesomeIcon icon={faBan} size="xl" /></span>
+            {alertError}
           </span>
         )}
         <div className="lg:grid lg:grid-cols-2 shadow-lg">
@@ -112,8 +124,8 @@ const Register = () => {
                 </Link>
               </div>
               <h1 className="text-2xl font-medium my-5 text-center">Create an account</h1>
-              <div className="grid gap-5">
-                <div className="space-y-2">
+              <div className="grid gap-y-3">
+                <div>
                   <label
                     htmlFor="username"
                     className="text-sm lg:text-xs xl:text-sm"
@@ -127,11 +139,13 @@ const Register = () => {
                     placeholder="Username"
                     onChange={(event) => setUserName(event.target.value)}
                   />
-                  {userName.length < 2 && userName.length > 0 && (
-                    <span className="text-red-500 text-sm">Min length is 2</span>
-                  )}
+                  <div className="h-5">
+                    {userName.length < 2 && userName.length > 0 && (
+                      <span className="text-red-500 text-sm">Min length is 2</span>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-2">
+                <div>
                   <label
                     htmlFor="email"
                     className="text-sm lg:text-xs xl:text-sm"
@@ -148,11 +162,12 @@ const Register = () => {
                       setIsValidEmail(emailRegex.test(userEmail));
                     }}
                   />
-                  {!isValidEmail && userEmail && (
-                    <span className="text-red-500 text-sm">Please enter a valid email address</span>
-                  )}
+                  <div className="h-5">
+                    {!isValidEmail && userEmail && (
+                      <span className="text-red-500 text-sm">Please enter a valid email address</span>
+                    )}</div>
                 </div>
-                <div className="space-y-2">
+                <div>
                   <label
                     htmlFor="phone"
                     className="text-sm lg:text-xs xl:text-sm"
@@ -173,12 +188,13 @@ const Register = () => {
                       setUserPhone(inputValue)
                     }}
                   />
-                  {userPhone.length != 10 && userPhone.length > 0 && (
-                    <span className="text-red-500 text-sm">Phone number must be of 10 digits</span>
-                  )}
+                  <div className="h-5">
+                    {userPhone.length != 10 && userPhone.length > 0 && (
+                      <span className="text-red-500 text-sm">Phone number must be of 10 digits</span>
+                    )}</div>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-x-2">
-                  <div className="space-y-2">
+                  <div>
                     <label
                       htmlFor="password"
                       className="text-sm lg:text-xs xl:text-sm"
@@ -196,10 +212,15 @@ const Register = () => {
                           setIsValidPassword(passwordRegex.test(userPassword));
                         }}
                       />
-                      <button type="button" onClick={toggle} className="absolute right-4 bottom-3"><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash} /></button>
+                      <button type="button" onClick={togglePassword} className="absolute right-4 bottom-3 togglePassword"
+                        disabled={
+                          userPassword
+                            ? false
+                            : true
+                        }><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash} /></button>
                     </div>
                   </div>
-                  <div className="space-y-2">
+                  <div>
                     <label
                       htmlFor="confirmPassword"
                       className="text-sm lg:text-xs xl:text-sm"
@@ -208,7 +229,7 @@ const Register = () => {
                     </label>
                     <div className="relative">
                       <input
-                        type={!isPassVisible ? "password" : "text"}
+                        type={!isConfirmPassVisible ? "password" : "text"}
                         id="confirmPassword"
                         className="p-3 w-full bg-gray-100"
                         placeholder="Confirm Password"
@@ -216,11 +237,16 @@ const Register = () => {
                           setUserConfirmPassword(event.target.value);
                         }}
                       />
-                      <button type="button" onClick={toggle} className="absolute right-4 bottom-3"><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash} /></button>
+                      <button type="button" onClick={toggleConfirmPassword} className="absolute right-4 bottom-3 togglePassword"
+                        disabled={
+                          userConfirmPassword
+                            ? false
+                            : true
+                        }><FontAwesomeIcon icon={!isConfirmPassVisible ? faEye : faEyeSlash} /></button>
 
                     </div>
                   </div>
-                  <div className="col-span-2">
+                  <div className="col-span-2 h-10">
                     {!isValidPassword && userPassword && (
                       <span className="text-red-500 text-sm">
                         Password must contain min 8 characters, 1 number, 1

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../context/GetProducts";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faBan, faCircleCheck, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Login = () => {
@@ -13,13 +13,14 @@ const Login = () => {
   const [isValidEmail, setIsValidEmail] = useState(false);
   const [isValidPassword, setIsValidPassword] = useState(false);
   const [isPassVisible, setIsPassVisible] = useState(false);
-  const [alertText, setAlertText] = useState("");
+  const [alertSuccess, setAlertSuccess] = useState("");
+  const [alertError, setAlertError] = useState("");
   const router = useRouter();
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
 
   //toggle show password
-  const toggle = () =>{
+  const toggle = () => {
     setIsPassVisible(!isPassVisible);
   }
 
@@ -32,23 +33,30 @@ const Login = () => {
     );
 
     if (existingUser != undefined) {
-      setAlertText("Login successfull!");
+      setAlertSuccess("Login successfull!");
       setTimeout(() => {
         router.push("/home");
       }, 1000);
     } else {
-      setAlertText("This email address doesn't exist.");
+      setAlertError("Incorrect email address or password.");
       setTimeout(() => {
-        setAlertText("");
+        setAlertError("");
       }, 2000);
     }
   };
   return (
     <div className="h-full flex">
       <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
-        {alertText.length > 0 && (
-          <span className="bg-lime-500 text-white absolute top-5 right-5 p-5">
-            {alertText}
+        {alertSuccess.length > 0 && (
+          <span className="bg-lime-50 border border-lime-500 rounded text-lime-600 absolute top-5 right-5 p-5">
+            <span className="me-2"><FontAwesomeIcon icon={faCircleCheck} size="xl" /></span>
+            {alertSuccess}
+          </span>
+        )}
+        {alertError.length > 0 && (
+          <span className="bg-red-200 border border-red-700 rounded text-red-700 absolute top-5 right-5 p-5">
+            <span className="me-2"><FontAwesomeIcon icon={faBan} size="xl" /></span>
+            {alertError}
           </span>
         )}
         <div className="lg:grid lg:grid-cols-2 shadow-lg">
@@ -81,8 +89,8 @@ const Login = () => {
               <h6 className="mb-8 text-center">
                 Login to your account in seconds
               </h6>
-              <div className="grid gap-5">
-                <div className="space-y-2">
+              <div className="grid gap-y-3">
+                <div>
                   <label
                     htmlFor="email"
                     className="text-sm lg:text-xs xl:text-sm"
@@ -99,13 +107,15 @@ const Login = () => {
                       setIsValidEmail(emailRegex.test(userEmail));
                     }}
                   />
-                  {!isValidEmail && userEmail && (
-                    <span className="text-red-500 text-sm">
-                      Please enter a valid email address
-                    </span>
-                  )}
+                  <div className="h-5">
+                    {!isValidEmail && userEmail && (
+                      <span className="text-red-500 text-sm">
+                        Please enter a valid email address
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-2">
+                <div>
                   <label
                     htmlFor="password"
                     className="text-sm lg:text-xs xl:text-sm"
@@ -113,31 +123,34 @@ const Login = () => {
                     Password
                   </label>
                   <div className="relative">
-                  <input
-                    type={!isPassVisible ? "password" : "text"}
-                    id="password"
-                    className="p-3 w-full bg-gray-100"
-                    placeholder="Password"
-                    onChange={(event) => {
-                      setUserPassword(event.target.value);
-                      setIsValidPassword(passwordRegex.test(userPassword));
-                    }}
-                  />
-                  <button type="button" onClick={toggle} className="absolute right-4 bottom-3"><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash } /></button>
+                    <input
+                      type={!isPassVisible ? "password" : "text"}
+                      id="password"
+                      className="p-3 w-full bg-gray-100"
+                      placeholder="Password"
+                      onChange={(event) => {
+                        setUserPassword(event.target.value);
+                        setIsValidPassword(passwordRegex.test(userPassword));
+                      }}
+                    />
+                    <button type="button" onClick={toggle} className="absolute right-4 bottom-3"
+                      disabled={
+                        userPassword
+                          ? false
+                          : true
+                      }><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash} /></button>
                   </div>
-                  {!isValidPassword && userPassword && (
+                  <div className="h-10">{!isValidPassword && userPassword && (
                     <span className="text-red-500 text-sm">
                       Password must contain min 8 characters, 1 number, 1
                       uppercase, 1 lowercase letter
                     </span>
-                  )}
+                  )}</div>
                 </div>
-                <div className="space-y-2">
-                  <div className="text-end text-sm lg:text-xs xl:text-sm">
-                    <a href="/forgot-password" className="text-lime-600">
-                      Forgot Password?
-                    </a>
-                  </div>
+                <div className="text-end text-sm lg:text-xs xl:text-sm">
+                  <a href="/forgot-password" className="text-lime-600">
+                    Forgot Password?
+                  </a>
                 </div>
                 <button
                   className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
