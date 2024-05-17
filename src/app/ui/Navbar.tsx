@@ -62,14 +62,14 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
       <nav className="relative py-4 w-11/12 mx-auto flex justify-between items-center ">
         {!searchIsOpen}
         <div className={`${searchIsOpen ? 'hidden' : 'block'}`}>
-          <Link href="/" className="dark:hidden">
+          <Link href="/home" className="dark:hidden">
             <img
               src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
               alt="lp-grocery-logo"
               className="w-36 md:w-52"
             />
           </Link>
-          <Link href="/" className="hidden dark:block">
+          <Link href="/home" className="hidden dark:block">
             <img
               src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
               alt="lp-grocery-logo"

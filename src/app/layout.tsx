@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className="h-full scroll-smooth">
       <link rel="shortcut icon" href="https://i.postimg.cc/RFdx6dmV/favicon-logo.png" type="image/x-icon" />
       <body
         suppressHydrationWarning={true}

@@ -106,7 +106,7 @@ const Product = ({
             className="inline-block text-white bg-lime-500 border py-2 rounded-full px-3 shadow text-sm"
             href="/cart">
             <FontAwesomeIcon icon={faCartShopping} className="me-2" />
-            <span className="">Go to Cart</span>
+            <span>Go to Cart</span>
           </Link>
         ) : (
           <button

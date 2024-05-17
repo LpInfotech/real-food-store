@@ -39,7 +39,7 @@ const Landing = () => {
             <div className="sm:my-28 my-5 mx-auto w-11/12">
                 <h2 className="sm:text-5xl text-3xl mb-5 text-center font-semibold dark:text-white">Our Best Sellers</h2>
                 <h4 className="font-medium text-gray-500 text-lg text-center dark:text-gray-200">Best Seller Product This week</h4>
-                <div className="">
+                <div>
                     <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 sm:mx-10">
                         {bestSellerList.slice(0, 4).map((product) => (
                             <Product

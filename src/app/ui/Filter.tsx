@@ -11,13 +11,17 @@ const Filter = () => {
         setCategoryList(data);
       });
   }, []);
-  // // rating stars
-  // let rating = 5;
-  // for (let i = rating; i >= 1; i--) {
-  //   let str = "⭐️";
-  //   console.log(str.repeat(i));
-  //   rating.(str.repeat(i));
-  // }
+
+  // rating
+  const starRating = () => {
+    let pattern = [];
+    for (let i = 5; i >= 1; i--) {
+      let test = "⭐️".repeat(i);
+      pattern.push(<div className="flex items-center"><input type='checkbox' className='h-4 w-4 me-2' />
+        <span>{test}</span></div>);
+    }
+    return pattern;
+  }
 
   return (
     <>
@@ -31,7 +35,7 @@ const Filter = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    className="form-checkbox h-4 w-4 text-indigo-600"
+                    className="form-checkbox h-4 w-4"
                   />
                   <span className="ml-2">{item.category}</span>
                 </label>
@@ -58,7 +62,7 @@ const Filter = () => {
                 <label className="inline-flex items-center">
                   <input
                     type="checkbox"
-                    className="form-checkbox h-4 w-4 text-indigo-600"
+                    className="form-checkbox h-4 w-4"
                   />
                   <span className="ml-2">{item.brand}</span>
                 </label>
@@ -70,62 +74,7 @@ const Filter = () => {
       {/* filter by rating */}
       <div className="w-full py-4 border-b">
         <h3 className="text-md font-semibold mb-4">Filter by Rating</h3>
-        <ul className="space-y-2">
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2">⭐️⭐️⭐️⭐️⭐️</span>
-            </label>
-          </li>
-          {/* <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2">⭐️⭐️⭐️⭐️⭐️</span>
-            </label>
-          </li>
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2">⭐️⭐️⭐️⭐️</span>
-            </label>
-          </li>
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2">⭐️⭐️⭐️</span>
-            </label>
-          </li>
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2">⭐️⭐️</span>
-            </label>
-          </li>
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
-              />
-              <span className="ml-2">⭐️</span>
-            </label>
-          </li> */}
-        </ul>
+        <div className="space-y-2">{starRating()}</div>
       </div>
 
       {/* filter by size */}
@@ -136,7 +85,7 @@ const Filter = () => {
             <label className="inline-flex items-center">
               <input
                 type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
+                className="form-checkbox h-4 w-4"
               />
               <span className="ml-2">Small</span>
             </label>
@@ -145,7 +94,7 @@ const Filter = () => {
             <label className="inline-flex items-center">
               <input
                 type="checkbox"
-                className="form-checkbox h-4 w-4 text-indigo-600"
+                className="form-checkbox h-4 w-4"
               />
               <span className="ml-2">Medium</span>
             </label>

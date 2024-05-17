@@ -70,7 +70,10 @@ const ForgotPassword = () => {
                                 </Link>
                             </div>
                             <h1 className="mt-10 text-2xl font-medium mb-2 text-center">Forgot your Password?</h1>
-                            <p className="my-5">Enter your Email and we'll send you a link to reset your password.</p>
+                            
+                            <div className="h-12 sm:h-8">{!userEmail &&
+                                <p className="text-sm lg:text-xs text-center">Enter your Email and we'll send you a link to reset your password.</p>
+                            }</div>
                             <div className="grid gap-5">
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm lg:text-xs xl:text-sm">Email Address</label>

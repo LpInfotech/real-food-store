@@ -315,7 +315,7 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className="flex items-center justify-between mt-8 w-11/12 mx-auto">
-                    <a href="/products" target="_blank" className="">
+                    <a href="/products">
                     <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
                     </a>
                     <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Place Order</button>

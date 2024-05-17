@@ -320,6 +320,14 @@
       "phone": "9898989898",
       "password": "123",
       "confirmPassword": "123"
+    },
+    {
+      "id": "b452",
+      "name": "gurleen",
+      "email": "gurleen@qwerty.com",
+      "phone": "8675488758",
+      "password": "Qwerty123",
+      "confirmPassword": "Qwerty123"
     }
   ]
 }

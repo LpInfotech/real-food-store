@@ -18,14 +18,14 @@ const Footer = () => {
       <hr />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 w-11/12 mx-auto py-10 gap-y-8">
         <div className="col-span-1">
-          <Link href="/" className="dark:hidden">
+          <Link href="/home" className="dark:hidden">
             <img
               src="https://i.postimg.cc/5t1DXWdp/image-4-removebg-preview.png"
               alt="lp-grocery-logo"
               className="md:w-52 w-36"
             />
           </Link>
-          <Link href="/" className="hidden dark:block">
+          <Link href="/home" className="hidden dark:block">
             <img
               src="https://i.postimg.cc/SxxKrhq1/image-4-removebg-preview.png"
               alt="lp-grocery-logo"
