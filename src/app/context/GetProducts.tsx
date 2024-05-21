@@ -1,11 +1,29 @@
+import { usePathname, useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 export const ProductsContext = createContext(null);
 
 export const ProductsProvider = ({ children }) => {
+  const router = useRouter();
+  const isAuth = localStorage.getItem("isAuthenticated");
   const [productList, setProductList] = useState([]);
   const [cartList, setCartList] = useState([]);
   const [userList, setUserList] = useState([]);
   const [trigger, setTrigger] = useState(0);
+  const pathname = usePathname();
+
+  // check authenticated user
+  const isAuthenticated = () => {
+    var authPages = ["/login", "/register", "/forgot-password"];
+    var authPagesAfterLogin = ["/login", "/register"];
+
+    if (!isAuth) {
+      authPages.findIndex((item) => item === pathname) === -1 &&
+        router.push("/login");
+    } else {
+      authPagesAfterLogin.findIndex((item) => item === pathname) !== -1 &&
+        router.push("/home");
+    }
+  };
 
   // get product list from api
   const fetchProduct = () => {
@@ -44,6 +62,7 @@ export const ProductsProvider = ({ children }) => {
     fetchProduct();
     fetchCart();
     fetchUser();
+    isAuthenticated();
   }, [trigger]);
 
   const value = [

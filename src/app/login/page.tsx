@@ -3,7 +3,15 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { ProductsContext } from "../context/GetProducts";
-import { faBan, faCircleCheck, faCircleHalfStroke, faEye, faEyeSlash, faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBan,
+  faCircleCheck,
+  faCircleHalfStroke,
+  faEye,
+  faEyeSlash,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Login = () => {
@@ -20,7 +28,7 @@ const Login = () => {
   //toggle show password
   const toggle = () => {
     setIsPassVisible(!isPassVisible);
-  }
+  };
 
   const [showThemeDropdown, setShowThemeDropdown] = useState(false);
   const themeButton = () => {
@@ -44,6 +52,7 @@ const Login = () => {
 
     if (existingUser != undefined) {
       setAlertSuccess("Login successfull!");
+      localStorage.setItem("isAuthenticated", "true");
       setTimeout(() => {
         router.push("/home");
       }, 1000);
@@ -59,13 +68,17 @@ const Login = () => {
       <div className="sm:w-3/4 m-auto w-11/12 xl:w-2/3">
         {alertSuccess.length > 0 && (
           <span className="bg-lime-50 border border-lime-500 rounded text-lime-600 absolute top-5 right-5 p-5">
-            <span className="me-2"><FontAwesomeIcon icon={faCircleCheck} size="xl" /></span>
+            <span className="me-2">
+              <FontAwesomeIcon icon={faCircleCheck} size="xl" />
+            </span>
             {alertSuccess}
           </span>
         )}
         {alertError.length > 0 && (
           <span className="bg-red-200 border border-red-700 rounded text-red-700 absolute top-5 right-5 p-5">
-            <span className="me-2"><FontAwesomeIcon icon={faBan} size="xl" /></span>
+            <span className="me-2">
+              <FontAwesomeIcon icon={faBan} size="xl" />
+            </span>
             {alertError}
           </span>
         )}
@@ -99,8 +112,9 @@ const Login = () => {
                   <span className="ps-1">Theme</span>
                 </Link>
                 <div
-                  className={`dropdown-content  absolute top-10 -right-2 z-10 origin-top-right divide-y *:py-3 md:*:px-5 *:text-sm *:block *:text-gray-700 md:w-28 w-20 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showThemeDropdown ? "block" : "hidden"
-                    }`}
+                  className={`dropdown-content  absolute top-10 -right-2 z-10 origin-top-right divide-y *:py-3 md:*:px-5 *:text-sm *:block *:text-gray-700 md:w-28 w-20 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${
+                    showThemeDropdown ? "block" : "hidden"
+                  }`}
                 >
                   <button
                     onClick={lightTheme}
@@ -172,16 +186,23 @@ const Login = () => {
                         setUserPassword(event.target.value);
                       }}
                     />
-                    <button type="button" onClick={toggle} className="absolute right-4 bottom-3"
-                      disabled={
-                        userPassword
-                          ? false
-                          : true
-                      }><FontAwesomeIcon icon={!isPassVisible ? faEye : faEyeSlash} /></button>
+                    <button
+                      type="button"
+                      onClick={toggle}
+                      className="absolute right-4 bottom-3"
+                      disabled={userPassword ? false : true}
+                    >
+                      <FontAwesomeIcon
+                        icon={!isPassVisible ? faEye : faEyeSlash}
+                      />
+                    </button>
                   </div>
                 </div>
                 <div className="text-end my-5">
-                  <a href="/forgot-password" className="text-lime-500 hover:text-lime-600 font-bold">
+                  <a
+                    href="/forgot-password"
+                    className="text-lime-500 hover:text-lime-600 font-bold"
+                  >
                     Forgot Password?
                   </a>
                 </div>
@@ -189,9 +210,7 @@ const Login = () => {
                   className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
                   type="submit"
                   disabled={
-                    userEmail && userPassword && isValidEmail
-                      ? false
-                      : true
+                    userEmail && userPassword && isValidEmail ? false : true
                   }
                 >
                   Login
