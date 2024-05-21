@@ -1,7 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import Image from "next/image";
-import { faBuildingColumns, faCreditCard, faMinus, faPlus, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBuildingColumns, faCartShopping, faCreditCard, faMinus, faPlus, faShop, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
@@ -167,7 +167,8 @@ const Checkout = () => {
                 <Navbar />
                 <div className="flex justify-end w-11/12 mx-auto items-center my-10">
                     <a href="/cart" >
-                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Edit Cart</button>
+                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">
+                    <FontAwesomeIcon icon={faCartShopping} className="me-2" /><span>Edit Cart</span></button>
                     </a>
                 </div>
                 <div className="my-6 w-11/12 mx-auto md:grid md:grid-cols-3">
@@ -316,7 +317,8 @@ const Checkout = () => {
                 </div>
                 <div className="flex items-center justify-between mt-8 w-11/12 mx-auto">
                     <a href="/products">
-                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">Continue Shopping</button>
+                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">
+                    <FontAwesomeIcon icon={faShop} className="me-2" /><span>Continue Shopping</span></button>
                     </a>
                     <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Place Order</button>
                 </div>

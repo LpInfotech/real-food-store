@@ -238,8 +238,8 @@ const Register = () => {
                       <span className="text-red-500 text-xs">Phone number must be of 10 digits</span>
                     )}</div>
                 </div>
-                <div className="grid sm:grid-cols-2 gap-x-2">
-                  <div>
+                <div className="sm:grid sm:grid-cols-2 gap-x-2 lg:block 2xl:grid">
+                  <div className="lg:mb-5 mb-5 sm:mb-0 2xl:mb-0">
                     <label
                       htmlFor="password"
                       className="text-sm lg:text-xs xl:text-sm"
@@ -291,7 +291,7 @@ const Register = () => {
 
                     </div>
                   </div>
-                  <div className="col-span-2 h-10">
+                  <div className="col-span-2 sm:h-10 lg:h-12 h-12 2xl:h-10">
                     {!isValidPassword && userPassword && (
                       <span className="text-red-500 text-xs">
                         Password must contain min 8 characters, 1 number, 1
