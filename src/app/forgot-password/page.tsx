@@ -136,7 +136,7 @@ const ForgotPassword = () => {
                                     disabled={userEmail && isValidEmail ? false : true}>Submit
                                 </button>
                                 <div className="text-center">
-                                    <a href="/" className="hover:text-lime-500 text-lime-700 font-bold">
+                                    <a href="/" className="text-lime-500 hover:text-lime-600 font-bold">
                                         Back to Login
                                     </a>
                                 </div>

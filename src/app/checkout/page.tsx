@@ -9,8 +9,8 @@ import { ProductsContext } from "../context/GetProducts";
 import { faGooglePay } from "@fortawesome/free-brands-svg-icons";
 
 const Checkout = () => {
-    const [items] = useContext(ProductsContext);
-    // cart item UI
+  const [items] = useContext(ProductsContext);
+  // cart item UI
   function CartItem({
     productImage,
     productName,
@@ -76,9 +76,8 @@ const Checkout = () => {
 
       return (
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${
-            isModalOpen ? "" : "hidden"
-          }`}
+          className={`fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center ${isModalOpen ? "" : "hidden"
+            }`}
         >
           <div className="bg-white dark:bg-slate-800 dark:text-white p-8 rounded-md shadow-md">
             <button type="button" className="text-gray-500 float-end" onClick={() => setIsModalOpen(false)}><FontAwesomeIcon icon={faXmark} size="xl" /></button>
@@ -133,12 +132,18 @@ const Checkout = () => {
             </button>
           </div>
         </td>
+        <td className="py-2 px-4">${purchaseQty * sellingPrice}</td>
         <td className="py-2 md:px-4 px-2">
           <button type="button"
             className="text-red-500 hover:text-red-700 focus:outline-none"
-            onClick={() => setIsModalOpen(true)}
-          >
-            <FontAwesomeIcon icon={faTrashCan} size="lg" />
+            onClick={() => setIsModalOpen(true)}>
+            <div className="relative flex flex-col items-center group">
+              <FontAwesomeIcon icon={faTrashCan} size="lg" />
+              <div className="absolute bottom-1 flex-col items-center hidden mb-6 group-hover:flex w-28">
+                <span className="relative rounded-md z-10 p-3 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Delete Item</span>
+                <div className="w-3 h-3 -mt-2 rotate-45 bg-black absolute top-9 left-[50px]"></div>
+              </div>
+            </div>
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -160,172 +165,181 @@ const Checkout = () => {
     );
   }
 
-    return (
-        <>
-            {/* <section className="bg-[url(https://plus.unsplash.com/premium_photo-1682088353711-c6482d7f8f06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-bottom bg-fixed bg-cover bg-black bg-blend-overlay bg-opacity-50"> */}
-            <section className="bg-[url(https://images.pexels.com/photos/219794/pexels-photo-219794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-fixed bg-cover bg-black bg-blend-overlay bg-opacity-50">
-                <Navbar />
-                <div className="flex justify-end w-11/12 mx-auto items-center my-10">
-                    <a href="/cart" >
-                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">
-                    <FontAwesomeIcon icon={faCartShopping} className="me-2" /><span>Edit Cart</span></button>
-                    </a>
+  return (
+    <>
+      {/* <section className="bg-[url(https://plus.unsplash.com/premium_photo-1682088353711-c6482d7f8f06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-bottom bg-fixed bg-cover bg-black bg-blend-overlay bg-opacity-50"> */}
+      <section className="bg-[url(https://images.pexels.com/photos/219794/pexels-photo-219794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-fixed bg-cover bg-black bg-blend-overlay bg-opacity-50">
+        <Navbar />
+        <div className="flex justify-end w-11/12 mx-auto items-center my-10">
+          <a href="/cart" >
+            <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">
+              <FontAwesomeIcon icon={faCartShopping} className="me-2" /><span>Edit Cart</span></button>
+          </a>
+        </div>
+        <div className="my-6 w-11/12 mx-auto md:grid md:grid-cols-3">
+          <div className="col-span-2 space-y-10 md:w-11/12 mx-auto md:mx-0">
+            <form action="" className="bg-white dark:bg-slate-800 dark:text-white rounded-lg shadow-md py-10 px-5 md:px-10">
+              <h3 className="font-medium text-gray-500 dark:text-gray-100 py-3">Step 1/3</h3>
+              <h1 className="uppercase text-xl md:text-2xl font-medium pb-5 text-lime-600">My Shipping Address</h1>
+              <div className="gap-y-5 grid">
+                <div className="md:grid grid-cols-2 gap-5 space-y-5 md:space-y-0">
+                  <h4 className="text-xl font-bold col-span-2 text-gray-500 dark:text-gray-100">Contact</h4>
+                  <div className="space-y-2">
+                    <label htmlFor="firstname" className="text-sm lg:text-xs xl:text-sm font-medium">First Name</label>
+                    <input type="text" id="firstname" placeholder="Enter your first name" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="lastname" className="text-sm lg:text-xs xl:text-sm font-medium">Last Name</label>
+                    <input type="text" id="lastname" placeholder="Enter your last name" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm lg:text-xs xl:text-sm font-medium">Phone</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm lg:text-xs xl:text-sm font-medium">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email address" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
+                  </div>
                 </div>
-                <div className="my-6 w-11/12 mx-auto md:grid md:grid-cols-3">
-                    <div className="col-span-2 space-y-10 md:w-11/12 mx-auto md:mx-0">
-                        <form action="" className="bg-white dark:bg-slate-800 dark:text-white rounded-lg shadow-md py-10 px-5 md:px-10">
-                            <h3 className="font-medium text-gray-500 dark:text-gray-100 py-3">Step 1/3</h3>
-                            <h1 className="uppercase text-xl md:text-2xl font-medium pb-5 text-lime-600">My Shipping Address</h1>
-                            <div className="gap-y-5 grid">
-                                <div className="md:grid grid-cols-2 gap-5 space-y-5 md:space-y-0">
-                                    <h4 className="text-xl font-bold col-span-2 text-gray-500 dark:text-gray-100">Contact</h4>
-                                    <div className="space-y-2">
-                                        <label htmlFor="firstname" className="text-sm lg:text-xs xl:text-sm font-medium">First Name</label>
-                                        <input type="text" id="firstname" placeholder="Enter your first name" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="lastname" className="text-sm lg:text-xs xl:text-sm font-medium">Last Name</label>
-                                        <input type="text" id="lastname" placeholder="Enter your last name" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="phone" className="text-sm lg:text-xs xl:text-sm font-medium">Phone</label>
-                                        <input type="tel" id="phone" placeholder="Enter your phone number" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="email" className="text-sm lg:text-xs xl:text-sm font-medium">Email Address</label>
-                                        <input type="email" id="email" placeholder="Enter your email address" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
-                                    </div>
-                                </div>
-                                <div className="md:grid grid-cols-2 gap-5 mt-5 space-y-5 md:space-y-0">
-                                    <h4 className="text-xl font-bold col-span-2 text-gray-500 dark:text-gray-100">Address</h4>
-                                    <div className="space-y-2">
-                                        <label htmlFor="country" className="text-sm lg:text-xs xl:text-sm font-medium">Country</label>
-                                        <select id="country" name="country" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:text-gray-500">
-                                            <option value="india">India</option>
-                                            <option value="uk">United Kingdom</option>
-                                            <option value="us">United States</option>
-                                            <option value="canada">Canada</option>
-                                            <option value="australia">Australia</option>
-                                            <option value="nz">New Zealand</option>
-                                            <option value="italy">Italy</option>
-                                        </select>
-                                    </div>
-                                    <div className="space-y-2">
-                                        <label htmlFor="state" className="text-sm lg:text-xs xl:text-sm font-medium">State</label>
-                                        <input type="text" id="state" placeholder="Enter state" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
-                                    </div>
-                                    <div className="space-y-2 col-span-2">
-                                        <label htmlFor="address" className="text-sm lg:text-xs xl:text-sm font-medium">Full Address</label>
-                                        <input type="text" id="address" placeholder="Enter your full address" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" className="me-2" id="setAsDefault" name="setAsDefault" value="setAsDefault" />
-                                        <label htmlFor="setAsDefault"> Set as default</label>
-                                    </div>
-                                </div>
-                                <div className="text-center mt-5">
-                                <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Save Address</button>
-                                </div>
-                            </div>
-                        </form>
-                        <form action="" className="bg-white dark:bg-slate-800 rounded-lg shadow-md py-10 px-5 md:px-10">
-                            <h3 className="font-medium text-gray-500 py-3 dark:text-gray-100">Step 2/3</h3>
-                            <h1 className="uppercase text-xl md:text-2xl font-medium pb-5 text-lime-600">Payment Info</h1>
-                            <div className="grid gap-y-5">
-                                <div className="grid md:grid-cols-3 space-y-5 md:space-y-0 md:space-x-5 text-2xl *:py-8 *:space-y-3 text-gray-700 *:bg-gray-100 dark:*:bg-slate-500 dark:*:text-white dark:*:border-none *:rounded-lg *:border-2 *:border-gray-100 font-medium">
-                                    <button type="button" className="hover:border-lime-600 hover:text-lime-600">
-                                        <FontAwesomeIcon icon={faCreditCard} />
-                                        <p>Card</p>
-                                    </button>
-                                    <button type="button" className="hover:border-lime-600 hover:text-lime-600 group">
-                                        <FontAwesomeIcon icon={faGooglePay} className="border border-black dark:border-white rounded-full px-5 size-10 group-hover:border-lime-600" />
-                                        <p>Google Pay</p>
-                                    </button>
-                                    <button type="button" className="hover:border-lime-600 hover:text-lime-600">
-                                        <FontAwesomeIcon icon={faBuildingColumns} />
-                                        <p>Bank</p>
-                                    </button>
-                                </div>
+                <div className="md:grid grid-cols-2 gap-5 mt-5 space-y-5 md:space-y-0">
+                  <h4 className="text-xl font-bold col-span-2 text-gray-500 dark:text-gray-100">Address</h4>
+                  <div className="space-y-2">
+                    <label htmlFor="country" className="text-sm lg:text-xs xl:text-sm font-medium">Country</label>
+                    <select id="country" name="country" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:text-gray-500">
+                      <option value="india">India</option>
+                      <option value="uk">United Kingdom</option>
+                      <option value="us">United States</option>
+                      <option value="canada">Canada</option>
+                      <option value="australia">Australia</option>
+                      <option value="nz">New Zealand</option>
+                      <option value="italy">Italy</option>
+                    </select>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="state" className="text-sm lg:text-xs xl:text-sm font-medium">State</label>
+                    <input type="text" id="state" placeholder="Enter state" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
+                  </div>
+                  <div className="space-y-2 col-span-2">
+                    <label htmlFor="address" className="text-sm lg:text-xs xl:text-sm font-medium">Full Address</label>
+                    <input type="text" id="address" placeholder="Enter your full address" className="p-3 col-span-2 w-full bg-gray-100 dark:bg-gray-300 dark:placeholder:text-gray-500" />
+                  </div>
+                  <div>
+                    <input type="checkbox" className="me-2" id="setAsDefault" name="setAsDefault" value="setAsDefault" />
+                    <label htmlFor="setAsDefault"> Set as default</label>
+                  </div>
+                </div>
+                <div className="text-center mt-5">
+                  <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Save Address</button>
+                </div>
+              </div>
+            </form>
+            <form action="" className="bg-white dark:bg-slate-800 rounded-lg shadow-md py-10 px-5 md:px-10">
+              <h3 className="font-medium text-gray-500 py-3 dark:text-gray-100">Step 2/3</h3>
+              <h1 className="uppercase text-xl md:text-2xl font-medium pb-5 text-lime-600">Payment Info</h1>
+              <div className="grid gap-y-5">
+                <div className="grid md:grid-cols-3 space-y-5 md:space-y-0 md:space-x-5 text-2xl *:py-8 *:space-y-3 text-gray-700 *:bg-gray-100 dark:*:bg-slate-500 dark:*:text-white dark:*:border-none *:rounded-lg *:border-2 *:border-gray-100 font-medium">
+                  <button type="button" className="hover:border-lime-600 hover:text-lime-600">
+                    <FontAwesomeIcon icon={faCreditCard} />
+                    <p>Card</p>
+                  </button>
+                  <button type="button" className="hover:border-lime-600 hover:text-lime-600 group">
+                    <FontAwesomeIcon icon={faGooglePay} className="border border-black dark:border-white rounded-full px-5 size-10 group-hover:border-lime-600" />
+                    <p>Google Pay</p>
+                  </button>
+                  <button type="button" className="hover:border-lime-600 hover:text-lime-600">
+                    <FontAwesomeIcon icon={faBuildingColumns} />
+                    <p>Bank</p>
+                  </button>
+                </div>
 
-                                <div className="text-center mt-5">
-                                <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Next</button>
-                                </div>
-                            </div>
-                        </form>
-                        <form action="" className="bg-white dark:bg-slate-800 rounded-lg shadow-md py-10 px-5 md:px-10">
-                            <h3 className="font-medium text-gray-500 py-3 dark:text-gray-100">Step 3/3</h3>
-                            <h1 className="uppercase text-xl md:text-2xl font-medium pb-5 text-lime-600">Order Review</h1>
-                                <table className="w-full border dark:border-none">
-                                    <thead className="bg-lime-600 h-16 text-white">
-                                        <tr className="border-b text-left md:text-xl *:py-5">
-                                            <th className="md:ps-16 ps-4">Product</th>
-                                            {/* <th className="md:px-4">Price</th> */}
-                                            <th className="md:px-4">Quantity</th>
-                                            {/* <th className="md:px-4">Total</th> */}
-                                            <th className="md:px-4"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {items.cartList.length > 0 ? (
-                                            items.cartList.map((cartItem) => (
-                                                <CartItem
-                                                    qty={cartItem.qty}
-                                                    key={cartItem.id}
-                                                    stock={cartItem.stock}
-                                                    productImage={cartItem.productImage}
-                                                    productName={cartItem.productName}
-                                                    sellingPrice={cartItem.sellingPrice}
-                                                    productId={cartItem.id}
-                                                />
-                                            ))
-                                        ) : (
-                                            <tr>
-                                                <td className="ps-4 py-8">No products added to the cart!</td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                        </form>
-                    </div>
+                <div className="text-center mt-5">
+                  <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Next</button>
+                </div>
+              </div>
+            </form>
+            <form action="" className="bg-white dark:bg-slate-800 rounded-lg shadow-md py-10 px-5 md:px-10">
+              <h3 className="font-medium text-gray-500 py-3 dark:text-gray-100">Step 3/3</h3>
+              <h1 className="uppercase text-xl md:text-2xl font-medium pb-5 text-lime-600">Order Review</h1>
+              <table className="w-full border dark:border-none">
+                <thead className="bg-lime-600 h-16 text-white">
+                  <tr className="border-b text-left md:text-xl *:py-5">
+                    <th className="md:ps-16 ps-4">Product</th>
+                    {/* <th className="md:px-4">Price</th> */}
+                    <th className="md:px-4">Quantity</th>
+                    <th className="md:px-4">Total</th>
+                    <th className="md:px-4"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {items.cartList.length > 0 ? (
+                    items.cartList.map((cartItem) => (
+                      <CartItem
+                        qty={cartItem.qty}
+                        key={cartItem.id}
+                        stock={cartItem.stock}
+                        productImage={cartItem.productImage}
+                        productName={cartItem.productName}
+                        sellingPrice={cartItem.sellingPrice}
+                        productId={cartItem.id}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td className="ps-4 py-8">No products added to the cart!</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </form>
+          </div>
 
-                    <div className="mx-auto md:mx-0 md:w-4/5 mt-10 md:mt-0">
-                        <div className="bg-white dark:bg-slate-800 dark:text-white px-5 md:px-10 pb-10 rounded-lg">
-                            <h2 className="uppercase text-2xl font-medium pt-10 pb-5 text-lime-600">Order Summary</h2>
-                            <p className="pb-5">The total cost consists of the tax, Subtotal and the Shipping Charges</p>
-                            <hr className="border-gray-500 pt-5" />
-                            <div className="space-y-3">
-                                <p className="flex justify-between">
-                                    <span>Subtotal</span>
-                                    <span>$222</span>
-                                </p>
-                                <p className="flex justify-between">
-                                    <span>Taxes</span>
-                                    <span>$27</span>
-                                </p>
-                                <p className="flex justify-between">
-                                    <span>Shipping Charges</span>
-                                    <span>$28</span>
-                                </p>
-                                <hr className="border-gray-500" />
-                                <p className="flex justify-between text-2xl">
-                                    <span className="text-lime-600">Total</span>
-                                    <span>$277</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex items-center justify-between mt-8 w-11/12 mx-auto">
-                    <a href="/products">
-                    <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">
-                    <FontAwesomeIcon icon={faShop} className="me-2" /><span>Continue Shopping</span></button>
-                    </a>
-                    <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Place Order</button>
-                </div>
-                <Footer />
-            </section>
-        </>
-    );
+          <div className="mx-auto md:mx-0 md:w-4/5 mt-10 md:mt-0">
+            <div className="bg-white dark:bg-slate-800 dark:text-white px-5 md:px-10 pb-10 rounded-lg">
+              <h2 className="uppercase text-2xl font-medium pt-10 pb-5 text-lime-600">Order Summary</h2>
+              <p className="pb-5">The total cost consists of the tax, Subtotal and the Shipping Charges</p>
+              <hr className="border-gray-500 pt-5" />
+              <div className="space-y-3">
+                <p className="flex justify-between">
+                  <span>Subtotal</span>
+                  <span>$222</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Taxes</span>
+                  <span>$27</span>
+                </p>
+                <p className="flex justify-between">
+                  <span>Shipping Charges</span>
+                  <span>$28</span>
+                </p>
+                <hr className="border-gray-500" />
+                <p className="flex justify-between text-2xl">
+                  <span className="text-lime-600">Total</span>
+                  <span>$277</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-between mt-8 w-11/12 mx-auto">
+          <a href="/products">
+            <button type="button" className="bg-white text-lime-600 py-4 px-10 font-medium hover:bg-lime-600 hover:text-white">
+              <FontAwesomeIcon icon={faShop} className="me-2" /><span>Continue Shopping</span></button>
+          </a>
+          <button type="button" className="bg-lime-600 text-white py-4 px-10 font-medium hover:bg-lime-700">Place Order</button>
+        </div>
+        <Footer />
+      </section>
+      <div className="flex items-center justify-center">
+        <div className="relative flex flex-col items-center group">
+          <FontAwesomeIcon icon={faTrashCan} size="lg" />
+          <div className="absolute bottom-0 flex-col items-center hidden mb-5 group-hover:flex">
+            <span className="relative rounded-md z-10 p-4 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Delete Item ?</span>
+            <div className="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default Checkout;

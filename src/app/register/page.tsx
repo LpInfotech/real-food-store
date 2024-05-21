@@ -320,7 +320,7 @@ const Register = () => {
                 <div className="text-center mt-5">
                   Already have an account?{" "}
                   <a href="/login">
-                    <span className="hover:text-lime-500 text-lime-700 font-bold">
+                    <span className="text-lime-500 hover:text-lime-600 font-bold">
                       <br />
                       Login Now!
                     </span>

@@ -181,7 +181,7 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="text-end my-5">
-                  <a href="/forgot-password" className="hover:text-lime-500 text-lime-700 font-bold">
+                  <a href="/forgot-password" className="text-lime-500 hover:text-lime-600 font-bold">
                     Forgot Password?
                   </a>
                 </div>
@@ -199,7 +199,7 @@ const Login = () => {
                 <div className="text-center mt-5">
                   Don't have an account?{" "}
                   <a href="/register">
-                    <span className="hover:text-lime-500 text-lime-700 font-bold">
+                    <span className="text-lime-500 hover:text-lime-600 font-bold">
                       <br />
                       Create Account
                     </span>

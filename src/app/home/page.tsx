@@ -65,9 +65,10 @@ const Landing = () => {
             {/* /best sellers section */}
             {/* shop now section */}
             <div className="bg-gray-100 grid lg:grid-cols-2 dark:text-white dark:bg-gray-800">
-                <div className="col-span-1 h-full flex flex-col items-center justify-center py-5">
-                    <h2 className="sm:text-3xl text-center">Get Up To 15% Off <br /> <span className="sm:text-5xl text-2xl tracking-wider font-bold">LP Grocery Store</span></h2>
-                    <h4 className="text-lg sm:mb-5 my-2 font-medium text-gray-500 dark:text-gray-200">Highest Quality</h4>
+                <div className="col-span-1 h-full flex flex-col text-center items-center justify-center py-5">
+                    <h4 className="sm:text-3xl mb-2 sm:mb-5">Get Up To 15% Off</h4>
+                    <h2 className="sm:text-5xl text-2xl tracking-wider font-bold">LP Grocery Store</h2>
+                    <h4 className="text-lg sm:my-5 my-2 font-medium text-gray-500 dark:text-gray-200">Highest Quality</h4>
                     <a href="/products"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">Shop Now</button>
                     </a>
                 </div>
@@ -92,13 +93,13 @@ const Landing = () => {
                     </div>
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faRightLeft} size="2xl" />
-                        <h3 className="uppercase font-semibold my-2">7 Days Easy Return</h3>
-                        <p className="text-base font-medium text-gray-600 dark:text-white">Product any fault within 7 days for an immediate exchange</p>
+                        <h3 className="uppercase font-semibold my-2">Flexible Delivery Options</h3>
+                        <p className="text-base font-medium text-gray-600 dark:text-white">Enjoy the convenience of our flexible delivery options at LP Grocery.</p>
                     </div>
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faRankingStar} size="2xl" />
                         <h3 className="uppercase font-semibold my-2">Quality Guaranteed</h3>
-                        <p className="text-base font-medium text-gray-600 dark:text-white">If your product aren't perfect, return them for a full refund</p>
+                        <p className="text-base font-medium text-gray-600 dark:text-white">We guarantees a delightful grocery shopping experience for you.</p>
                     </div>
                 </div>
             </div>

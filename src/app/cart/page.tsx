@@ -138,7 +138,13 @@ const Cartlist = () => {
             className="text-red-500 hover:text-red-700 focus:outline-none"
             onClick={() => setIsModalOpen(true)}
           >
-            <FontAwesomeIcon icon={faTrashCan} size="lg" />
+            <div className="relative flex flex-col items-center group">
+              <FontAwesomeIcon icon={faTrashCan} size="lg" />
+              <div className="absolute bottom-1 flex-col items-center hidden mb-6 group-hover:flex w-28">
+                <span className="relative rounded-md z-10 p-3 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Delete Item</span>
+                <div className="w-3 h-3 -mt-2 rotate-45 bg-black absolute top-9 left-[50px]"></div>
+              </div>
+            </div>
             {/* <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -163,7 +169,7 @@ const Cartlist = () => {
   return (
     <>
       <Navbar />
-      <h1 className="mb-5 mt-10 text-center uppercase text-xl md:text-2xl font-medium text-lime-600">My Shopping Cart</h1>
+      <h1 className="my-10 text-center uppercase text-xl md:text-2xl font-medium text-lime-600">My Shopping Cart</h1>
       <div className="bg-white shadow-lg md:w-11/12 mx-auto overflow-x-auto">
         <table className="w-full table-auto">
           <thead className="bg-lime-600 h-16 text-white">
@@ -198,7 +204,7 @@ const Cartlist = () => {
       </div>
       <div className="flex justify-between items-center mt-8 sm:w-11/12 sm:mx-auto mx-2">
         <a href="/products">
-          <button type="button" className="text-lime-600 sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-600 hover:text-white">
+          <button type="button" className="text-lime-600 border border-lime-600 sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-600 hover:text-white">
           <FontAwesomeIcon icon={faShop} className="me-2" /><span>Continue Shopping</span></button>
         </a>
         <a href="/checkout">
