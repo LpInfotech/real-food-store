@@ -84,7 +84,7 @@ const Landing = () => {
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faHeadset} size="2xl" />
                         <h3 className="uppercase font-semibold my-2">24/7 Friendly Support</h3>
-                        <p className="text-base font-medium text-gray-600 dark:text-white">Our support team always ready for you to 7 days a week</p>
+                        <p className="text-base font-medium text-gray-600 dark:text-white">Our support team is always ready for you to 7 days a week</p>
                     </div>
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faTruckFast} size="2xl" />
@@ -99,7 +99,7 @@ const Landing = () => {
                     <div className="col-span-1 grid justify-items-center">
                         <FontAwesomeIcon icon={faRankingStar} size="2xl" />
                         <h3 className="uppercase font-semibold my-2">Quality Guaranteed</h3>
-                        <p className="text-base font-medium text-gray-600 dark:text-white">We guarantees a delightful grocery shopping experience for you.</p>
+                        <p className="text-base font-medium text-gray-600 dark:text-white">We guarantee a delightful grocery shopping experience for you.</p>
                     </div>
                 </div>
             </div>
