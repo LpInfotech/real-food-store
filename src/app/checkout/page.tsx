@@ -58,10 +58,8 @@ const Checkout = () => {
         });
     }
 
-    // delete modal
-    function DeleteModal() {
-      function removeFromCart() {
-        const url = "http://localhost:5000/cart/" + productId;
+    function removeFromCart() {
+      const url = "http://localhost:5000/cart/" + productId;
         fetch(url, {
           method: "DELETE",
         })
@@ -72,7 +70,16 @@ const Checkout = () => {
             items.trigger((prevTrigger) => prevTrigger + 1);
             setIsModalOpen(false);
           });
-      }
+    }
+
+    if(purchaseQty === 0){
+      setTimeout(() => {
+        removeFromCart();
+      }, 1000);
+    }
+
+    // delete modal
+    function DeleteModal() {
 
       return (
         <div
@@ -137,27 +144,13 @@ const Checkout = () => {
           <button type="button"
             className="text-red-500 hover:text-red-700 focus:outline-none"
             onClick={() => setIsModalOpen(true)}>
-            <div className="relative flex flex-col items-center group">
+            <div className="flex flex-col items-center group">
               <FontAwesomeIcon icon={faTrashCan} size="lg" />
               <div className="absolute bottom-1 flex-col items-center hidden mb-6 group-hover:flex w-28">
                 <span className="relative rounded-md z-10 p-3 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Delete Item</span>
                 <div className="w-3 h-3 -mt-2 rotate-45 bg-black absolute top-9 left-[50px]"></div>
               </div>
             </div>
-            {/* <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg> */}
           </button>
           <DeleteModal />
         </td>
@@ -167,7 +160,6 @@ const Checkout = () => {
 
   return (
     <>
-      {/* <section className="bg-[url(https://plus.unsplash.com/premium_photo-1682088353711-c6482d7f8f06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-bottom bg-fixed bg-cover bg-black bg-blend-overlay bg-opacity-50"> */}
       <section className="bg-[url(https://images.pexels.com/photos/219794/pexels-photo-219794.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)] bg-fixed bg-cover bg-black bg-blend-overlay bg-opacity-50">
         <Navbar />
         <div className="flex justify-end w-11/12 mx-auto items-center my-10">

@@ -38,12 +38,56 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
   };
+  useEffect(() => {
+    const closeDropdown = (event) => {
+      if (showDropdown && !event.target.closest('.dropdown-content')) {
+        setShowDropdown(false);
+      }
+    };
+    document.addEventListener('click', closeDropdown);
 
+    return () => {
+      document.removeEventListener('click', closeDropdown);
+    };
+  }, [showDropdown]);
+
+  // notification dropdown toggle
+  const [showNotification, setShowNotification] = useState(false);
+  const toggleNotification = () => {
+    setShowNotification(!showNotification);
+  };
+  useEffect(() => {
+    const closeNotification = (event) => {
+      if (showNotification && !event.target.closest('.dropdown-content')) {
+        setShowNotification(false);
+      }
+    };
+    document.addEventListener('click', closeNotification);
+
+    return () => {
+      document.removeEventListener('click', closeNotification);
+    };
+  }, [showNotification]);
+
+  //theme dropdown toggle
   const [showThemeDropdown, setShowThemeDropdown] = useState(false);
   const themeButton = () => {
     setShowThemeDropdown(!showThemeDropdown);
   };
+  useEffect(() => {
+    const closeThemeDropdown = (event) => {
+      if (showThemeDropdown && !event.target.closest('.dropdown-content')) {
+        setShowThemeDropdown(false);
+      }
+    };
+    document.addEventListener('click', closeThemeDropdown);
 
+    return () => {
+      document.removeEventListener('click', closeThemeDropdown);
+    };
+  }, [showThemeDropdown]);
+
+  // theme changing functions
   function darkTheme() {
     document.documentElement.classList.add("dark");
   }
@@ -51,8 +95,8 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
     document.documentElement.classList.remove("dark");
   }
 
+  //navbar toggle
   const [menuHidden, setMenuHidden] = useState(true);
-
   function toggleButton() {
     setMenuHidden(!menuHidden);
   }
@@ -125,16 +169,33 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
             </div>
           </div>
           <button type="button" className="md:hidden justify-end" onClick={toggleButton}>
-            <FontAwesomeIcon icon={faBars} className="dark:text-white"/>
-            </button>
-          <div className={`md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-1 lg:*:px-3 absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 py-2 px-4 md:px-0 md:py-2 rounded-md shadow-lg md:shadow-none ${menuHidden ? 'hidden': ''}`}>
+            <FontAwesomeIcon icon={faBars} className="dark:text-white" />
+          </button>
+          <div className={`md:flex md:divide-x divide-y md:divide-y-0 *:py-2 md:*:px-1 lg:*:px-3 absolute md:relative bg-gray-50 md:bg-transparent md:top-0 top-14 z-10 py-2 px-4 md:px-0 md:py-2 rounded-md shadow-lg md:shadow-none ${menuHidden ? 'hidden' : ''}`}>
             <div className="md:dark:text-white divide-x *:px-2 md:*:px-3 flex">
-              <Link href="#" className="relative">
-                <FontAwesomeIcon icon={faBell} size="lg" />
-                <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
-                  2
-                </span>
-              </Link>
+              <div className="relative md:dark:text-white">
+                <Link href="#" onClick={toggleNotification}>
+                  <FontAwesomeIcon icon={faBell} size="lg" />
+                  <span className="flex items-center justify-center absolute right-1 -top-2 rounded-full text-white bg-red-500 w-4 h-4 text-[10px]">
+                    2
+                  </span>
+                </Link>
+                <div className={`dropdown-content absolute md:top-[4.5rem] -right-6 top-10 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showNotification ? "block" : "hidden"
+                  }`}>
+                  <a href="#" className="hover:font-bold">
+                    <span className="">Claim your discount</span>
+                  </a>
+                  <a href="#" className="hover:font-bold">
+                    <span className="">Unlock free shipping for your first two orders🙌</span>
+                  </a>
+                  <a href="#" className="hover:font-bold">
+                    <span className="">Welcome [name]! Use [personalized code] on checkout to get [offer amount] off. Hurry, the offer ends in [expiry time]⏳.</span>
+                  </a>
+                  <a href="#" className="hover:font-bold">
+                    <span className="">Price drop alert: Hey [name], there is a flat [% discount] off on [product] valid only for the next [duration]. Hurry!</span>
+                  </a>
+                </div>
+              </div>
               <Link
                 href="/cart"
                 className="relative">
@@ -148,15 +209,12 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
               <Link
                 href="#"
                 onClick={toggleDropdown}
-                className="flex items-center"
-              >
+                className="flex items-center">
                 <FontAwesomeIcon icon={faUser} size="lg" />
                 <span className="ps-1">User</span>
               </Link>
-              <div
-                className={`dropdown-content absolute md:top-20 md:-right-2 -right-6 top-10 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? "block" : "hidden"
-                  }`}
-              >
+              <div className={`dropdown-content absolute md:top-20 md:-right-2 -right-6 top-10 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? "block" : "hidden"
+                }`}>
                 <a href="#" className="hover:font-bold">
                   <FontAwesomeIcon icon={faCircleUser} />
                   <span className="ms-3">View Profile</span>

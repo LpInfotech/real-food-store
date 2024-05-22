@@ -1,7 +1,5 @@
 "use client";
 import Image from "next/image";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 const ProductDetail = ({
