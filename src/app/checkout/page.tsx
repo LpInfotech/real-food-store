@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import { faBuildingColumns, faCartShopping, faCreditCard, faMinus, faPlus, faShop, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +9,10 @@ import { ProductsContext } from "../context/GetProducts";
 import { faGooglePay } from "@fortawesome/free-brands-svg-icons";
 
 const Checkout = () => {
+  // let total = 0;
   const [items] = useContext(ProductsContext);
+  const [total, setTotal] = useState(null);
+
   // cart item UI
   function CartItem({
     productImage,
@@ -21,6 +24,9 @@ const Checkout = () => {
   }) {
     const [purchaseQty, setPurchaseQty] = useState(qty);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const productTotal = purchaseQty * sellingPrice;
+
+    setTotal(items.cartList.reduce((accumulator, currentValue) => accumulator + (currentValue.sellingPrice * currentValue.qty), 0));
 
     // add quantity
     function addQty() {
@@ -60,19 +66,19 @@ const Checkout = () => {
 
     function removeFromCart() {
       const url = "http://localhost:5000/cart/" + productId;
-        fetch(url, {
-          method: "DELETE",
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => {
+          return res.json();
         })
-          .then((res) => {
-            return res.json();
-          })
-          .then((data) => {
-            items.trigger((prevTrigger) => prevTrigger + 1);
-            setIsModalOpen(false);
-          });
+        .then((data) => {
+          items.trigger((prevTrigger) => prevTrigger + 1);
+          setIsModalOpen(false);
+        });
     }
 
-    if(purchaseQty === 0){
+    if (purchaseQty === 0) {
       setTimeout(() => {
         removeFromCart();
       }, 1000);
@@ -139,7 +145,7 @@ const Checkout = () => {
             </button>
           </div>
         </td>
-        <td className="py-2 px-4">${purchaseQty * sellingPrice}</td>
+        <td className="py-2 px-4">${productTotal}</td>
         <td className="py-2 md:px-4 px-2">
           <button type="button"
             className="text-red-500 hover:text-red-700 focus:outline-none"
@@ -282,6 +288,7 @@ const Checkout = () => {
                   )}
                 </tbody>
               </table>
+              <div>Total:{total}</div>
             </form>
           </div>
 
@@ -293,7 +300,7 @@ const Checkout = () => {
               <div className="space-y-3">
                 <p className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>$222</span>
+                  <span>${total}</span>
                 </p>
                 <p className="flex justify-between">
                   <span>Taxes</span>
@@ -321,15 +328,6 @@ const Checkout = () => {
         </div>
         <Footer />
       </section>
-      <div className="flex items-center justify-center">
-        <div className="relative flex flex-col items-center group">
-          <FontAwesomeIcon icon={faTrashCan} size="lg" />
-          <div className="absolute bottom-0 flex-col items-center hidden mb-5 group-hover:flex">
-            <span className="relative rounded-md z-10 p-4 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">Delete Item ?</span>
-            <div className="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
-          </div>
-        </div>
-      </div>
     </>
   );
 };
