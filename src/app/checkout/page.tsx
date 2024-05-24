@@ -7,6 +7,7 @@ import Navbar from "../ui/Navbar";
 import Footer from "../ui/Footer";
 import { ProductsContext } from "../context/GetProducts";
 import { faGooglePay } from "@fortawesome/free-brands-svg-icons";
+import Cartlist from "../cart/page";
 
 const Checkout = () => {
   // let total = 0;
@@ -313,7 +314,7 @@ const Checkout = () => {
                 <hr className="border-gray-500" />
                 <p className="flex justify-between text-2xl">
                   <span className="text-lime-600">Total</span>
-                  <span>$277</span>
+                  <span>${total + 27 + 28}</span>
                 </p>
               </div>
             </div>
