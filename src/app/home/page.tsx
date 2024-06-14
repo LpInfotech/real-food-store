@@ -54,7 +54,7 @@ const Landing = () => {
                                 brand={product.brand}
                                 originalPrice={product.originalPrice}
                                 sellingPrice={product.sellingPrice}
-                                isDiscount={product.isDiscount} brand={undefined}                            />
+                                isDiscount={product.isDiscount}                            />
                         ))}
                     </div>
                 </div>
