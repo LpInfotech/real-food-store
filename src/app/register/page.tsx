@@ -319,12 +319,12 @@ const Register = () => {
                 </button>
                 <div className="text-center mt-5">
                   Already have an account?{" "}
-                  <a href="/login">
+                  <Link href="/login">
                     <span className="text-lime-500 hover:text-lime-600 font-bold">
                       <br />
                       Login Now!
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </form>

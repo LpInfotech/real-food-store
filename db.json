@@ -310,24 +310,33 @@
       "sellingPrice": 50,
       "qty": 1,
       "stock": 50
+    },
+    {
+      "id": "15",
+      "key": "15",
+      "productImage": "https://www.bigbasket.com/media/uploads/p/m/40181476_7-bb-royal-organic-organic-cold-pressed-groundnut-cooking-oil.jpg?tr=w-1920,q=80",
+      "productName": "Groundnut oil, 1l",
+      "sellingPrice": 68,
+      "qty": 1,
+      "stock": 30
     }
   ],
   "user": [
     {
-      "id": "6379",
-      "name": "admin",
-      "email": "admin@gmail.com",
-      "phone": "9898989898",
-      "password": "admin123",
-      "confirmPassword": "admin123"
+      "id": "adb1",
+      "name": "gurleen",
+      "email": "gurleen.kaur@lpinfotech.com",
+      "phone": "8675488758",
+      "password": "LP@infotech12",
+      "confirmPassword": "LP@infotech12"
     },
     {
-      "id": "b452",
-      "name": "gurleen",
-      "email": "gurleen@qwerty.com",
-      "phone": "8675488758",
-      "password": "Qwerty123",
-      "confirmPassword": "Qwerty123"
+      "id": "3979",
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "phone": "6766686866",
+      "password": "Admin@123",
+      "confirmPassword": "Admin@123"
     }
   ]
 }

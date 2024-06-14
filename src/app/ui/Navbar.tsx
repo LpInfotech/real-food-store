@@ -182,18 +182,18 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
                 </Link>
                 <div className={`dropdown-content absolute md:top-[4.5rem] -right-6 top-10 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showNotification ? "block" : "hidden"
                   }`}>
-                  <a href="#" className="hover:font-bold">
+                  <Link href="#" className="hover:font-bold">
                     <span className="">Claim your discount</span>
-                  </a>
-                  <a href="#" className="hover:font-bold">
+                  </Link>
+                  <Link href="#" className="hover:font-bold">
                     <span className="">Unlock free shipping for your first two orders🙌</span>
-                  </a>
-                  <a href="#" className="hover:font-bold">
+                  </Link>
+                  <Link href="#" className="hover:font-bold">
                     <span className="">Welcome [name]! Use [personalized code] on checkout to get [offer amount] off. Hurry, the offer ends in [expiry time]⏳.</span>
-                  </a>
-                  <a href="#" className="hover:font-bold">
-                    <span className="">Price drop alert: Hey [name], there is a flat [% discount] off on [product] valid only for the next [duration]. Hurry!</span>
-                  </a>
+                  </Link>
+                  <Link href="#" className="hover:font-bold">
+                    <span className="">Price drop alert: Hey [name], there is Link flat [% discount] off on [product] valid only for the next [duration]. Hurry!</span>
+                  </Link>
                 </div>
               </div>
               <Link
@@ -215,22 +215,22 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
               </Link>
               <div className={`dropdown-content absolute md:top-20 md:-right-2 -right-6 top-10 z-10 origin-top-right divide-y *:py-3 *:px-5 *:text-sm *:block *:text-gray-700 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${showDropdown ? "block" : "hidden"
                 }`}>
-                <a href="#" className="hover:font-bold">
+                <Link href="#" className="hover:font-bold">
                   <FontAwesomeIcon icon={faCircleUser} />
                   <span className="ms-3">View Profile</span>
-                </a>
-                <a href="#" className="hover:font-bold">
+                </Link>
+                <Link href="#" className="hover:font-bold">
                   <FontAwesomeIcon icon={faLock} />
                   <span className="ms-3">Change Password</span>
-                </a>
-                <a href="#" className="hover:font-bold">
+                </Link>
+                <Link href="#" className="hover:font-bold">
                   <FontAwesomeIcon icon={faCircleQuestion} />
                   <span className="ms-3">Online Help</span>
-                </a>
-                <a href="#" className="hover:font-bold">
+                </Link>
+                <Link href="#" className="hover:font-bold">
                   <FontAwesomeIcon icon={faRightFromBracket} />
                   <span className="ms-3">Logout</span>
-                </a>
+                </Link>
               </div>
             </div>
             <div className="relative md:dark:text-white">

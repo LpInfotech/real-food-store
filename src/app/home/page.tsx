@@ -1,5 +1,6 @@
 "use client";
 import { useContext } from "react";
+import Link from "next/link";
 import Footer from "../ui/Footer";
 import Navbar from "../ui/Navbar";
 import Product from "../ui/Product";
@@ -25,12 +26,12 @@ const Landing = () => {
                     <h3 className="text-xl font-medium py-3 sm:mb-12 mb-5 tracking-wider">Fruit is a good choice every day for us</h3>
                     </div>
                     <div className="grid md:flex justify-center md:justify-start gap-x-5 gap-y-3 mb-5">
-                        <a href="#service">
+                        <Link href="#service">
                             <button type="button" className="bg-black text-white sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-600">Read More</button>
-                            </a>
-                        <a href="/products">
+                            </Link>
+                        <Link href="/products">
                             <button type="button" className="bg-white sm:py-4 py-2 sm:px-10 px-5 w-[122px] sm:w-auto font-medium hover:bg-lime-600 hover:text-white">Shop Now</button>
-                            </a>
+                            </Link>
                     </div>
                 </div>
             </div>
@@ -52,14 +53,13 @@ const Landing = () => {
                                 productRating={product.productRating}
                                 originalPrice={product.originalPrice}
                                 sellingPrice={product.sellingPrice}
-                                isDiscount={product.isDiscount}
-                            />
+                                isDiscount={product.isDiscount} brand={undefined}                            />
                         ))}
                     </div>
                 </div>
                 <div className="sm:mt-10 mt-5 flex justify-center">
-                    <a href="/products"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">View All Products</button>
-                    </a>
+                    <Link href="/products"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">View All Products</button>
+                    </Link>
                 </div>
             </div>
             {/* /best sellers section */}
@@ -69,8 +69,8 @@ const Landing = () => {
                     <h4 className="sm:text-3xl mb-2 sm:mb-5">Get Up To 15% Off</h4>
                     <h2 className="sm:text-5xl text-2xl tracking-wider font-bold">LP Grocery Store</h2>
                     <h4 className="text-lg sm:my-5 my-2 font-medium text-gray-500 dark:text-gray-200">Highest Quality</h4>
-                    <a href="/products"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">Shop Now</button>
-                    </a>
+                    <Link href="/products"><button type="button" className="bg-transparent dark:bg-white dark:text-black border border-black sm:py-4 py-2 sm:px-10 px-5 font-medium hover:text-white hover:bg-black dark:hover:bg-lime-500">Shop Now</button>
+                    </Link>
                 </div>
                 <div className="col-span-1">
                     <img src="https://cdn.pixabay.com/photo/2023/12/29/10/39/woman-8475957_1280.jpg" alt="fruits banner" />

@@ -199,12 +199,12 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="text-end my-5">
-                  <a
+                  <Link
                     href="/forgot-password"
                     className="text-lime-500 hover:text-lime-600 font-bold"
                   >
                     Forgot Password?
-                  </a>
+                  </Link>
                 </div>
                 <button
                   className="py-3 bg-black w-1/3 justify-self-center font-medium text-white disabled:bg-gray-500 disabled:text-white disabled:border-gray-500"
@@ -217,12 +217,12 @@ const Login = () => {
                 </button>
                 <div className="text-center mt-5">
                   Don't have an account?{" "}
-                  <a href="/register">
+                  <Link href="/register">
                     <span className="text-lime-500 hover:text-lime-600 font-bold">
                       <br />
                       Create Account
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </form>

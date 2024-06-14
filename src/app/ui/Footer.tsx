@@ -34,28 +34,28 @@ const Footer = () => {
           </Link>
           <h3 className="mt-5 text-sm font-light">Your one stop destination for all<br /> your grocery needs.</h3>
           <div className="flex gap-x-5 sm:mt-5 mt-2">
-            <a href="https://twitter.com/lpinfotech"><FontAwesomeIcon icon={faTwitter} /></a>
-            <a href="https://www.facebook.com/lpinfotechnologies/"><FontAwesomeIcon icon={faFacebook} /></a>
-            <a href="https://www.instagram.com/lpinfotechnologies/"><FontAwesomeIcon icon={faInstagram} /></a>
-            <a href="https://www.youtube.com/channel/UCGkIAujB1ii0cdU8SWfRS5g"><FontAwesomeIcon icon={faYoutube} /></a>
+            <Link href="https://twitter.com/lpinfotech"><FontAwesomeIcon icon={faTwitter} /></Link>
+            <Link href="https://www.facebook.com/lpinfotechnologies/"><FontAwesomeIcon icon={faFacebook} /></Link>
+            <Link href="https://www.instagram.com/lpinfotechnologies/"><FontAwesomeIcon icon={faInstagram} /></Link>
+            <Link href="https://www.youtube.com/channel/UCGkIAujB1ii0cdU8SWfRS5g"><FontAwesomeIcon icon={faYoutube} /></Link>
           </div>
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-medium">Quick Links</h3>
           <ul className="sm:mt-5 mt-2 *:mb-1">
-            <li className="hover:font-bold"><a href="/home">Home</a></li>
-            <li className="hover:font-bold"><a href="/products">Shop Now</a></li>
-            <li className="hover:font-bold"><a href="/cart">Cart</a></li>
+            <li className="hover:font-bold"><Link href="/home">Home</Link></li>
+            <li className="hover:font-bold"><Link href="/products">Shop Now</Link></li>
+            <li className="hover:font-bold"><Link href="/cart">Cart</Link></li>
           </ul>
         </div>
         <div className="col-span-1">
           <h3 className="text-2xl font-medium">Categories</h3>
           <ul className="sm:mt-5 mt-2 *:mb-1">
-            <li className="hover:font-bold"><a href="/products">Beverages</a></li>
-            <li className="hover:font-bold"><a href="/products">Millets</a></li>
-            <li className="hover:font-bold"><a href="/products">Dairy</a></li>
-            <li className="hover:font-bold"><a href="/products">Sweet</a></li>
-            <li className="hover:font-bold"><a href="/products">Oil</a></li>
+            <li className="hover:font-bold"><Link href="/products">Beverages</Link></li>
+            <li className="hover:font-bold"><Link href="/products">Millets</Link></li>
+            <li className="hover:font-bold"><Link href="/products">Dairy</Link></li>
+            <li className="hover:font-bold"><Link href="/products">Sweet</Link></li>
+            <li className="hover:font-bold"><Link href="/products">Oil</Link></li>
           </ul>
         </div>
         <div className="col-span-1">

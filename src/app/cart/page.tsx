@@ -1,6 +1,7 @@
 "use client";
 import { useContext, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { faBagShopping, faCartShopping, faMinus, faPlus, faShop, faTrashCan, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ProductsContext } from "../context/GetProducts";
@@ -203,14 +204,14 @@ const Cartlist = () => {
         </table>
       </div>
       <div className="flex justify-between items-center mt-8 sm:w-11/12 sm:mx-auto mx-2">
-        <a href="/products">
+        <Link href="/products">
           <button type="button" className="text-lime-600 border border-lime-600 sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-600 hover:text-white">
           <FontAwesomeIcon icon={faShop} className="me-2" /><span>Continue Shopping</span></button>
-        </a>
-        <a href="/checkout">
+        </Link>
+        <Link href="/checkout">
           <button type="button" className="bg-lime-600 text-white sm:py-4 py-2 sm:px-10 px-5 font-medium hover:bg-lime-700">
           <FontAwesomeIcon icon={faCartShopping} className="me-2" /><span>Checkout</span></button>
-        </a>
+        </Link>
       </div>
       <Footer />
     </>
