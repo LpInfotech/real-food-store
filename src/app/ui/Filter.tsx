@@ -89,7 +89,7 @@ const Filter = (filterProducts) => {
       </div>
 
       {/* filter by rating */}
-      <div className="w-full py-4 border-b">
+      <div className="w-full py-4">
         <h3 className="text-md font-semibold mb-4">Filter by Rating</h3>
         <div className="space-y-2">{starRating()}</div>
       </div>

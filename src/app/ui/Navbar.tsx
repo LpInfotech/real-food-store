@@ -31,7 +31,7 @@ const Navbar = ({ sendDataToParent = null, isSearch = false }) => {
   // get value of search input
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
-    sendDataToParent(event.target.value);
+    sendDataToParent(event.target.value.toLowerCase());
   };
   // dropdown toggle
   const [showDropdown, setShowDropdown] = useState(false);
