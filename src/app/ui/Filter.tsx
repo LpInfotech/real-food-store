@@ -1,47 +1,77 @@
-import { useEffect, useState } from "react";
-
-const Filter = () => {
-  const [categoryList, setCategoryList] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/product")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setCategoryList(data);
-      });
-  }, []);
-
+const Filter = (filterProducts) => {
   // rating
   const starRating = () => {
     let pattern = [];
     for (let i = 5; i >= 1; i--) {
-      let test = "⭐️".repeat(i);
-      pattern.push(<div className="flex items-center"><input type='checkbox' className='h-4 w-4 me-2' />
-        <span>{test}</span></div>);
+      let stars = "⭐️".repeat(i);
+      pattern.push(
+        <div className="flex items-center">
+          <input type="checkbox" className="h-4 w-4 me-2" id={"rating" + i} />
+          <label htmlFor={"rating" + i}>{stars}</label>
+        </div>
+      );
     }
     return pattern;
-  }
+  };
+
+  // brand list
+  const getBrandList = () => {
+    var brands = [];
+    filterProducts.filterProducts.forEach((item) => {
+      // Check if the category is already in the list
+      const isUnique = !brands.includes(item.brand);
+
+      // If the brand is not found in the list, add it
+      if (isUnique) {
+        brands.push(item.brand);
+      }
+    });
+
+    // Now, construct the list elements using the unique categories
+    const brandElements = brands.map((brand, index) => (
+      <li key={index}>
+        <label className="inline-flex items-center">
+          <input type="checkbox" className="form-checkbox h-4 w-4" />
+          <span className="ml-2">{brand}</span>
+        </label>
+      </li>
+    ));
+
+    return brandElements;
+  };
+
+  // category list
+  const getCategoryList = () => {
+    var categories = [];
+    filterProducts.filterProducts.forEach((item) => {
+      // Check if the category is already in the list
+      const isUnique = !categories.includes(item.category);
+
+      // If the category is not found in the list, add it
+      if (isUnique) {
+        categories.push(item.category);
+      }
+    });
+
+    // Now, construct the list elements using the unique categories
+    const categoryElements = categories.map((category, index) => (
+      <li key={index}>
+        <label className="inline-flex items-center">
+          <input type="checkbox" className="form-checkbox h-4 w-4" />
+          <span className="ml-2">{category}</span>
+        </label>
+      </li>
+    ));
+
+    return categoryElements;
+  };
 
   return (
     <>
       {/* filter by category */}
       <div className="w-full py-4 border-b">
         <h3 className="text-md font-semibold mb-4">Filter by Category</h3>
-        <ul className="space-y-2">
-          {categoryList &&
-            categoryList.map((item) => (
-              <li key={item.id}>
-                <label className="inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-4 w-4"
-                  />
-                  <span className="ml-2">{item.category}</span>
-                </label>
-              </li>
-            ))}
-        </ul>
+        <ul className="space-y-2">{getCategoryList()}</ul>
       </div>
 
       {/* filter by price */}
@@ -55,51 +85,13 @@ const Filter = () => {
       {/* filter by brand */}
       <div className="w-full py-4 border-b">
         <h3 className="text-md font-semibold mb-4">Filter by Brand</h3>
-        <ul className="space-y-2">
-          {categoryList &&
-            categoryList.map((item) => (
-              <li key={item.id}>
-                <label className="inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-4 w-4"
-                  />
-                  <span className="ml-2">{item.brand}</span>
-                </label>
-              </li>
-            ))}
-        </ul>
+        <ul className="space-y-2">{getBrandList()}</ul>
       </div>
 
       {/* filter by rating */}
       <div className="w-full py-4 border-b">
         <h3 className="text-md font-semibold mb-4">Filter by Rating</h3>
         <div className="space-y-2">{starRating()}</div>
-      </div>
-
-      {/* filter by size */}
-      <div className="w-full py-4">
-        <h3 className="text-md font-semibold mb-4">Filter by Size</h3>
-        <ul className="space-y-2">
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4"
-              />
-              <span className="ml-2">Small</span>
-            </label>
-          </li>
-          <li>
-            <label className="inline-flex items-center">
-              <input
-                type="checkbox"
-                className="form-checkbox h-4 w-4"
-              />
-              <span className="ml-2">Medium</span>
-            </label>
-          </li>
-        </ul>
       </div>
     </>
   );

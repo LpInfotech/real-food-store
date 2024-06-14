@@ -11,6 +11,7 @@ const Product = ({
   productImage,
   productBrief,
   productRating,
+  brand,
   isDiscount = false,
   productName,
   originalPrice = null,
@@ -86,7 +87,7 @@ const Product = ({
           </h5>
         </Link>
         <div className="text-xs mb-2 group-hover:text-lime-500">
-          {productBrief}
+          {brand} - {productBrief}
         </div>
         <div className="flex sm:block items-center justify-between">
           <div className="mb-2">

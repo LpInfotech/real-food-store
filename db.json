@@ -177,7 +177,7 @@
       "originalPrice": 60,
       "sellingPrice": 50,
       "category": "Beverages",
-      "brand": "Tata",
+      "brand": "Tata Premium",
       "stock": 50,
       "availability": true
     },
@@ -315,11 +315,11 @@
   "user": [
     {
       "id": "6379",
-      "name": "gurleen",
-      "email": "gurleen@gmail.com",
+      "name": "admin",
+      "email": "admin@gmail.com",
       "phone": "9898989898",
-      "password": "123",
-      "confirmPassword": "123"
+      "password": "admin123",
+      "confirmPassword": "admin123"
     },
     {
       "id": "b452",
