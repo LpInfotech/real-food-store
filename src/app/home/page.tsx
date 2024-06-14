@@ -51,6 +51,7 @@ const Landing = () => {
                                 productName={product.productName}
                                 productBrief={product.productBrief}
                                 productRating={product.productRating}
+                                brand={product.brand}
                                 originalPrice={product.originalPrice}
                                 sellingPrice={product.sellingPrice}
                                 isDiscount={product.isDiscount} brand={undefined}                            />
